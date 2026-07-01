@@ -1,16 +1,12 @@
 #include "pch.h"
 
 #include "Locales/English.hpp"
-#include "Locales/German.hpp"
-#include "Locales/Polish.hpp"
 
 // Private functions
 
 Localization::Localization()
 {
 	_LoadLocale(localeEnglish);
-	_LoadLocale(localeGerman);
-	_LoadLocale(localePolish);
 
 	if (!_SetLocale("ENG"Hashed))
 		Utils::LogError("Localization::_SetLocale failure!");

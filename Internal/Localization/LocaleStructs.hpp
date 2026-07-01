@@ -6,7 +6,6 @@
 #define HASH(str) std::hash<std::string>{}(str)
 
 static ImWchar DefaultRanges[] = { 0x0020, 0x00FF, 0 };
-static ImWchar PolishRanges[] = { 0x0020, 0x00FF, 0x00A0, 0x02D9, 0 };
 
 struct LocaleData
 {
