@@ -36,6 +36,7 @@ end
 -- =========================================================
 
 add_requires("minhook")
+add_requires("nlohmann-json")
 add_requires("libpng")
 add_requires("zlib")
 add_requires("imgui v1.91.9-docking", {
@@ -101,7 +102,7 @@ target("Internal")
     add_files("Internal/Interfaces/Unreal/SDK/Engine_functions.cpp")
 
     -- Packages
-    add_packages("minhook", "imgui", "libpng", "zlib")
+    add_packages("minhook", "imgui", "libpng", "zlib", "nlohmann-json")
 
     -- System libs
     add_syslinks("d3d11", "d3d12", "dxgi")
