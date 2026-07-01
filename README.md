@@ -4,10 +4,10 @@
 
 ![Logo](Images/NewLogo.png)
 
-[![Stars](https://img.shields.io/github/stars/Omega172/OmegaWare-Framework?color=00ffff)](https://github.com/Omega172/OmegaWare-Framework/stargazers)
-[![License](https://img.shields.io/github/license/Omega172/OmegaWare-Framework)](LICENSE)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/Omega172/OmegaWare-Framework/Xmake.yml?branch=main)](https://github.com/Omega172/OmegaWare-Framework/actions)
-[![Issues](https://img.shields.io/github/issues/Omega172/OmegaWare-Framework)](https://github.com/Omega172/OmegaWare-Framework/issues)
+[![Stars](https://img.shields.io/github/stars/Omega172/OmegaWare-Framework?color=00ffff)](https://github.com/Matt-T-123/Payday3-Internal_v2/stargazers)
+[![License](https://img.shields.io/github/license/Matt-T-123/Payday3-Internal_v2)](LICENSE)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/Matt-T-123/Payday3-Internal_v2/Xmake.yml?branch=main)](https://github.com/Matt-T-123/Payday3-Internal_v2/actions)
+[![Issues](https://img.shields.io/github/issues/Matt-T-123/Payday3-Internal_v2)](https://github.com/Matt-T-123/Payday3-Internal_v2/issues)
 
 </div>
 
@@ -29,37 +29,18 @@
 
 ## 🎯 Features
 
-- **Multi-Engine Support**: Unity, Unreal Engine, and generic game engines
-- **Dynamic Renderer Detection**: Auto-detects D3D11/D3D12 rendering backends
-- **Feature-Based Architecture**: Plugin-style system with auto-registration
-- **Localization**: Built-in support for English, German, and Polish
-- **Custom ImGui Widgets**: Professional UI components with animations
-- **Config System**: Automatic save/load with JSON serialization
-- **Compile-Time Hashing**: CRC64 string hashing for performance
+- **Aimbot**: abc
 
 ---
 
-##  The Internal Framework
+## ⚙️ Framework
 
-The framework itself can be configured inside of `FrameworkConfig.h`
+It is completely based off of Omega172's repos "Payday3-Internal" and "OmegaWare-Framework". 
+It was simply refactored to use his framework to make future development easier.
 
-### ⚙️ FrameworkConfig.h
-
-- **`FRAMEWORK_VERSION`**: Current version in `Major.Minor.Rework` format (e.g., `7.0.0`)
-- **`FRAMEWORK_X64`**: Automatically set based on build configuration
-- **`ENGINE_UNREAL | ENGINE_UNITY | ENGINE_OTHER`**: Select target engine type (only one can be enabled)
-- **`FRAMEWORK_RENDER_DYNAMIC`**: Auto-detect rendering backend
-- **`FRAMEWORK_RENDER_D3D11 | FRAMEWORK_RENDER_D3D12`**: Manually specify renderer
-
-### 🎮 UnrealConfig.h
-
-- **`SDK_IMPORTED`**: Reminder to import SDK before building
-- **SDK Generation**: Use [Dumper-7](https://github.com/Omega172/Dumper-7) or [CheatGear](https://cheatgear.com/) (paid)
-
-### 🔧 UnityConfig.h
-
-- **`MONO_DLL`**: Mono DLL name (default: `mono-2.0-bdwgc.dll`)
-- **`DEFAULT_ASSEMBLY_NAME`**: Path to Assembly-CSharp.dll
+You can find them here:
+[Payday3-Internal](https://github.com/Omega172/Payday3-Internal)
+[OmegaWare-Framework](https://github.com/Omega172/OmegaWare-Framework)
 
 ---
 
@@ -69,13 +50,12 @@ This project is built using [Xmake](https://github.com/xmake-io/xmake). Use the 
 
 ### Install Requirements
 - **Xmake**: Follow instructions at [xmake.io](https://xmake.io/guide/quick-start.html#installation)
-- **Vcpkg**: For dependency management. Follow instructions at the [vcpkg repo](https://github.com/microsoft/vcpkg)
 
 ### Clone Repository
 
 ```bash
-git clone https://github.com/Omega172/OmegaWare-Framework.git
-cd OmegaWare-Framework
+git clone https://github.com/Matt-T-123/Payday3-Internal_v2.git
+cd Payday3-Internal_v2
 ```
 
 ### Build Commands
