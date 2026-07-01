@@ -33,6 +33,14 @@
 
 ---
 
+---
+
+## Todo:
+
+- **Aimbot**
+- **ESP**
+- **Gun mods**
+
 ## ⚙️ Framework
 
 It is completely based off of Omega172's repos "Payday3-Internal" and "OmegaWare-Framework". 
