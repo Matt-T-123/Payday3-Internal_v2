@@ -79,8 +79,8 @@ void Player::HandleMenu()
 		m_pMainLeft->AddElement(m_pNoDetection.get());
 
 		// Godmode Type
-		m_pGodModeType->AddOption("Client");
-		m_pGodModeType->AddOption("Server");
+		m_pGodModeType->AddOption("Set");
+		m_pGodModeType->AddOption("Block");
 		m_pMainRight->AddElement(m_pGodModeType.get());
 
 		m_pMainRight->AddElement(m_pScale.get());
@@ -119,13 +119,13 @@ void Player::Run()
 
 		if (m_pGodModeType->GetSelectedIndex() == 0){
 			auto* PlayerAttributeSet = localChar->PlayerAttributeSet;
-			PlayerAttributeSet->Health.BaseValue = PlayerAttributeSet->HealthMax.BaseValue;
-			PlayerAttributeSet->Health.CurrentValue = PlayerAttributeSet->HealthMax.CurrentValue;
-			Utils::LogDebug("Client Godmode Enabled");
+			//PlayerAttributeSet->Health.CurrentValue = PlayerAttributeSet->HealthMax.CurrentValue;
+			PlayerAttributeSet->Health.CurrentValue = 500.0f;
+			Utils::LogDebug("Set");
 		}
 		else{
-			//Framework::g_pPlayer->SetGodmode(EPlayerGodmodeType::Server);
-			Utils::LogDebug("Server Godmode Enabled");
+			//Figure out how to block damage. Too lazy to do this rn
+			Utils::LogDebug("Block");
 		}
 	};
 }
