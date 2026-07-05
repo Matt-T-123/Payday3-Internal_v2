@@ -54,7 +54,7 @@
 #define FRAMEWORK_REWORK_VERSION 0
 #define FRAMEWORK_VERSION FRAMEWORK_MAJOR_VERSION.FRAMEWORK_MINOR_VERSION.FRAMEWORK_REWORK_VERSION
 
-#define FRAMEWORK_CODENAME "OmegaWare"
+#define FRAMEWORK_CODENAME "Payday3-Internal_V2"
 #define TARGET_GAME_NAME "PAYDAY3-Win64-Shipping"
 
 #pragma warning( push ) // disable "operator '!=': deprecated for array types" warning

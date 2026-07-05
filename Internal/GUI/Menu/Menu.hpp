@@ -1805,10 +1805,14 @@ public:
 			m_stStyle.vec2Size = m_Callback();
 
 		ImGui::BeginChild(GetName().c_str(), m_stStyle.vec2Size, m_stStyle.iFlags, m_WindowFlags);
+		ImGui::SetCursorPos(ImVec2(ImGui::GetCursorPosX() + 10.0f, ImGui::GetCursorPosY() + 6.0f));
 		if (m_PushVarsCallback)
 			m_PushVarsCallback();
 		ImGui::TextDisabled(GetName().c_str());
+		ImGui::Dummy(ImVec2(0.0f, 2.0f));
+		ImGui::Indent(10.0f);
 		RenderChildren();
+		ImGui::Unindent(10.0f);
 		if (m_PopVarsCallback)
 			m_PopVarsCallback();
 		ImGui::EndChild();

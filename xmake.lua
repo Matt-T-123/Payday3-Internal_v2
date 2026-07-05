@@ -100,6 +100,7 @@ target("Internal")
     add_files("Internal/Interfaces/Unreal/SDK/Basic.cpp")
     add_files("Internal/Interfaces/Unreal/SDK/CoreUObject_functions.cpp")
     add_files("Internal/Interfaces/Unreal/SDK/Engine_functions.cpp")
+    add_files("Internal/Interfaces/Unreal/SDK/Starbreeze_functions.cpp")
 
     -- Packages
     add_packages("minhook", "imgui", "libpng", "zlib", "nlohmann_json")

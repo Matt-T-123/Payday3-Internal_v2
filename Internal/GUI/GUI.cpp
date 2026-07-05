@@ -1,4 +1,7 @@
 #include "pch.h"
+#include "../Features/Player/Player.hpp"
+#include "../Features/Visuals/Visuals.hpp"
+#include "../Features/Aimbot/Aimbot.hpp"
 
 void GUI::Render()
 {
@@ -39,115 +42,30 @@ void GUI::Render()
 			});
 
 			GuiSidebar->AddElement(GuiPlayerSeperator.get());
-			GuiSidebar->AddElement(GuiPlayer.get());
-			GuiSidebar->AddElement(GuiAimbot.get());
-			GuiSidebar->AddElement(GuiVisuals.get());
 			GuiSidebar->AddElement(GuiMiscSeperator.get());
-			GuiSidebar->AddElement(GuiDeveloper.get());
 			GuiSidebar->AddElement(GuiConfig.get());
 
+			if (pPlayer)
+				GuiSidebar->InsertElementAfter(pPlayer->GetMenuButton(), "PLAYER_SEPERATOR");
+			if (pVisuals)
+				GuiSidebar->InsertElementAfter(pVisuals->GetMenuButton(), "PLAYER_BUTTON");
+			if (pAimbot)
+				GuiSidebar->InsertElementAfter(pAimbot->GetMenuButton(), "VISUALS_BUTTON##VISUALS_FEATURE");
+
 			// Set the default page (optional - defaults to 0 if not set)
-			ElementBase::SetDefaultPage(GuiPlayer->GetPageId());
-
-			auto pHeaderGroup = static_cast<HeaderGroup*>(GuiHeaderGroup.get());
-			if (pHeaderGroup)
-			{
-				pHeaderGroup->AddHeaders(GuiPlayer->GetPageId(), { "PLAYER_MAIN"Hashed, "PLAYER_GUNMODS"Hashed });
-				pHeaderGroup->AddHeaders(GuiAimbot->GetPageId(), { "AIMBOT_MAIN"Hashed });
-				pHeaderGroup->AddHeaders(GuiVisuals->GetPageId(), { "VISUALS_MAIN"Hashed });
-				pHeaderGroup->AddHeaders(GuiDeveloper->GetPageId(), { "MENU_MAIN"Hashed });
-				pHeaderGroup->AddHeaders(GuiConfig->GetPageId(), { "CONFIG_MAIN"Hashed });
-			}
-
-			GuiPlayerSelfPage->SetPageId(GuiPlayer->GetPageId());
-			GuiPlayerSelfPage->SetSubPageId(0);
-			GuiPlayerSelfPage->AddElement(GuiPlayerSelfLayout.get());
-			GuiPlayerSelfLayout->AddElement(GuiPlayerHeader.get());
-			GuiPlayerSelfLayout->AddElement(GuiPlayerGodmode.get());
-			GuiPlayerSelfLayout->AddElement(GuiPlayerReload.get());
-			GuiPlayerSelfLayout->AddElement(GuiPlayerMelee.get());
-
-			GuiPlayerGunmodsPage->SetPageId(GuiPlayer->GetPageId());
-			GuiPlayerGunmodsPage->SetSubPageId(1);
-			GuiPlayerGunmodsPage->AddElement(GuiPlayerGunmodsLayout.get());
-			GuiPlayerGunmodsLayout->AddElement(GuiPlayerHeader.get());
-			GuiPlayerGunmodsLayout->AddElement(GuiPlayerNoRecoil.get());
-			GuiPlayerGunmodsLayout->AddElement(GuiPlayerNoSpread.get());
-
-			GuiAimbotPage->SetPageId(GuiAimbot->GetPageId());
-			GuiAimbotPage->AddElement(GuiAimbotLayout.get());
-			GuiAimbotLayout->AddElement(GuiAimbotHeader.get());
-			GuiAimbotLayout->AddElement(GuiAimbotSilent.get());
-			GuiAimbotLayout->AddElement(GuiAimbotTrigger.get());
-
-			GuiVisualsPage->SetPageId(GuiVisuals->GetPageId());
-			GuiVisualsPage->AddElement(GuiEspLayout.get());
-			GuiEspLayout->AddElement(GuiEspHeader.get());
-			GuiEspLayout->AddElement(GuiEspEnabled.get());
-			GuiVisualsPage->AddElement(GuiWorldLayout.get());
-			GuiWorldLayout->AddElement(GuiWorldHeader.get());
-			GuiWorldLayout->AddElement(GuiWorldEnabled.get());
-
-			GuiDeveloperPage->SetPageId(GuiDeveloper->GetPageId());
-			GuiDeveloperPage->AddElement(GuiMenuLayout.get());
-			GuiMenuLayout->AddElement(GuiMenuHeader.get());
-			GuiMenuLayout->AddElement(GuiMenuAnimated.get());
-			GuiMenuLayout->AddElement(GuiMenuTheme.get());
-			GuiMenuTheme->AddOption("Dark");
-			GuiMenuTheme->AddOption("Neon");
-			GuiMenuTheme->AddOption("Classic");
-			GuiMenuLayout->AddElement(GuiMenuOpacity.get());
+			ElementBase::SetDefaultPage(GuiConfig->GetPageId());
 
 			GuiConfigPage->SetPageId(GuiConfig->GetPageId());
-			GuiConfigPage->AddElement(GuiConfigLayout.get());
-			GuiConfigLayout->AddElement(GuiConfigSectionHeader.get());
-			GuiConfigLayout->AddElement(GuiConfigSave.get());
-			GuiConfigLayout->AddElement(GuiConfigLoad.get());
-			GuiConfigLayout->AddElement(GuiConfigAutoSave.get());
-
-			GuiUnloadButton->SetCallback([]() {
-				Framework::bShouldRun = false;
-			});
-			GuiDeveloperPage->AddElement(GuiUnloadButton.get());
-			GuiConsoleVisibility->SetCallback([]() {
-				Framework::console->ToggleVisibility();
-				GuiConsoleVisibility->SetName(Framework::console->GetVisibility() ? "CONSOLE_HIDE"Hashed : "CONSOLE_SHOW"Hashed);
-			});
-			GuiDeveloperPage->AddElement(GuiConsoleVisibility.get());
-			GuiLocalization->SetCallback([]() {
-				std::vector<Locale_t> vecLocales = Localization::GetLocales();
-				for (size_t i = 0; i < vecLocales.size(); ++i)
-				{
-					bool bSelected = Localization::GetCurrentLocaleIndex() == i;
-					Locale_t stLocale = vecLocales.at(i);
-					if (ImAdd::Selectable(stLocale.sKey.c_str(), bSelected))
-					{
-						Localization::SetLocale(stLocale.ullKeyHash);
-						GuiLocalization->SetPreviewLabel(stLocale.sKey.c_str());
-					}
-
-					if (bSelected)
-						ImGui::SetItemDefaultFocus();
-				}
-			});
-			GuiDeveloperPage->AddElement(GuiLocalization.get());
-
-			GuiConfigPage->SetPageId(GuiConfig->GetPageId());
-			GuiConfigSave->SetCallback([]() {
+			GuiSaveConfig->SetCallback([]() {
 				Framework::config->SaveConfig();
 			});
-			GuiConfigPage->AddElement(GuiConfigSave.get());
-			GuiConfigLoad->SetCallback([]() {
+			GuiConfigPage->AddElement(GuiSaveConfig.get());
+			GuiLoadConfig->SetCallback([]() {
 				Framework::config->LoadConfig();
 			});
-			GuiConfigPage->AddElement(GuiConfigLoad.get());
+			GuiConfigPage->AddElement(GuiLoadConfig.get());
 
 			GuiHeaderGroup->AddElement(GuiBody.get());
-			GuiBody->AddElement(GuiPlayerSelfPage.get());
-			GuiBody->AddElement(GuiPlayerGunmodsPage.get());
-			GuiBody->AddElement(GuiAimbotPage.get());
-			GuiBody->AddElement(GuiVisualsPage.get());
-			GuiBody->AddElement(GuiDeveloperPage.get());
 			GuiBody->AddElement(GuiConfigPage.get());
 		});
 
@@ -177,8 +95,6 @@ void GUI::Render()
 			ImGui::GetIO().MouseDrawCursor = GUI::bMenuOpen;
 			if (ImGui::GetIO().MouseDrawCursor)
 				SetCursor(NULL);
-
-			GuiLocalization->SetPreviewLabel((Localization::GetInstance())->GetLocales()[(Localization::GetInstance())->GetCurrentLocaleIndex()].sKey.c_str());
 
 			// Load the config
 			Framework::config->LoadConfig();

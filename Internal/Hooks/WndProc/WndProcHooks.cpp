@@ -1,9 +1,41 @@
 #include "pch.h"
 
-
 static std::once_flag g_InputInit;
 
 static WNDPROC oWndProc;
+
+static bool ShouldBlockMenuInput(UINT uMsg) {
+    switch (uMsg) {
+    case WM_MOUSEMOVE:
+    case WM_NCMOUSEMOVE:
+    case WM_MOUSELEAVE:
+    case WM_NCMOUSELEAVE:
+    case WM_LBUTTONDOWN:
+    case WM_LBUTTONDBLCLK:
+    case WM_RBUTTONDOWN:
+    case WM_RBUTTONDBLCLK:
+    case WM_MBUTTONDOWN:
+    case WM_MBUTTONDBLCLK:
+    case WM_XBUTTONDOWN:
+    case WM_XBUTTONDBLCLK:
+    case WM_LBUTTONUP:
+    case WM_RBUTTONUP:
+    case WM_MBUTTONUP:
+    case WM_XBUTTONUP:
+    case WM_MOUSEWHEEL:
+    case WM_MOUSEHWHEEL:
+    case WM_KEYDOWN:
+    case WM_KEYUP:
+    case WM_SYSKEYDOWN:
+    case WM_SYSKEYUP:
+    case WM_CHAR:
+    case WM_INPUT:
+        return true;
+    default:
+        return false;
+    }
+}
+
 static LRESULT hkWndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
     std::call_once(g_InputInit, [hWnd]() {
         ImGui::CreateContext();
@@ -21,40 +53,12 @@ static LRESULT hkWndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
     });
 
     LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
+
+    // Always let ImGui see the messages (for IsKeyPressed etc.)
     ImGui_ImplWin32_WndProcHandler(hWnd, uMsg, wParam, lParam);
 
-    if (GUI::bMenuOpen) {
-        switch (uMsg) {
-        case WM_MOUSEMOVE:
-        case WM_NCMOUSEMOVE:
-        case WM_MOUSELEAVE:
-        case WM_NCMOUSELEAVE:
-        case WM_LBUTTONDOWN:
-        case WM_LBUTTONDBLCLK:
-        case WM_RBUTTONDOWN:
-        case WM_RBUTTONDBLCLK:
-        case WM_MBUTTONDOWN:
-        case WM_MBUTTONDBLCLK:
-        case WM_XBUTTONDOWN:
-        case WM_XBUTTONDBLCLK:
-        case WM_LBUTTONUP:
-        case WM_RBUTTONUP:
-        case WM_MBUTTONUP:
-        case WM_XBUTTONUP:
-        case WM_MOUSEWHEEL:
-        case WM_MOUSEHWHEEL:
-        case WM_KEYDOWN:
-        case WM_KEYUP:
-        case WM_SYSKEYDOWN:
-        case WM_SYSKEYUP:
-        case WM_SETFOCUS:
-        case WM_KILLFOCUS:
-        case WM_CHAR:
-        case WM_SETCURSOR:
-        case WM_DEVICECHANGE:
-            return true;
-        }
-
+    // Block game-side input while the menu is open so the camera cannot move.
+    if (GUI::bMenuOpen && ShouldBlockMenuInput(uMsg)) {
         return true;
     }
 

@@ -8,6 +8,7 @@ struct FrameContext
 	ID3D12CommandAllocator* pCommandAllocator = nullptr;
 	ID3D12Resource* pBackBuffer = nullptr;
 	D3D12_CPU_DESCRIPTOR_HANDLE rtvDescriptor = {};
+	UINT64 fenceValue = 0;  // Added: Required for proper frame synchronization
 };
 
 // D3D12 resources
@@ -16,9 +17,12 @@ static ID3D12DescriptorHeap* g_pd3dRtvDescHeap = nullptr;
 static ID3D12DescriptorHeap* g_pd3dSrvDescHeap = nullptr;
 static ID3D12CommandQueue* g_pd3dCommandQueue = nullptr;
 static ID3D12GraphicsCommandList* g_pd3dCommandList = nullptr;
+static ID3D12Fence* g_pd3dFence = nullptr;  // Added: Required for frame synchronization
 static IDXGISwapChain3* g_pSwapChain = nullptr;
 static FrameContext* g_frameContext = nullptr;
 static UINT g_numBackBuffers = 0;
+static UINT64 g_fenceLastSignaledValue = 0;  // Added: Required for frame synchronization
+static HANDLE g_hFenceEvent = nullptr;  // Added: Required for frame synchronization
 static HWND g_hWindow = nullptr;
 static bool g_bInitialized = false;
 static bool g_bShuttingDown = false;
@@ -93,6 +97,12 @@ static void CleanupDevice() {
 		g_pd3dCommandList = nullptr;
 	}
 
+	if (g_pd3dFence)  // Added
+	{
+		g_pd3dFence->Release();
+		g_pd3dFence = nullptr;
+	}
+
 	if (g_pd3dSrvDescHeap)
 	{
 		g_pd3dSrvDescHeap->Release();
@@ -102,6 +112,12 @@ static void CleanupDevice() {
 	{
 		g_pd3dRtvDescHeap->Release();
 		g_pd3dRtvDescHeap = nullptr;
+	}
+
+	if (g_hFenceEvent)  // Added
+	{
+		CloseHandle(g_hFenceEvent);
+		g_hFenceEvent = nullptr;
 	}
 
 	g_pd3dCommandQueue = nullptr;
@@ -186,28 +202,47 @@ static void RenderImGui(IDXGISwapChain3* pSwapChain)
 				}
 			}
 
-			// Create command allocator
-			ID3D12CommandAllocator* allocator = nullptr;
-			if (FAILED(g_pd3dDevice->CreateCommandAllocator(D3D12_COMMAND_LIST_TYPE_DIRECT, IID_PPV_ARGS(&allocator))))
+			// Create frame contexts
+			g_frameContext = new FrameContext[g_numBackBuffers];
+
+			for (UINT i = 0; i < g_numBackBuffers; i++)
 			{
-				Utils::LogError("Failed to create command allocator");
-				return;
+				if (FAILED(g_pd3dDevice->CreateCommandAllocator(
+					D3D12_COMMAND_LIST_TYPE_DIRECT,
+					IID_PPV_ARGS(&g_frameContext[i].pCommandAllocator))))
+				{
+					Utils::LogError("Failed to create command allocator");
+					return;
+				}
 			}
 
-			// Create command list
-			if (FAILED(g_pd3dDevice->CreateCommandList(0, D3D12_COMMAND_LIST_TYPE_DIRECT, allocator, nullptr, IID_PPV_ARGS(&g_pd3dCommandList))))
+			// Create command list using the first allocator
+			if (FAILED(g_pd3dDevice->CreateCommandList(
+				0,
+				D3D12_COMMAND_LIST_TYPE_DIRECT,
+				g_frameContext[0].pCommandAllocator,
+				nullptr,
+				IID_PPV_ARGS(&g_pd3dCommandList))))
 			{
-				allocator->Release();
 				Utils::LogError("Failed to create command list");
 				return;
 			}
+
 			g_pd3dCommandList->Close();
 
-			// Create frame contexts
-			g_frameContext = new FrameContext[g_numBackBuffers];
-			for (UINT i = 0; i < g_numBackBuffers; i++)
+			// Create fence for frame synchronization
+			if (FAILED(g_pd3dDevice->CreateFence(0, D3D12_FENCE_FLAG_NONE, IID_PPV_ARGS(&g_pd3dFence))))
 			{
-				g_frameContext[i].pCommandAllocator = allocator;
+				Utils::LogError("Failed to create frame fence");
+				return;
+			}
+
+			// Create fence event
+			g_hFenceEvent = CreateEventW(nullptr, FALSE, FALSE, nullptr);
+			if (!g_hFenceEvent)
+			{
+				Utils::LogError("Failed to create frame fence event");
+				return;
 			}
 
 			g_pSwapChain = pSwapChain;
@@ -234,6 +269,17 @@ static void RenderImGui(IDXGISwapChain3* pSwapChain)
 	if (g_bShuttingDown)
 		return;
 
+	// Get current back buffer index
+	UINT backBufferIdx = g_pSwapChain->GetCurrentBackBufferIndex();
+	FrameContext& frameCtx = g_frameContext[backBufferIdx];
+
+	// Wait for previous frame using this allocator to complete BEFORE using it
+	if (g_pd3dFence && frameCtx.fenceValue != 0 && g_pd3dFence->GetCompletedValue() < frameCtx.fenceValue)
+	{
+		g_pd3dFence->SetEventOnCompletion(frameCtx.fenceValue, g_hFenceEvent);
+		WaitForSingleObject(g_hFenceEvent, INFINITE);
+	}
+
 	// Start new frame
 	ImGui_ImplDX12_NewFrame();
 	ImGui_ImplWin32_NewFrame();
@@ -247,11 +293,7 @@ static void RenderImGui(IDXGISwapChain3* pSwapChain)
 	// Always end the frame (required by ImGui)
 	ImGui::Render();
 
-	// Get current back buffer
-	UINT backBufferIdx = g_pSwapChain->GetCurrentBackBufferIndex();
-	FrameContext& frameCtx = g_frameContext[backBufferIdx];
-
-	// Reset command allocator
+	// Reset command allocator (safe now since we waited above)
 	frameCtx.pCommandAllocator->Reset();
 
 	// Prepare resource barriers
@@ -262,21 +304,6 @@ static void RenderImGui(IDXGISwapChain3* pSwapChain)
 	barrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
 	barrier.Transition.StateBefore = D3D12_RESOURCE_STATE_PRESENT;
 	barrier.Transition.StateAfter = D3D12_RESOURCE_STATE_RENDER_TARGET;
-
-	// Wait for GPU to finish previous work to avoid state conflicts
-	ID3D12Fence* pFence = nullptr;
-	if (SUCCEEDED(g_pd3dDevice->CreateFence(0, D3D12_FENCE_FLAG_NONE, IID_PPV_ARGS(&pFence))))
-	{
-		HANDLE hEvent = CreateEventW(nullptr, FALSE, FALSE, nullptr);
-		if (hEvent)
-		{
-			g_pd3dCommandQueue->Signal(pFence, 1);
-			pFence->SetEventOnCompletion(1, hEvent);
-			WaitForSingleObject(hEvent, 100); // Short timeout
-			CloseHandle(hEvent);
-		}
-		pFence->Release();
-	}
 
 	// Execute rendering commands
 	g_pd3dCommandList->Reset(frameCtx.pCommandAllocator, nullptr);
@@ -296,6 +323,14 @@ static void RenderImGui(IDXGISwapChain3* pSwapChain)
 
 	// Execute command list
 	g_pd3dCommandQueue->ExecuteCommandLists(1, (ID3D12CommandList* const*)&g_pd3dCommandList);
+
+	// Signal fence for this frame
+	if (g_pd3dFence)
+	{
+		g_fenceLastSignaledValue++;
+		g_pd3dCommandQueue->Signal(g_pd3dFence, g_fenceLastSignaledValue);
+		frameCtx.fenceValue = g_fenceLastSignaledValue;
+	}
 }
 
 static Memory::Hook<HRESULT(WINAPI*)(IDXGISwapChain3*, UINT, UINT)> oPresent;
@@ -316,6 +351,18 @@ static Memory::Hook<HRESULT(WINAPI*)(IDXGISwapChain*, UINT, UINT, UINT, DXGI_FOR
 static HRESULT WINAPI hkResizeBuffers(IDXGISwapChain* pSwapChain, UINT BufferCount, UINT Width, UINT Height, DXGI_FORMAT NewFormat, UINT SwapChainFlags) {
 	if (g_bInitialized)
 	{
+		// Wait for GPU to finish before invalidating  // Added
+		if (g_pd3dFence && g_pd3dCommandQueue)
+		{
+			g_fenceLastSignaledValue++;
+			g_pd3dCommandQueue->Signal(g_pd3dFence, g_fenceLastSignaledValue);
+			if (g_pd3dFence->GetCompletedValue() < g_fenceLastSignaledValue)
+			{
+				g_pd3dFence->SetEventOnCompletion(g_fenceLastSignaledValue, g_hFenceEvent);
+				WaitForSingleObject(g_hFenceEvent, INFINITE);
+			}
+		}
+
 		ImGui_ImplDX12_InvalidateDeviceObjects();
 		CleanupRenderTarget();
 	}
@@ -337,6 +384,18 @@ static Memory::Hook<HRESULT(WINAPI*)(IDXGISwapChain3*, UINT, UINT, UINT, DXGI_FO
 static HRESULT WINAPI hkResizeBuffers1(IDXGISwapChain3* pSwapChain, UINT BufferCount, UINT Width, UINT Height, DXGI_FORMAT NewFormat, UINT SwapChainFlags, const UINT* pCreationNodeMask, IUnknown* const* ppPresentQueue) {
 	if (g_bInitialized)
 	{
+		// Wait for GPU to finish before invalidating  // Added
+		if (g_pd3dFence && g_pd3dCommandQueue)
+		{
+			g_fenceLastSignaledValue++;
+			g_pd3dCommandQueue->Signal(g_pd3dFence, g_fenceLastSignaledValue);
+			if (g_pd3dFence->GetCompletedValue() < g_fenceLastSignaledValue)
+			{
+				g_pd3dFence->SetEventOnCompletion(g_fenceLastSignaledValue, g_hFenceEvent);
+				WaitForSingleObject(g_hFenceEvent, INFINITE);
+			}
+		}
+
 		ImGui_ImplDX12_InvalidateDeviceObjects();
 		CleanupRenderTarget();
 	}

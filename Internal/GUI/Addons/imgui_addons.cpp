@@ -310,7 +310,7 @@ bool ImAdd::RadioButtonIcon(const char* str_id, const char* icon, const char* la
 
     ImGuiContext& g = *GImGui;
     const ImGuiStyle& style = g.Style;
-    const ImGuiID id = window->GetID(icon);
+    const ImGuiID id = window->GetID(str_id);
     const ImVec2 icon_size = CalcTextSize(icon, NULL, true);
     const ImVec2 label_size = CalcTextSize(label, NULL, true);
 
