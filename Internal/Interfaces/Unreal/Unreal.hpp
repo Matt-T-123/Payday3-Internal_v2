@@ -1,7 +1,6 @@
 #pragma once
 #include "pch.h"
 
-
 inline bool FrameworkUnrealInit()
 {
 	SDK::UWorld* pGWorld = SDK::UWorld::GetWorld();
@@ -96,6 +95,17 @@ public:
 			return nullptr;
 
 		return pAcknowledgedPawn;
+	}
+
+	static SDK::ASBZPlayerCharacter* GetLocalCharacter()
+	{
+		SDK::UWorld* world = SDK::UWorld::GetWorld();
+		if (!world) return nullptr;
+
+		SDK::APlayerController* localPC = SDK::USBZPlayerLibrary::GetLocalPlayerController(world);
+		if (!localPC) return nullptr;
+
+		return static_cast<SDK::ASBZPlayerCharacter*>(localPC->Pawn);
 	}
 
 	static SDK::APlayerCameraManager* GetPlayerCameraManager()

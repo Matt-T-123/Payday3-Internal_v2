@@ -100,32 +100,36 @@ void Player::HandleMenu()
 	});
 }
 
-static inline SDK::ASBZPlayerCharacter* GetLocalChar(SDK::APlayerController* pc) {
-    if (!pc || !pc->Pawn || !pc->Pawn->IsA(SDK::ASBZPlayerCharacter::StaticClass())) return nullptr;
-    return static_cast<SDK::ASBZPlayerCharacter*>(pc->Pawn);
-}
-
 void Player::Run()
 {
 	//Godmode
 	if(m_pGodMode->GetValue())
 	{
-		SDK::UWorld* world = SDK::UWorld::GetWorld();
-		if (!world) return;
-		SDK::APlayerController* localPC = SDK::USBZPlayerLibrary::GetLocalPlayerController(world);
-		if (!localPC) return;
-		auto* localChar = GetLocalChar(localPC);
+		auto* localChar = Unreal::GetLocalCharacter();
 		if (!localChar) return;
 
 		if (m_pGodModeType->GetSelectedIndex() == 0){
 			auto* PlayerAttributeSet = localChar->PlayerAttributeSet;
 			//PlayerAttributeSet->Health.CurrentValue = PlayerAttributeSet->HealthMax.CurrentValue;
-			PlayerAttributeSet->Health.CurrentValue = 500.0f;
-			Utils::LogDebug("Set");
+			PlayerAttributeSet->Health.CurrentValue = 200.0f;
 		}
 		else{
 			//Figure out how to block damage. Too lazy to do this rn
 			Utils::LogDebug("Block");
 		}
 	};
+
+	//Infinite Stamina
+	if (m_pInfStamina->GetValue())
+	{
+		// auto* PlayerAttributeSet = localChar->PlayerAttributeSet;
+		// PlayerAttributeSet->Stamina.CurrentValue = 100.0f;
+	}
+
+	//Instant Melee
+	if (m_pInstaMelee->GetValue())
+	{
+		// auto* LocalCharacter = localChar;
+		// LocalCharacter->CurrentMeleeMontage->RateScale = 10000.0f;
+	}
 }
