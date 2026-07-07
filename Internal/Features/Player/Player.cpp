@@ -222,34 +222,20 @@ void Player::Run()
 
 	if (m_pInstaMelee->GetValue())
 	{
-		InstantMelee(true);
-	}
-	else
-	{
-		InstantMelee(false);
+		InstantMelee(m_pInstaMelee->GetValue());
 	}
 
 	if (m_pInstaReload->GetValue())
 	{
-		InstantReload(true);
-	}
-	else
-	{
-		InstantReload(false);
+		InstantReload(m_pInstaReload->GetValue());
 	}
 
 	if (m_pNoScreenshake->GetValue())
 	{
 		auto* camManager = Unreal::GetPlayerCameraManager();
-		if (!camManager) return;
+		if (!camManager)
+			return;
 
-		camManager->StopAllCameraShakes(true);
-	}
-	else
-	{
-		auto* camManager = Unreal::GetPlayerCameraManager();
-		if (!camManager) return;
-
-		camManager->StopAllCameraShakes(false);
+		camManager->StopAllCameraShakes(m_pNoScreenshake->GetValue());
 	}
 }
