@@ -65,11 +65,15 @@ private:
 	std::unique_ptr<Combo> m_pPreset = std::make_unique<Combo>("PLAYER_PRESET", "PLAYER_PRESET"Hashed, ElementBase::Style_t{ .iFlags = ImGuiComboFlags_WidthFitPreview });
 	std::unique_ptr<Button> m_pAction = std::make_unique<Button>(std::string("PLAYER_ACTION"), "PLAYER_ACTION"Hashed);
 
-
 	bool m_bInstantMeleeApplied = false;
     float m_flOriginalMeleeRate = 1.0f;
 	SDK::UAnimMontage* m_pLastMeleeMontage = nullptr;
 	void InstantMelee(bool bEnabled);
+
+	bool m_bInstantReloadApplied = false;
+    float m_flOriginalReloadRate = 1.0f;
+	SDK::UAnimMontage* m_pLastReloadMontage = nullptr;
+	void InstantReload(bool bEnabled);
 
 public:
 	bool SetupMenu();

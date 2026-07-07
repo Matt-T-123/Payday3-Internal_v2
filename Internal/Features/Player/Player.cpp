@@ -147,13 +147,52 @@ void Player::InstantMelee(bool bEnabled)
     }
 }
 
+void Player::InstantReload(bool bEnabled)
+{
+	auto* localChar = Unreal::GetLocalCharacter();
+	if (!localChar)
+		return;
+
+	auto* montage = localChar->LastLocalReloadMontage;
+	if (!montage)
+	{
+		m_pLastReloadMontage = nullptr;
+		m_bInstantReloadApplied = false;
+		return;
+	}
+
+	if (bEnabled)
+	{
+		if (montage != m_pLastReloadMontage)
+		{
+			m_pLastReloadMontage = montage;
+			m_flOriginalReloadRate = montage->RateScale;
+			m_bInstantReloadApplied = false;
+		}
+
+		// Keep trying until ratescale is applied
+		if (!m_bInstantReloadApplied || montage->RateScale != 10000.0f)
+		{
+			montage->RateScale = 10000.0f;
+
+			if (montage->RateScale == 10000.0f)
+				m_bInstantReloadApplied = true;
+		}
+	}
+	else
+	{
+		if (m_bInstantReloadApplied)
+		{
+			montage->RateScale = m_flOriginalReloadRate;
+
+			m_bInstantReloadApplied = false;
+			m_pLastReloadMontage = nullptr;
+		}
+	}
+}
+
 void Player::Run()
 {
-	if (m_pInstaMelee->GetValue())
-		InstantMelee(true);
-	else
-		InstantMelee(false);
-
 	//Godmode
 	if(m_pGodMode->GetValue())
 	{
@@ -179,5 +218,38 @@ void Player::Run()
 
 		auto* PlayerAttributeSet = localChar->PlayerAttributeSet;
 		PlayerAttributeSet->Stamina.CurrentValue = 100.0f;
+	}
+
+	if (m_pInstaMelee->GetValue())
+	{
+		InstantMelee(true);
+	}
+	else
+	{
+		InstantMelee(false);
+	}
+
+	if (m_pInstaReload->GetValue())
+	{
+		InstantReload(true);
+	}
+	else
+	{
+		InstantReload(false);
+	}
+
+	if (m_pNoScreenshake->GetValue())
+	{
+		auto* camManager = Unreal::GetPlayerCameraManager();
+		if (!camManager) return;
+
+		camManager->StopAllCameraShakes(true);
+	}
+	else
+	{
+		auto* camManager = Unreal::GetPlayerCameraManager();
+		if (!camManager) return;
+
+		camManager->StopAllCameraShakes(false);
 	}
 }
