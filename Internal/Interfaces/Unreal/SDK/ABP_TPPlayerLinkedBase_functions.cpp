@@ -16,51 +16,6 @@
 
 SDK_NAMESPACE_START
 
-// Function ABP_TPPlayerLinkedBase.ABP_TPPlayerLinkedBase_C.FullBodyAction
-// (HasOutParams, BlueprintCallable)
-// Parameters:
-// const struct FPoseLink&                 InPose                                                 (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor)
-// struct FPoseLink*                       FullBodyAction                                         (Parm, OutParm, NoDestructor)
-
-void UABP_TPPlayerLinkedBase_C::FullBodyAction(const struct FPoseLink& InPose, struct FPoseLink* FullBodyAction)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ABP_TPPlayerLinkedBase_C", "FullBodyAction");
-
-	Params::ABP_TPPlayerLinkedBase_C_FullBodyAction Parms{};
-
-	Parms.InPose = std::move(InPose);
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	if (FullBodyAction != nullptr)
-		*FullBodyAction = std::move(Parms.FullBodyAction);
-}
-
-
-// Function ABP_TPPlayerLinkedBase.ABP_TPPlayerLinkedBase_C.AnimGraph
-// (HasOutParams, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// struct FPoseLink*                       AnimGraph                                              (Parm, OutParm, NoDestructor)
-
-void UABP_TPPlayerLinkedBase_C::AnimGraph(struct FPoseLink* AnimGraph)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ABP_TPPlayerLinkedBase_C", "AnimGraph");
-
-	Params::ABP_TPPlayerLinkedBase_C_AnimGraph Parms{};
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	if (AnimGraph != nullptr)
-		*AnimGraph = std::move(Parms.AnimGraph);
-}
-
-
 // Function ABP_TPPlayerLinkedBase.ABP_TPPlayerLinkedBase_C.ExecuteUbergraph_ABP_TPPlayerLinkedBase
 // (Final, UbergraphFunction)
 // Parameters:
@@ -78,6 +33,51 @@ void UABP_TPPlayerLinkedBase_C::ExecuteUbergraph_ABP_TPPlayerLinkedBase(int32 En
 	Parms.EntryPoint = EntryPoint;
 
 	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function ABP_TPPlayerLinkedBase.ABP_TPPlayerLinkedBase_C.AnimGraph
+// (HasOutParams, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// struct FPoseLink*                       AnimGraph_0                                            (Parm, OutParm, NoDestructor)
+
+void UABP_TPPlayerLinkedBase_C::AnimGraph(struct FPoseLink* AnimGraph_0)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ABP_TPPlayerLinkedBase_C", "AnimGraph");
+
+	Params::ABP_TPPlayerLinkedBase_C_AnimGraph Parms{};
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	if (AnimGraph_0 != nullptr)
+		*AnimGraph_0 = std::move(Parms.AnimGraph_0);
+}
+
+
+// Function ABP_TPPlayerLinkedBase.ABP_TPPlayerLinkedBase_C.FullBodyAction
+// (HasOutParams, BlueprintCallable)
+// Parameters:
+// const struct FPoseLink&                 InPose                                                 (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor)
+// struct FPoseLink*                       FullBodyAction_0                                       (Parm, OutParm, NoDestructor)
+
+void UABP_TPPlayerLinkedBase_C::FullBodyAction(const struct FPoseLink& InPose, struct FPoseLink* FullBodyAction_0)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ABP_TPPlayerLinkedBase_C", "FullBodyAction");
+
+	Params::ABP_TPPlayerLinkedBase_C_FullBodyAction Parms{};
+
+	Parms.InPose = std::move(InPose);
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	if (FullBodyAction_0 != nullptr)
+		*FullBodyAction_0 = std::move(Parms.FullBodyAction_0);
 }
 
 

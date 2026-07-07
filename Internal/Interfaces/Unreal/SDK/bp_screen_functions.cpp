@@ -16,31 +16,23 @@
 
 SDK_NAMESPACE_START
 
-// Function bp_screen.bp_screen_C.UserConstructionScript
-// (Event, Public, BlueprintCallable, BlueprintEvent)
+// Function bp_screen.bp_screen_C.ExecuteUbergraph_bp_screen
+// (Final, UbergraphFunction, HasDefaults)
+// Parameters:
+// int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void Abp_screen_C::UserConstructionScript()
+void Abp_screen_C::ExecuteUbergraph_bp_screen(int32 EntryPoint)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("bp_screen_C", "UserConstructionScript");
+		Func = Class->GetFunction("bp_screen_C", "ExecuteUbergraph_bp_screen");
 
-	UObject::ProcessEvent(Func, nullptr);
-}
+	Params::bp_screen_C_ExecuteUbergraph_bp_screen Parms{};
 
+	Parms.EntryPoint = EntryPoint;
 
-// Function bp_screen.bp_screen_C.ReceiveBeginPlay
-// (Event, Protected, BlueprintEvent)
-
-void Abp_screen_C::ReceiveBeginPlay()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("bp_screen_C", "ReceiveBeginPlay");
-
-	UObject::ProcessEvent(Func, nullptr);
+	UObject::ProcessEvent(Func, &Parms);
 }
 
 
@@ -66,23 +58,31 @@ void Abp_screen_C::BndEvt__bp_screen_SBZCosmeticDestruction_K2Node_ComponentBoun
 }
 
 
-// Function bp_screen.bp_screen_C.ExecuteUbergraph_bp_screen
-// (Final, UbergraphFunction, HasDefaults)
-// Parameters:
-// int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// Function bp_screen.bp_screen_C.ReceiveBeginPlay
+// (Event, Protected, BlueprintEvent)
 
-void Abp_screen_C::ExecuteUbergraph_bp_screen(int32 EntryPoint)
+void Abp_screen_C::ReceiveBeginPlay()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("bp_screen_C", "ExecuteUbergraph_bp_screen");
+		Func = Class->GetFunction("bp_screen_C", "ReceiveBeginPlay");
 
-	Params::bp_screen_C_ExecuteUbergraph_bp_screen Parms{};
+	UObject::ProcessEvent(Func, nullptr);
+}
 
-	Parms.EntryPoint = EntryPoint;
 
-	UObject::ProcessEvent(Func, &Parms);
+// Function bp_screen.bp_screen_C.UserConstructionScript
+// (Event, Public, BlueprintCallable, BlueprintEvent)
+
+void Abp_screen_C::UserConstructionScript()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("bp_screen_C", "UserConstructionScript");
+
+	UObject::ProcessEvent(Func, nullptr);
 }
 
 

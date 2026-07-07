@@ -96,10 +96,10 @@ public:
 	struct FRotator                               InverseCameraPitch;                                // 0x3B68(0x000C)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor)
 
 public:
-	void AnimGraph(struct FPoseLink* AnimGraph);
-	void BlueprintUpdateAnimation(float DeltaTimeX_BlueprintUpdateAnimation);
-	void BlueprintInitializeAnimation();
 	void ExecuteUbergraph_ABP_FPPlayerBase(int32 EntryPoint);
+	void BlueprintInitializeAnimation();
+	void BlueprintUpdateAnimation(float DeltaTimeX);
+	void AnimGraph(struct FPoseLink* AnimGraph_0);
 
 public:
 	static class UClass* StaticClass()

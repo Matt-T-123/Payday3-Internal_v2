@@ -264,9 +264,9 @@ public:
 	struct FAnimNode_SequencePlayer               AnimGraphNode_SequencePlayer;                      // 0xC708(0x00D0)()
 
 public:
-	void FullBodyAction(const struct FPoseLink& InPose, struct FPoseLink* FullBodyAction);
-	void AnimGraph(struct FPoseLink* AnimGraph);
 	void ExecuteUbergraph_ABP_TPPlayerBase(int32 EntryPoint);
+	void AnimGraph(struct FPoseLink* AnimGraph_0);
+	void FullBodyAction(const struct FPoseLink& InPose, struct FPoseLink* FullBodyAction_0);
 
 public:
 	static class UClass* StaticClass()

@@ -34,11 +34,11 @@ public:
 	TMulticastInlineDelegate<void()>              OnSelectActionTriggered;                           // 0x02D8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
 
 public:
-	void SetName(const class FText& InText);
-	void UpdateProgress(int32 InCurrentProgress, int32 InTargetProgress);
-	void SetAvailability(bool Available);
-	void ShowNameplateAction(bool InShow);
 	void ExecuteUbergraph_WBP_CrimebondSelection_CharacterBanner(int32 EntryPoint);
+	void ShowNameplateAction(bool InShow);
+	void SetAvailability(bool Available);
+	void UpdateProgress(int32 InCurrentProgress, int32 InTargetProgress);
+	void SetName(const class FText& InText);
 
 public:
 	static class UClass* StaticClass()

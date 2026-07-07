@@ -23,8 +23,8 @@ public:
 	bool                                          Enable_Offset;                                     // 0x02F0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor)
 
 public:
-	void Random_Offset(bool EnableOffset);
 	void UserConstructionScript();
+	void Random_Offset(bool EnableOffset);
 
 public:
 	static class UClass* StaticClass()

@@ -19,7 +19,7 @@ SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass BP_Placeable_DoctorBag.BP_Placeable_DoctorBag_C
 // 0x0070 (0x0600 - 0x0590)
-class ABP_Placeable_DoctorBag_C : public ASBZDoctorBag
+class ABP_Placeable_DoctorBag_C final : public ASBZDoctorBag
 {
 public:
 	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x0590(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
@@ -39,16 +39,16 @@ public:
 	bool                                          HasBeenMarked;                                     // 0x05F4(0x0001)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor)
 
 public:
-	void UpdateCharges(float NewChargeCount);
-	void Timeline_0__FinishedFunc();
-	void Timeline_0__UpdateFunc();
-	void BndEvt__SBZShoutTarget_K2Node_ComponentBoundEvent_2_SBZShoutedAtDelegate__DelegateSignature(class USBZShoutTargetComponent* ShoutTarget, class APawn* Shouter);
-	void OnChargesChanged(float ChargesChangeTo, bool bDoCosmetics);
-	void BndEvt__BP_Placeable_DoctorBag_ProjectileMovementComponent_K2Node_ComponentBoundEvent_1_ActorComponentActivatedSignature__DelegateSignature(class UActorComponent* Component, bool bReset);
-	void BndEvt__BP_Placeable_DoctorBag_Interactable_K2Node_ComponentBoundEvent_0_SBZOnInteraction__DelegateSignature(class USBZBaseInteractableComponent* Interactable_0, class USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
-	void BndEvt__BP_Placeable_DoctorBag_Interactable_K2Node_ComponentBoundEvent_3_SBZOnInteraction__DelegateSignature(class USBZBaseInteractableComponent* Interactable_0, class USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
-	void BndEvt__BP_Placeable_DoctorBag_Interactable_K2Node_ComponentBoundEvent_5_SBZOnInteraction__DelegateSignature(class USBZBaseInteractableComponent* Interactable_0, class USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
 	void ExecuteUbergraph_BP_Placeable_DoctorBag(int32 EntryPoint);
+	void BndEvt__BP_Placeable_DoctorBag_Interactable_K2Node_ComponentBoundEvent_5_SBZOnInteraction__DelegateSignature(class USBZBaseInteractableComponent* Interactable_0, class USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
+	void BndEvt__BP_Placeable_DoctorBag_Interactable_K2Node_ComponentBoundEvent_3_SBZOnInteraction__DelegateSignature(class USBZBaseInteractableComponent* Interactable_0, class USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
+	void BndEvt__BP_Placeable_DoctorBag_Interactable_K2Node_ComponentBoundEvent_0_SBZOnInteraction__DelegateSignature(class USBZBaseInteractableComponent* Interactable_0, class USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
+	void BndEvt__BP_Placeable_DoctorBag_ProjectileMovementComponent_K2Node_ComponentBoundEvent_1_ActorComponentActivatedSignature__DelegateSignature(class UActorComponent* Component, bool bReset);
+	void OnChargesChanged(float ChargesChangeTo, bool bDoCosmetics);
+	void BndEvt__SBZShoutTarget_K2Node_ComponentBoundEvent_2_SBZShoutedAtDelegate__DelegateSignature(class USBZShoutTargetComponent* ShoutTarget, class APawn* Shouter);
+	void Timeline_0__UpdateFunc();
+	void Timeline_0__FinishedFunc();
+	void UpdateCharges(float NewChargeCount);
 
 public:
 	static class UClass* StaticClass()

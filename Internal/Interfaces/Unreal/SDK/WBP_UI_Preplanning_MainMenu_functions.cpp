@@ -366,6 +366,20 @@ void UWBP_UI_Preplanning_MainMenu_C::OnBackConfirmed(class FName ClosingActionNa
 }
 
 
+// Function WBP_UI_Preplanning_MainMenu.WBP_UI_Preplanning_MainMenu_C.OnAsyncLoadingDone
+// (Event, Protected, BlueprintEvent)
+
+void UWBP_UI_Preplanning_MainMenu_C::OnAsyncLoadingDone()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WBP_UI_Preplanning_MainMenu_C", "OnAsyncLoadingDone");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
 // Function WBP_UI_Preplanning_MainMenu.WBP_UI_Preplanning_MainMenu_C.Tick
 // (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
@@ -416,17 +430,23 @@ void UWBP_UI_Preplanning_MainMenu_C::OnRemovedFromStack()
 }
 
 
-// Function WBP_UI_Preplanning_MainMenu.WBP_UI_Preplanning_MainMenu_C.OnAsyncLoadingDone
-// (Event, Protected, BlueprintEvent)
+// Function WBP_UI_Preplanning_MainMenu.WBP_UI_Preplanning_MainMenu_C.OnControlsReferenceClicked
+// (BlueprintCallable, BlueprintEvent)
+// Parameters:
+// class FName                             InActionInput                                          (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UWBP_UI_Preplanning_MainMenu_C::OnAsyncLoadingDone()
+void UWBP_UI_Preplanning_MainMenu_C::OnControlsReferenceClicked(class FName InActionInput)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("WBP_UI_Preplanning_MainMenu_C", "OnAsyncLoadingDone");
+		Func = Class->GetFunction("WBP_UI_Preplanning_MainMenu_C", "OnControlsReferenceClicked");
 
-	UObject::ProcessEvent(Func, nullptr);
+	Params::WBP_UI_Preplanning_MainMenu_C_OnControlsReferenceClicked Parms{};
+
+	Parms.InActionInput = InActionInput;
+
+	UObject::ProcessEvent(Func, &Parms);
 }
 
 
@@ -481,26 +501,6 @@ void UWBP_UI_Preplanning_MainMenu_C::BndEvt__WBP_UI_Preplanning_MainMenu_Widget_
 
 	Parms.Button = Button;
 	Parms.bIsEnabled_0 = bIsEnabled_0;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function WBP_UI_Preplanning_MainMenu.WBP_UI_Preplanning_MainMenu_C.OnControlsReferenceClicked
-// (BlueprintCallable, BlueprintEvent)
-// Parameters:
-// class FName                             InActionInput                                          (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void UWBP_UI_Preplanning_MainMenu_C::OnControlsReferenceClicked(class FName InActionInput)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("WBP_UI_Preplanning_MainMenu_C", "OnControlsReferenceClicked");
-
-	Params::WBP_UI_Preplanning_MainMenu_C_OnControlsReferenceClicked Parms{};
-
-	Parms.InActionInput = InActionInput;
 
 	UObject::ProcessEvent(Func, &Parms);
 }

@@ -16,15 +16,35 @@
 
 SDK_NAMESPACE_START
 
-// Function BP_ECMJammer.BP_ECMJammer_C.OnJammerEffectEnded
-// (Event, Protected, BlueprintEvent)
+// Function BP_ECMJammer.BP_ECMJammer_C.ExecuteUbergraph_BP_ECMJammer
+// (Final, UbergraphFunction, HasDefaults)
+// Parameters:
+// int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void ABP_ECMJammer_C::OnJammerEffectEnded()
+void ABP_ECMJammer_C::ExecuteUbergraph_BP_ECMJammer(int32 EntryPoint)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("BP_ECMJammer_C", "OnJammerEffectEnded");
+		Func = Class->GetFunction("BP_ECMJammer_C", "ExecuteUbergraph_BP_ECMJammer");
+
+	Params::BP_ECMJammer_C_ExecuteUbergraph_BP_ECMJammer Parms{};
+
+	Parms.EntryPoint = EntryPoint;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function BP_ECMJammer.BP_ECMJammer_C.OnActivatedUsing
+// (Event, Protected, BlueprintEvent)
+
+void ABP_ECMJammer_C::OnActivatedUsing()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_ECMJammer_C", "OnActivatedUsing");
 
 	UObject::ProcessEvent(Func, nullptr);
 }
@@ -44,37 +64,17 @@ void ABP_ECMJammer_C::OnActivated()
 }
 
 
-// Function BP_ECMJammer.BP_ECMJammer_C.OnActivatedUsing
+// Function BP_ECMJammer.BP_ECMJammer_C.OnJammerEffectEnded
 // (Event, Protected, BlueprintEvent)
 
-void ABP_ECMJammer_C::OnActivatedUsing()
+void ABP_ECMJammer_C::OnJammerEffectEnded()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("BP_ECMJammer_C", "OnActivatedUsing");
+		Func = Class->GetFunction("BP_ECMJammer_C", "OnJammerEffectEnded");
 
 	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function BP_ECMJammer.BP_ECMJammer_C.ExecuteUbergraph_BP_ECMJammer
-// (Final, UbergraphFunction, HasDefaults)
-// Parameters:
-// int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void ABP_ECMJammer_C::ExecuteUbergraph_BP_ECMJammer(int32 EntryPoint)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("BP_ECMJammer_C", "ExecuteUbergraph_BP_ECMJammer");
-
-	Params::BP_ECMJammer_C_ExecuteUbergraph_BP_ECMJammer Parms{};
-
-	Parms.EntryPoint = EntryPoint;
-
-	UObject::ProcessEvent(Func, &Parms);
 }
 
 

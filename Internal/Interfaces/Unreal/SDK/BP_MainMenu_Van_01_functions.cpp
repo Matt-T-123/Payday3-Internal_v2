@@ -16,20 +16,6 @@
 
 SDK_NAMESPACE_START
 
-// Function BP_MainMenu_Van_01.BP_MainMenu_Van_01_C.ReceiveBeginPlay
-// (Event, Protected, BlueprintEvent)
-
-void ABP_MainMenu_Van_01_C::ReceiveBeginPlay()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("BP_MainMenu_Van_01_C", "ReceiveBeginPlay");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
 // Function BP_MainMenu_Van_01.BP_MainMenu_Van_01_C.ExecuteUbergraph_BP_MainMenu_Van_01
 // (Final, UbergraphFunction)
 // Parameters:
@@ -47,6 +33,20 @@ void ABP_MainMenu_Van_01_C::ExecuteUbergraph_BP_MainMenu_Van_01(int32 EntryPoint
 	Parms.EntryPoint = EntryPoint;
 
 	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function BP_MainMenu_Van_01.BP_MainMenu_Van_01_C.ReceiveBeginPlay
+// (Event, Protected, BlueprintEvent)
+
+void ABP_MainMenu_Van_01_C::ReceiveBeginPlay()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_MainMenu_Van_01_C", "ReceiveBeginPlay");
+
+	UObject::ProcessEvent(Func, nullptr);
 }
 
 

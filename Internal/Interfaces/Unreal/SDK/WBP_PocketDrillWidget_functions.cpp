@@ -16,26 +16,6 @@
 
 SDK_NAMESPACE_START
 
-// Function WBP_PocketDrillWidget.WBP_PocketDrillWidget_C.OnUpdateBreachState
-// (Event, Public, BlueprintEvent)
-// Parameters:
-// ESBZBreachingEquipmentState             NewState_OnUpdateBreachState                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void UWBP_PocketDrillWidget_C::OnUpdateBreachState(ESBZBreachingEquipmentState NewState_OnUpdateBreachState)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("WBP_PocketDrillWidget_C", "OnUpdateBreachState");
-
-	Params::WBP_PocketDrillWidget_C_OnUpdateBreachState Parms{};
-
-	Parms.NewState_OnUpdateBreachState = NewState_OnUpdateBreachState;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
 // Function WBP_PocketDrillWidget.WBP_PocketDrillWidget_C.ExecuteUbergraph_WBP_PocketDrillWidget
 // (Final, UbergraphFunction, HasDefaults)
 // Parameters:
@@ -51,6 +31,26 @@ void UWBP_PocketDrillWidget_C::ExecuteUbergraph_WBP_PocketDrillWidget(int32 Entr
 	Params::WBP_PocketDrillWidget_C_ExecuteUbergraph_WBP_PocketDrillWidget Parms{};
 
 	Parms.EntryPoint = EntryPoint;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function WBP_PocketDrillWidget.WBP_PocketDrillWidget_C.OnUpdateBreachState
+// (Event, Public, BlueprintEvent)
+// Parameters:
+// ESBZBreachingEquipmentState             NewState                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void UWBP_PocketDrillWidget_C::OnUpdateBreachState(ESBZBreachingEquipmentState NewState)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WBP_PocketDrillWidget_C", "OnUpdateBreachState");
+
+	Params::WBP_PocketDrillWidget_C_OnUpdateBreachState Parms{};
+
+	Parms.NewState = NewState;
 
 	UObject::ProcessEvent(Func, &Parms);
 }

@@ -17,24 +17,6 @@
 SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
 
-// Function ABP_FPPlayerBase.ABP_FPPlayerBase_C.AnimGraph
-// 0x0010 (0x0010 - 0x0000)
-struct ABP_FPPlayerBase_C_AnimGraph final
-{
-public:
-	struct FPoseLink                              AnimGraph;                                         // 0x0000(0x0010)(Parm, OutParm, NoDestructor)
-};
-DUMPER7_ASSERTS_ABP_FPPlayerBase_C_AnimGraph;
-
-// Function ABP_FPPlayerBase.ABP_FPPlayerBase_C.BlueprintUpdateAnimation
-// 0x0004 (0x0004 - 0x0000)
-struct ABP_FPPlayerBase_C_BlueprintUpdateAnimation final
-{
-public:
-	float                                         DeltaTimeX_BlueprintUpdateAnimation;               // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_ABP_FPPlayerBase_C_BlueprintUpdateAnimation;
-
 // Function ABP_FPPlayerBase.ABP_FPPlayerBase_C.ExecuteUbergraph_ABP_FPPlayerBase
 // 0x0048 (0x0048 - 0x0000)
 struct ABP_FPPlayerBase_C_ExecuteUbergraph_ABP_FPPlayerBase final
@@ -55,6 +37,24 @@ public:
 	struct FRotator                               CallFunc_MakeRotator_ReturnValue;                  // 0x0038(0x000C)(ZeroConstructor, IsPlainOldData, NoDestructor)
 };
 DUMPER7_ASSERTS_ABP_FPPlayerBase_C_ExecuteUbergraph_ABP_FPPlayerBase;
+
+// Function ABP_FPPlayerBase.ABP_FPPlayerBase_C.BlueprintUpdateAnimation
+// 0x0004 (0x0004 - 0x0000)
+struct ABP_FPPlayerBase_C_BlueprintUpdateAnimation final
+{
+public:
+	float                                         DeltaTimeX;                                        // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_ABP_FPPlayerBase_C_BlueprintUpdateAnimation;
+
+// Function ABP_FPPlayerBase.ABP_FPPlayerBase_C.AnimGraph
+// 0x0010 (0x0010 - 0x0000)
+struct ABP_FPPlayerBase_C_AnimGraph final
+{
+public:
+	struct FPoseLink                              AnimGraph_0;                                       // 0x0000(0x0010)(Parm, OutParm, NoDestructor)
+};
+DUMPER7_ASSERTS_ABP_FPPlayerBase_C_AnimGraph;
 
 SDK_PARAM_NAMESPACE_END
 SDK_NAMESPACE_END

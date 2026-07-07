@@ -16,23 +16,85 @@
 
 SDK_NAMESPACE_START
 
-// Function BP_CosmeticBag.BP_CosmeticBag_C.PlayAnimation
-// (Public, BlueprintCallable, BlueprintEvent)
+// Function BP_CosmeticBag.BP_CosmeticBag_C.ExecuteUbergraph_BP_CosmeticBag
+// (Final, UbergraphFunction)
 // Parameters:
-// class UAnimSequence*                    Animation                                              (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void ABP_CosmeticBag_C::PlayAnimation(class UAnimSequence* Animation)
+void ABP_CosmeticBag_C::ExecuteUbergraph_BP_CosmeticBag(int32 EntryPoint)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("BP_CosmeticBag_C", "PlayAnimation");
+		Func = Class->GetFunction("BP_CosmeticBag_C", "ExecuteUbergraph_BP_CosmeticBag");
 
-	Params::BP_CosmeticBag_C_PlayAnimation Parms{};
+	Params::BP_CosmeticBag_C_ExecuteUbergraph_BP_CosmeticBag Parms{};
 
-	Parms.Animation = Animation;
+	Parms.EntryPoint = EntryPoint;
 
 	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function BP_CosmeticBag.BP_CosmeticBag_C.OnPooled
+// (Event, Public, BlueprintEvent)
+
+void ABP_CosmeticBag_C::OnPooled()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_CosmeticBag_C", "OnPooled");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function BP_CosmeticBag.BP_CosmeticBag_C.OnUnpooled
+// (Event, Public, BlueprintEvent)
+
+void ABP_CosmeticBag_C::OnUnpooled()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_CosmeticBag_C", "OnUnpooled");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function BP_CosmeticBag.BP_CosmeticBag_C.ReceiveTick
+// (Event, Public, BlueprintEvent)
+// Parameters:
+// float                                   DeltaSeconds                                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void ABP_CosmeticBag_C::ReceiveTick(float DeltaSeconds)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_CosmeticBag_C", "ReceiveTick");
+
+	Params::BP_CosmeticBag_C_ReceiveTick Parms{};
+
+	Parms.DeltaSeconds = DeltaSeconds;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function BP_CosmeticBag.BP_CosmeticBag_C.ReceiveBeginPlay
+// (Event, Protected, BlueprintEvent)
+
+void ABP_CosmeticBag_C::ReceiveBeginPlay()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_CosmeticBag_C", "ReceiveBeginPlay");
+
+	UObject::ProcessEvent(Func, nullptr);
 }
 
 
@@ -60,83 +122,21 @@ void ABP_CosmeticBag_C::GetAnimation(float Duration, class UAnimSequence** Anima
 }
 
 
-// Function BP_CosmeticBag.BP_CosmeticBag_C.ReceiveBeginPlay
-// (Event, Protected, BlueprintEvent)
-
-void ABP_CosmeticBag_C::ReceiveBeginPlay()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("BP_CosmeticBag_C", "ReceiveBeginPlay");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function BP_CosmeticBag.BP_CosmeticBag_C.ReceiveTick
-// (Event, Public, BlueprintEvent)
+// Function BP_CosmeticBag.BP_CosmeticBag_C.PlayAnimation
+// (Public, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// float                                   DeltaSeconds_ReceiveTick                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// class UAnimSequence*                    Animation                                              (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void ABP_CosmeticBag_C::ReceiveTick(float DeltaSeconds_ReceiveTick)
+void ABP_CosmeticBag_C::PlayAnimation(class UAnimSequence* Animation)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("BP_CosmeticBag_C", "ReceiveTick");
+		Func = Class->GetFunction("BP_CosmeticBag_C", "PlayAnimation");
 
-	Params::BP_CosmeticBag_C_ReceiveTick Parms{};
+	Params::BP_CosmeticBag_C_PlayAnimation Parms{};
 
-	Parms.DeltaSeconds_ReceiveTick = DeltaSeconds_ReceiveTick;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function BP_CosmeticBag.BP_CosmeticBag_C.OnUnpooled
-// (Event, Public, BlueprintEvent)
-
-void ABP_CosmeticBag_C::OnUnpooled()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("BP_CosmeticBag_C", "OnUnpooled");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function BP_CosmeticBag.BP_CosmeticBag_C.OnPooled
-// (Event, Public, BlueprintEvent)
-
-void ABP_CosmeticBag_C::OnPooled()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("BP_CosmeticBag_C", "OnPooled");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function BP_CosmeticBag.BP_CosmeticBag_C.ExecuteUbergraph_BP_CosmeticBag
-// (Final, UbergraphFunction)
-// Parameters:
-// int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void ABP_CosmeticBag_C::ExecuteUbergraph_BP_CosmeticBag(int32 EntryPoint)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("BP_CosmeticBag_C", "ExecuteUbergraph_BP_CosmeticBag");
-
-	Params::BP_CosmeticBag_C_ExecuteUbergraph_BP_CosmeticBag Parms{};
-
-	Parms.EntryPoint = EntryPoint;
+	Parms.Animation = Animation;
 
 	UObject::ProcessEvent(Func, &Parms);
 }

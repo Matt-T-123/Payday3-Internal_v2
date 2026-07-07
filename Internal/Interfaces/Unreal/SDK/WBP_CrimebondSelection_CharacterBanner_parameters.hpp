@@ -17,43 +17,6 @@
 SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
 
-// Function WBP_CrimebondSelection_CharacterBanner.WBP_CrimebondSelection_CharacterBanner_C.SetName
-// 0x0018 (0x0018 - 0x0000)
-struct WBP_CrimebondSelection_CharacterBanner_C_SetName final
-{
-public:
-	class FText                                   InText;                                            // 0x0000(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm)
-};
-DUMPER7_ASSERTS_WBP_CrimebondSelection_CharacterBanner_C_SetName;
-
-// Function WBP_CrimebondSelection_CharacterBanner.WBP_CrimebondSelection_CharacterBanner_C.UpdateProgress
-// 0x0008 (0x0008 - 0x0000)
-struct WBP_CrimebondSelection_CharacterBanner_C_UpdateProgress final
-{
-public:
-	int32                                         InCurrentProgress;                                 // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	int32                                         InTargetProgress;                                  // 0x0004(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_WBP_CrimebondSelection_CharacterBanner_C_UpdateProgress;
-
-// Function WBP_CrimebondSelection_CharacterBanner.WBP_CrimebondSelection_CharacterBanner_C.SetAvailability
-// 0x0001 (0x0001 - 0x0000)
-struct WBP_CrimebondSelection_CharacterBanner_C_SetAvailability final
-{
-public:
-	bool                                          Available;                                         // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
-};
-DUMPER7_ASSERTS_WBP_CrimebondSelection_CharacterBanner_C_SetAvailability;
-
-// Function WBP_CrimebondSelection_CharacterBanner.WBP_CrimebondSelection_CharacterBanner_C.ShowNameplateAction
-// 0x0001 (0x0001 - 0x0000)
-struct WBP_CrimebondSelection_CharacterBanner_C_ShowNameplateAction final
-{
-public:
-	bool                                          InShow;                                            // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
-};
-DUMPER7_ASSERTS_WBP_CrimebondSelection_CharacterBanner_C_ShowNameplateAction;
-
 // Function WBP_CrimebondSelection_CharacterBanner.WBP_CrimebondSelection_CharacterBanner_C.ExecuteUbergraph_WBP_CrimebondSelection_CharacterBanner
 // 0x00E8 (0x00E8 - 0x0000)
 struct WBP_CrimebondSelection_CharacterBanner_C_ExecuteUbergraph_WBP_CrimebondSelection_CharacterBanner final
@@ -79,6 +42,43 @@ public:
 	class UWidget*                                K2Node_Select_Default_1;                           // 0x00E0(0x0008)(ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_WBP_CrimebondSelection_CharacterBanner_C_ExecuteUbergraph_WBP_CrimebondSelection_CharacterBanner;
+
+// Function WBP_CrimebondSelection_CharacterBanner.WBP_CrimebondSelection_CharacterBanner_C.ShowNameplateAction
+// 0x0001 (0x0001 - 0x0000)
+struct WBP_CrimebondSelection_CharacterBanner_C_ShowNameplateAction final
+{
+public:
+	bool                                          InShow;                                            // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
+};
+DUMPER7_ASSERTS_WBP_CrimebondSelection_CharacterBanner_C_ShowNameplateAction;
+
+// Function WBP_CrimebondSelection_CharacterBanner.WBP_CrimebondSelection_CharacterBanner_C.SetAvailability
+// 0x0001 (0x0001 - 0x0000)
+struct WBP_CrimebondSelection_CharacterBanner_C_SetAvailability final
+{
+public:
+	bool                                          Available;                                         // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
+};
+DUMPER7_ASSERTS_WBP_CrimebondSelection_CharacterBanner_C_SetAvailability;
+
+// Function WBP_CrimebondSelection_CharacterBanner.WBP_CrimebondSelection_CharacterBanner_C.UpdateProgress
+// 0x0008 (0x0008 - 0x0000)
+struct WBP_CrimebondSelection_CharacterBanner_C_UpdateProgress final
+{
+public:
+	int32                                         InCurrentProgress;                                 // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	int32                                         InTargetProgress;                                  // 0x0004(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_WBP_CrimebondSelection_CharacterBanner_C_UpdateProgress;
+
+// Function WBP_CrimebondSelection_CharacterBanner.WBP_CrimebondSelection_CharacterBanner_C.SetName
+// 0x0018 (0x0018 - 0x0000)
+struct WBP_CrimebondSelection_CharacterBanner_C_SetName final
+{
+public:
+	class FText                                   InText;                                            // 0x0000(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm)
+};
+DUMPER7_ASSERTS_WBP_CrimebondSelection_CharacterBanner_C_SetName;
 
 SDK_PARAM_NAMESPACE_END
 SDK_NAMESPACE_END

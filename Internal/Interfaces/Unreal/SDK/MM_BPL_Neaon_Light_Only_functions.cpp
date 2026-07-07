@@ -36,29 +36,15 @@ void AMM_BPL_Neaon_Light_Only_C::ExecuteUbergraph_MM_BPL_Neaon_Light_Only(int32 
 }
 
 
-// Function MM_BPL_Neaon_Light_Only.MM_BPL_Neaon_Light_Only_C.Timeline_0__FinishedFunc
-// (BlueprintEvent)
+// Function MM_BPL_Neaon_Light_Only.MM_BPL_Neaon_Light_Only_C.ReceiveBeginPlay
+// (Event, Protected, BlueprintEvent)
 
-void AMM_BPL_Neaon_Light_Only_C::Timeline_0__FinishedFunc()
+void AMM_BPL_Neaon_Light_Only_C::ReceiveBeginPlay()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("MM_BPL_Neaon_Light_Only_C", "Timeline_0__FinishedFunc");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function MM_BPL_Neaon_Light_Only.MM_BPL_Neaon_Light_Only_C.Timeline_0__UpdateFunc
-// (BlueprintEvent)
-
-void AMM_BPL_Neaon_Light_Only_C::Timeline_0__UpdateFunc()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("MM_BPL_Neaon_Light_Only_C", "Timeline_0__UpdateFunc");
+		Func = Class->GetFunction("MM_BPL_Neaon_Light_Only_C", "ReceiveBeginPlay");
 
 	UObject::ProcessEvent(Func, nullptr);
 }
@@ -78,15 +64,29 @@ void AMM_BPL_Neaon_Light_Only_C::Timeline_0__Spark__EventFunc()
 }
 
 
-// Function MM_BPL_Neaon_Light_Only.MM_BPL_Neaon_Light_Only_C.ReceiveBeginPlay
-// (Event, Protected, BlueprintEvent)
+// Function MM_BPL_Neaon_Light_Only.MM_BPL_Neaon_Light_Only_C.Timeline_0__UpdateFunc
+// (BlueprintEvent)
 
-void AMM_BPL_Neaon_Light_Only_C::ReceiveBeginPlay()
+void AMM_BPL_Neaon_Light_Only_C::Timeline_0__UpdateFunc()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("MM_BPL_Neaon_Light_Only_C", "ReceiveBeginPlay");
+		Func = Class->GetFunction("MM_BPL_Neaon_Light_Only_C", "Timeline_0__UpdateFunc");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function MM_BPL_Neaon_Light_Only.MM_BPL_Neaon_Light_Only_C.Timeline_0__FinishedFunc
+// (BlueprintEvent)
+
+void AMM_BPL_Neaon_Light_Only_C::Timeline_0__FinishedFunc()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("MM_BPL_Neaon_Light_Only_C", "Timeline_0__FinishedFunc");
 
 	UObject::ProcessEvent(Func, nullptr);
 }

@@ -10,9 +10,9 @@
 
 #include "Basic.hpp"
 
-#include "E_ServerBrowserFilterSelectorType_structs.hpp"
 #include "SBZBackend_structs.hpp"
 #include "Engine_structs.hpp"
+#include "E_ServerBrowserFilterSelectorType_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "Starbreeze_structs.hpp"
 #include "Starbreeze_classes.hpp"

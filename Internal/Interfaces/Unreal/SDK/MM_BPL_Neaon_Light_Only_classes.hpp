@@ -32,10 +32,10 @@ public:
 
 public:
 	void ExecuteUbergraph_MM_BPL_Neaon_Light_Only(int32 EntryPoint);
-	void Timeline_0__FinishedFunc();
-	void Timeline_0__UpdateFunc();
-	void Timeline_0__Spark__EventFunc();
 	void ReceiveBeginPlay();
+	void Timeline_0__Spark__EventFunc();
+	void Timeline_0__UpdateFunc();
+	void Timeline_0__FinishedFunc();
 
 public:
 	static class UClass* StaticClass()

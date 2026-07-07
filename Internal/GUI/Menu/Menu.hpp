@@ -427,6 +427,7 @@ protected:
 	T m_ValueOverride{};
 
 	T m_Value{};
+	std::function<void(const T& oldValue, const T& newValue)> m_OnValueChangedCallback = nullptr;
 
 	inline std::string ConvertToString() const
 	{
@@ -461,7 +462,13 @@ public:
 		nlohmann::json& jsonEntry = jsonParent[m_sUnique.c_str()];
 
 		if (jsonEntry.contains("Value"))
+		{
+			T oldValue = m_Value;
 			m_Value = ConvertFromString(jsonEntry["Value"].get<std::string>());
+
+			if (m_OnValueChangedCallback && oldValue != m_Value)
+				m_OnValueChangedCallback(oldValue, m_Value);
+		}
 
 		if (jsonEntry.contains("Children"))
 			ConfigLoadChildren(jsonEntry["Children"]);
@@ -474,7 +481,16 @@ public:
 
 	inline void SetValue(const T& Value)
 	{
+		T oldValue = m_Value;
 		m_Value = Value;
+
+		if (m_OnValueChangedCallback && oldValue != m_Value)
+			m_OnValueChangedCallback(oldValue, m_Value);
+	};
+
+	inline void SetOnValueChangedCallback(std::function<void(const T& oldValue, const T& newValue)> callback)
+	{
+		m_OnValueChangedCallback = callback;
 	};
 
 	inline T GetOverride() const
@@ -1016,7 +1032,9 @@ public:
 
 		SameLine();
 
-		ImAdd::SmallCheckbox(GetName().c_str(), &m_Value);
+		bool oldValue = m_Value;
+		if (ImAdd::SmallCheckbox(GetName().c_str(), &m_Value) && m_OnValueChangedCallback && oldValue != m_Value)
+			m_OnValueChangedCallback(oldValue, m_Value);
 
 		RenderChildren();
 	};
@@ -1054,7 +1072,9 @@ public:
 
 		SameLine();
 
-		ImAdd::Togglebutton(GetName().c_str(), &m_Value);
+		bool oldValue = m_Value;
+		if (ImAdd::Togglebutton(GetName().c_str(), &m_Value) && m_OnValueChangedCallback && oldValue != m_Value)
+			m_OnValueChangedCallback(oldValue, m_Value);
 
 		RenderChildren();
 	};

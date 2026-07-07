@@ -16,23 +16,85 @@
 
 SDK_NAMESPACE_START
 
-// Function BP_CosmeticDonutBoxPlace.BP_CosmeticDonutBoxPlace_C.PlayAnimation
-// (Public, BlueprintCallable, BlueprintEvent)
+// Function BP_CosmeticDonutBoxPlace.BP_CosmeticDonutBoxPlace_C.ExecuteUbergraph_BP_CosmeticDonutBoxPlace
+// (Final, UbergraphFunction)
 // Parameters:
-// class UAnimSequence*                    Animation                                              (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void ABP_CosmeticDonutBoxPlace_C::PlayAnimation(class UAnimSequence* Animation)
+void ABP_CosmeticDonutBoxPlace_C::ExecuteUbergraph_BP_CosmeticDonutBoxPlace(int32 EntryPoint)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("BP_CosmeticDonutBoxPlace_C", "PlayAnimation");
+		Func = Class->GetFunction("BP_CosmeticDonutBoxPlace_C", "ExecuteUbergraph_BP_CosmeticDonutBoxPlace");
 
-	Params::BP_CosmeticDonutBoxPlace_C_PlayAnimation Parms{};
+	Params::BP_CosmeticDonutBoxPlace_C_ExecuteUbergraph_BP_CosmeticDonutBoxPlace Parms{};
 
-	Parms.Animation = Animation;
+	Parms.EntryPoint = EntryPoint;
 
 	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function BP_CosmeticDonutBoxPlace.BP_CosmeticDonutBoxPlace_C.OnPooled
+// (Event, Public, BlueprintEvent)
+
+void ABP_CosmeticDonutBoxPlace_C::OnPooled()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_CosmeticDonutBoxPlace_C", "OnPooled");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function BP_CosmeticDonutBoxPlace.BP_CosmeticDonutBoxPlace_C.OnUnpooled
+// (Event, Public, BlueprintEvent)
+
+void ABP_CosmeticDonutBoxPlace_C::OnUnpooled()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_CosmeticDonutBoxPlace_C", "OnUnpooled");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function BP_CosmeticDonutBoxPlace.BP_CosmeticDonutBoxPlace_C.ReceiveTick
+// (Event, Public, BlueprintEvent)
+// Parameters:
+// float                                   DeltaSeconds                                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void ABP_CosmeticDonutBoxPlace_C::ReceiveTick(float DeltaSeconds)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_CosmeticDonutBoxPlace_C", "ReceiveTick");
+
+	Params::BP_CosmeticDonutBoxPlace_C_ReceiveTick Parms{};
+
+	Parms.DeltaSeconds = DeltaSeconds;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function BP_CosmeticDonutBoxPlace.BP_CosmeticDonutBoxPlace_C.ReceiveBeginPlay
+// (Event, Protected, BlueprintEvent)
+
+void ABP_CosmeticDonutBoxPlace_C::ReceiveBeginPlay()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_CosmeticDonutBoxPlace_C", "ReceiveBeginPlay");
+
+	UObject::ProcessEvent(Func, nullptr);
 }
 
 
@@ -60,83 +122,21 @@ void ABP_CosmeticDonutBoxPlace_C::GetAnimation(float Duration, class UAnimSequen
 }
 
 
-// Function BP_CosmeticDonutBoxPlace.BP_CosmeticDonutBoxPlace_C.ReceiveBeginPlay
-// (Event, Protected, BlueprintEvent)
-
-void ABP_CosmeticDonutBoxPlace_C::ReceiveBeginPlay()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("BP_CosmeticDonutBoxPlace_C", "ReceiveBeginPlay");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function BP_CosmeticDonutBoxPlace.BP_CosmeticDonutBoxPlace_C.ReceiveTick
-// (Event, Public, BlueprintEvent)
+// Function BP_CosmeticDonutBoxPlace.BP_CosmeticDonutBoxPlace_C.PlayAnimation
+// (Public, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// float                                   DeltaSeconds_ReceiveTick                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// class UAnimSequence*                    Animation                                              (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void ABP_CosmeticDonutBoxPlace_C::ReceiveTick(float DeltaSeconds_ReceiveTick)
+void ABP_CosmeticDonutBoxPlace_C::PlayAnimation(class UAnimSequence* Animation)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("BP_CosmeticDonutBoxPlace_C", "ReceiveTick");
+		Func = Class->GetFunction("BP_CosmeticDonutBoxPlace_C", "PlayAnimation");
 
-	Params::BP_CosmeticDonutBoxPlace_C_ReceiveTick Parms{};
+	Params::BP_CosmeticDonutBoxPlace_C_PlayAnimation Parms{};
 
-	Parms.DeltaSeconds_ReceiveTick = DeltaSeconds_ReceiveTick;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function BP_CosmeticDonutBoxPlace.BP_CosmeticDonutBoxPlace_C.OnUnpooled
-// (Event, Public, BlueprintEvent)
-
-void ABP_CosmeticDonutBoxPlace_C::OnUnpooled()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("BP_CosmeticDonutBoxPlace_C", "OnUnpooled");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function BP_CosmeticDonutBoxPlace.BP_CosmeticDonutBoxPlace_C.OnPooled
-// (Event, Public, BlueprintEvent)
-
-void ABP_CosmeticDonutBoxPlace_C::OnPooled()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("BP_CosmeticDonutBoxPlace_C", "OnPooled");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function BP_CosmeticDonutBoxPlace.BP_CosmeticDonutBoxPlace_C.ExecuteUbergraph_BP_CosmeticDonutBoxPlace
-// (Final, UbergraphFunction)
-// Parameters:
-// int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void ABP_CosmeticDonutBoxPlace_C::ExecuteUbergraph_BP_CosmeticDonutBoxPlace(int32 EntryPoint)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("BP_CosmeticDonutBoxPlace_C", "ExecuteUbergraph_BP_CosmeticDonutBoxPlace");
-
-	Params::BP_CosmeticDonutBoxPlace_C_ExecuteUbergraph_BP_CosmeticDonutBoxPlace Parms{};
-
-	Parms.EntryPoint = EntryPoint;
+	Parms.Animation = Animation;
 
 	UObject::ProcessEvent(Func, &Parms);
 }

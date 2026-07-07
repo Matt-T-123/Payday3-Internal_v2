@@ -16,15 +16,6 @@
 SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
 
-// Function WBP_PocketDrillWidget.WBP_PocketDrillWidget_C.OnUpdateBreachState
-// 0x0001 (0x0001 - 0x0000)
-struct WBP_PocketDrillWidget_C_OnUpdateBreachState final
-{
-public:
-	ESBZBreachingEquipmentState                   NewState_OnUpdateBreachState;                      // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_WBP_PocketDrillWidget_C_OnUpdateBreachState;
-
 // Function WBP_PocketDrillWidget.WBP_PocketDrillWidget_C.ExecuteUbergraph_WBP_PocketDrillWidget
 // 0x00F0 (0x00F0 - 0x0000)
 struct WBP_PocketDrillWidget_C_ExecuteUbergraph_WBP_PocketDrillWidget final
@@ -48,6 +39,15 @@ public:
 	bool                                          CallFunc_EqualEqual_ByteByte_ReturnValue_1;        // 0x00E8(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
 };
 DUMPER7_ASSERTS_WBP_PocketDrillWidget_C_ExecuteUbergraph_WBP_PocketDrillWidget;
+
+// Function WBP_PocketDrillWidget.WBP_PocketDrillWidget_C.OnUpdateBreachState
+// 0x0001 (0x0001 - 0x0000)
+struct WBP_PocketDrillWidget_C_OnUpdateBreachState final
+{
+public:
+	ESBZBreachingEquipmentState                   NewState;                                          // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_WBP_PocketDrillWidget_C_OnUpdateBreachState;
 
 SDK_PARAM_NAMESPACE_END
 SDK_NAMESPACE_END

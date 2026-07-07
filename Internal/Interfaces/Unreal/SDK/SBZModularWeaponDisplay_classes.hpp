@@ -17,7 +17,7 @@ SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass SBZModularWeaponDisplay.SBZModularWeaponDisplay_C
 // 0x0008 (0x0328 - 0x0320)
-class ASBZModularWeaponDisplay_C : public ASBZModularWeaponDisplay
+class ASBZModularWeaponDisplay_C final : public ASBZModularWeaponDisplay
 {
 public:
 	class UStaticMeshComponent*                   Cube;                                              // 0x0320(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData, NonTransactional, NoDestructor, HasGetValueTypeHash)
@@ -36,5 +36,6 @@ public:
 		return GetDefaultObjImpl<ASBZModularWeaponDisplay_C>();
 	}
 };
+DUMPER7_ASSERTS_ASBZModularWeaponDisplay_C;
 
 SDK_NAMESPACE_END

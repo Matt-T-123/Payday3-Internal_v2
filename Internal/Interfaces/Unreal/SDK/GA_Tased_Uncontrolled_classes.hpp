@@ -24,8 +24,8 @@ public:
 	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x0530(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
 
 public:
-	void K2_ActivateAbility();
 	void ExecuteUbergraph_GA_Tased_Uncontrolled(int32 EntryPoint);
+	void K2_ActivateAbility();
 
 public:
 	static class UClass* StaticClass()

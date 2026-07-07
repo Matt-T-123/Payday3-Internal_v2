@@ -65,6 +65,9 @@ void Player::HandleMenu()
 
 		// Instant Melee Toggle
 		m_pMainLeft->AddElement(m_pInstaMelee.get());
+		m_pInstaMelee->SetOnValueChangedCallback([this](const bool, const bool bNewValue) {
+			InstantMelee(bNewValue);
+		});
 
 		// Instant Reload Toggle
 		m_pMainLeft->AddElement(m_pInstaReload.get());
@@ -100,8 +103,57 @@ void Player::HandleMenu()
 	});
 }
 
+void Player::InstantMelee(bool bEnabled)
+{
+    auto* localChar = Unreal::GetLocalCharacter();
+    if (!localChar)
+        return;
+
+    auto* montage = localChar->CurrentMeleeMontage;
+    if (!montage)
+    {
+        m_pLastMeleeMontage = nullptr;
+        m_bInstantMeleeApplied = false;
+        return;
+    }
+
+    if (bEnabled)
+    {
+        if (montage != m_pLastMeleeMontage)
+        {
+            m_pLastMeleeMontage = montage;
+            m_flOriginalMeleeRate = montage->RateScale;
+            m_bInstantMeleeApplied = false;
+        }
+
+        // Keep trying until ratescale is applied
+        if (!m_bInstantMeleeApplied || montage->RateScale != 10000.0f)
+        {
+            montage->RateScale = 10000.0f;
+
+            if (montage->RateScale == 10000.0f)
+                m_bInstantMeleeApplied = true;
+        }
+    }
+    else
+    {
+        if (m_bInstantMeleeApplied)
+        {
+            montage->RateScale = m_flOriginalMeleeRate;
+
+            m_bInstantMeleeApplied = false;
+            m_pLastMeleeMontage = nullptr;
+        }
+    }
+}
+
 void Player::Run()
 {
+	if (m_pInstaMelee->GetValue())
+		InstantMelee(true);
+	else
+		InstantMelee(false);
+
 	//Godmode
 	if(m_pGodMode->GetValue())
 	{
@@ -122,14 +174,10 @@ void Player::Run()
 	//Infinite Stamina
 	if (m_pInfStamina->GetValue())
 	{
-		// auto* PlayerAttributeSet = localChar->PlayerAttributeSet;
-		// PlayerAttributeSet->Stamina.CurrentValue = 100.0f;
-	}
+		auto* localChar = Unreal::GetLocalCharacter();
+		if (!localChar) return;
 
-	//Instant Melee
-	if (m_pInstaMelee->GetValue())
-	{
-		// auto* LocalCharacter = localChar;
-		// LocalCharacter->CurrentMeleeMontage->RateScale = 10000.0f;
+		auto* PlayerAttributeSet = localChar->PlayerAttributeSet;
+		PlayerAttributeSet->Stamina.CurrentValue = 100.0f;
 	}
 }

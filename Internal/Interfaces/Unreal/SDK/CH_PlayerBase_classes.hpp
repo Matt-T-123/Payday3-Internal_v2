@@ -34,13 +34,13 @@ public:
 	ESBZMaskType                                  MaskType;                                          // 0x233C(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
-	void SetMaskAnimation(float InDuration, ESBZMaskType& InMaskType, class FName& InMorphTarget);
-	void UserConstructionScript();
-	void MaskAnimationTimeline__FinishedFunc();
-	void MaskAnimationTimeline__UpdateFunc();
-	void BP_MaskOn(float AnimationDuration, ESBZMaskType MaskType_0, const class FName& MorphTargetName);
-	void BP_MaskOff(float AnimationDuration, const class FName& MorphTargetName);
 	void ExecuteUbergraph_CH_PlayerBase(int32 EntryPoint);
+	void BP_MaskOff(float AnimationDuration, const class FName& MorphTargetName);
+	void BP_MaskOn(float AnimationDuration, ESBZMaskType MaskType_0, const class FName& MorphTargetName);
+	void MaskAnimationTimeline__UpdateFunc();
+	void MaskAnimationTimeline__FinishedFunc();
+	void UserConstructionScript();
+	void SetMaskAnimation(float InDuration, ESBZMaskType& InMaskType, class FName& InMorphTarget);
 
 public:
 	static class UClass* StaticClass()

@@ -33,14 +33,14 @@ public:
 	struct FSBZBundleMannequinEntry               MannequinnEntry;                                   // 0x0BE0(0x0390)(Edit, BlueprintVisible, DisableEditOnInstance)
 
 public:
-	void UpdateBannerInfo();
-	void UpdateNameplate();
-	void UpdateSpotlight();
-	void SetLabel(const class FText& Label);
-	void BndEvt__BP_MainMenuPlayerCharacter_Interactable_K2Node_ComponentBoundEvent_0_SBZOnInteraction__DelegateSignature(class USBZBaseInteractableComponent* Interactable, class USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
-	void BP_OnStateChanged(ESBZBundleMannequinState InState_BP_OnStateChanged);
-	void BP_OnMannequinReady();
 	void ExecuteUbergraph_CH_UI_MM_BundleCharacter(int32 EntryPoint);
+	void BP_OnMannequinReady();
+	void BP_OnStateChanged(ESBZBundleMannequinState InState);
+	void BndEvt__BP_MainMenuPlayerCharacter_Interactable_K2Node_ComponentBoundEvent_0_SBZOnInteraction__DelegateSignature(class USBZBaseInteractableComponent* Interactable_0, class USBZInteractorComponent* Interactor, bool bIsLocallyControlledInteractor);
+	void SetLabel(const class FText& Label_0);
+	void UpdateSpotlight();
+	void UpdateNameplate();
+	void UpdateBannerInfo();
 
 public:
 	static class UClass* StaticClass()

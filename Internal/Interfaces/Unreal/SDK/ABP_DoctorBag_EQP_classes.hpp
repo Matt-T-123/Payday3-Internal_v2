@@ -28,8 +28,8 @@ public:
 	struct FAnimNode_Slot                         AnimGraphNode_Slot;                                // 0x03F0(0x0060)()
 
 public:
-	void AnimGraph(struct FPoseLink* AnimGraph);
 	void ExecuteUbergraph_ABP_DoctorBag_EQP(int32 EntryPoint);
+	void AnimGraph(struct FPoseLink* AnimGraph_0);
 
 public:
 	static class UClass* StaticClass()

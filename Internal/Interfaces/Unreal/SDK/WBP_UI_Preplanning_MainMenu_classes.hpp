@@ -86,14 +86,14 @@ public:
 	void BndEvt__WBP_UI_Preplanning_MainMenu_Widget_Player1ReadyStatus_K2Node_ComponentBoundEvent_8_OnMenuButtonStateChanged__DelegateSignature(class USBZMenuButton* Button, bool bIsEnabled_0);
 	void OnAddedToStack();
 	void OnBackConfirmed(class FName ClosingActionName);
+	void OnAsyncLoadingDone();
 	void Tick(const struct FGeometry& MyGeometry, float InDeltaTime);
 	void SetActiveLoadout();
 	void OnRemovedFromStack();
-	void OnAsyncLoadingDone();
+	void OnControlsReferenceClicked(class FName InActionInput);
 	void OnLostStackFocused();
 	void OnGainedStackFocused(const class FName& PreviousValue);
 	void BndEvt__WBP_UI_Preplanning_MainMenu_Widget_LoadoutButton_K2Node_ComponentBoundEvent_4_OnMenuButtonStateChanged__DelegateSignature(class USBZMenuButton* Button, bool bIsEnabled_0);
-	void OnControlsReferenceClicked(class FName InActionInput);
 	void PrePush_93D81847476BF4E074C1628189487515(class USBZMenuStackScreenWidget* MenuWidget);
 	void PostPush_93D81847476BF4E074C1628189487515(class USBZMenuStackScreenWidget* MenuWidget);
 	void InitializeLobbyDetails();

@@ -29,8 +29,8 @@ public:
 	struct FAnimNode_ConvertComponentToLocalSpace AnimGraphNode_ComponentToLocalSpace;               // 0x0C70(0x0030)()
 
 public:
-	void AnimGraph(struct FPoseLink* AnimGraph);
 	void ExecuteUbergraph_ABP_Mask_Base(int32 EntryPoint);
+	void AnimGraph(struct FPoseLink* AnimGraph_0);
 
 public:
 	static class UClass* StaticClass()

@@ -48,9 +48,9 @@ public:
 	struct FAnimNode_Root                         AnimGraphNode_Root;                                // 0x0EE8(0x0048)()
 
 public:
-	void FullBodyAction(const struct FPoseLink& InPose, struct FPoseLink* FullBodyAction);
-	void AnimGraph(struct FPoseLink* AnimGraph);
 	void ExecuteUbergraph_ABP_TPPlayerLinkedBase(int32 EntryPoint);
+	void AnimGraph(struct FPoseLink* AnimGraph_0);
+	void FullBodyAction(const struct FPoseLink& InPose, struct FPoseLink* FullBodyAction_0);
 
 public:
 	static class UClass* StaticClass()

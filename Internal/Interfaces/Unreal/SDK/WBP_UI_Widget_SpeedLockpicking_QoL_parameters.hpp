@@ -19,256 +19,6 @@
 SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
 
-// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.SettingAutofillTimer
-// 0x0020 (0x0020 - 0x0000)
-struct WBP_UI_Widget_SpeedLockpicking_QoL_C_SettingAutofillTimer final
-{
-public:
-	TDelegate<void()>                             K2Node_CreateDelegate_OutputDelegate;              // 0x0000(0x0014)(ZeroConstructor, NoDestructor)
-	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FTimerHandle                           CallFunc_K2_SetTimerDelegate_ReturnValue;          // 0x0018(0x0008)(NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_SettingAutofillTimer;
-
-// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.GainProgress
-// 0x0028 (0x0028 - 0x0000)
-struct WBP_UI_Widget_SpeedLockpicking_QoL_C_GainProgress final
-{
-public:
-	float                                         ProgressIncrease;                                  // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	float                                         CallFunc_Divide_FloatFloat_ReturnValue;            // 0x0004(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	class UMaterialInstanceDynamic*               CallFunc_GetDynamicMaterial_ReturnValue;           // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	class UMaterialInstanceDynamic*               CallFunc_GetDynamicMaterial_ReturnValue_1;         // 0x0010(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_Greater_FloatFloat_ReturnValue;           // 0x0018(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
-	uint8                                         Pad_19[0x3];                                       // 0x0019(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         CallFunc_Add_FloatFloat_ReturnValue;               // 0x001C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	float                                         CallFunc_FMax_ReturnValue;                         // 0x0020(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_GainProgress;
-
-// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.GetFreeSlot
-// 0x0090 (0x0090 - 0x0000)
-struct WBP_UI_Widget_SpeedLockpicking_QoL_C_GetFreeSlot final
-{
-public:
-	int32                                         CurrentIndex;                                      // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	int32                                         ReturnValue;                                       // 0x0004(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	TArray<int32>                                 NewLocalVar_0;                                     // 0x0008(0x0010)(Edit, BlueprintVisible)
-	int32                                         Temp_int_Array_Index_Variable;                     // 0x0018(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	int32                                         CallFunc_Add_IntInt_ReturnValue;                   // 0x001C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	int32                                         CallFunc_Percent_IntInt_ReturnValue;               // 0x0020(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_NotEqual_IntInt_ReturnValue;              // 0x0024(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
-	uint8                                         Pad_25[0x3];                                       // 0x0025(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         Temp_int_Loop_Counter_Variable;                    // 0x0028(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_BooleanAND_ReturnValue;                   // 0x002C(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
-	uint8                                         Pad_2D[0x3];                                       // 0x002D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         CallFunc_Add_IntInt_ReturnValue_1;                 // 0x0030(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_34[0x4];                                       // 0x0034(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FSBZRuntimeLockChunk                   CallFunc_Array_Get_Item;                           // 0x0038(0x0040)(NoDestructor, ContainsInstancedReference)
-	int32                                         CallFunc_Array_Random_OutItem;                     // 0x0078(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	int32                                         CallFunc_Array_Random_OutIndex;                    // 0x007C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          K2Node_SwitchEnum_CmpSuccess;                      // 0x0080(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
-	uint8                                         Pad_81[0x3];                                       // 0x0081(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         CallFunc_Array_Length_ReturnValue;                 // 0x0084(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_Less_IntInt_ReturnValue;                  // 0x0088(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
-	uint8                                         Pad_89[0x3];                                       // 0x0089(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         CallFunc_Array_Add_ReturnValue;                    // 0x008C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_GetFreeSlot;
-
-// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.TryInteraction
-// 0x001C (0x001C - 0x0000)
-struct WBP_UI_Widget_SpeedLockpicking_QoL_C_TryInteraction final
-{
-public:
-	bool                                          bChunkHit;                                         // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor)
-	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         Array_Index;                                       // 0x0004(0x0004)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	int32                                         Temp_int_Array_Index_Variable;                     // 0x0008(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	int32                                         Temp_int_Loop_Counter_Variable;                    // 0x000C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	int32                                         CallFunc_Add_IntInt_ReturnValue;                   // 0x0010(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	int32                                         CallFunc_Array_Length_ReturnValue;                 // 0x0014(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_Less_IntInt_ReturnValue;                  // 0x0018(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
-	bool                                          K2Node_SwitchEnum_CmpSuccess;                      // 0x0019(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
-	bool                                          CallFunc_IsChunkInRange_ReturnValue;               // 0x001A(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
-};
-DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_TryInteraction;
-
-// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.RemoveSlot
-// 0x0008 (0x0008 - 0x0000)
-struct WBP_UI_Widget_SpeedLockpicking_QoL_C_RemoveSlot final
-{
-public:
-	int32                                         Index_0;                                           // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         CallFunc_MakeLiteralByte_ReturnValue;              // 0x0004(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          K2Node_SwitchEnum_CmpSuccess;                      // 0x0005(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
-};
-DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_RemoveSlot;
-
-// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.FadeSlot
-// 0x0008 (0x0008 - 0x0000)
-struct WBP_UI_Widget_SpeedLockpicking_QoL_C_FadeSlot final
-{
-public:
-	int32                                         Index_0;                                           // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         CallFunc_MakeLiteralByte_ReturnValue;              // 0x0004(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_FadeSlot;
-
-// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.ActivateSlot
-// 0x0078 (0x0078 - 0x0000)
-struct WBP_UI_Widget_SpeedLockpicking_QoL_C_ActivateSlot final
-{
-public:
-	int32                                         Index_0;                                           // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	ESBZLockChunkState                            State;                                             // 0x0004(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_5[0x3];                                        // 0x0005(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FSBZLockChunkConfig                    ChunkConfig;                                       // 0x0008(0x0028)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor)
-	float                                         L_StartPoint;                                      // 0x0030(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_Less_FloatFloat_ReturnValue;              // 0x0034(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
-	uint8                                         Pad_35[0x3];                                       // 0x0035(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         CallFunc_Add_FloatFloat_ReturnValue;               // 0x0038(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	float                                         CallFunc_SelectFloat_ReturnValue;                  // 0x003C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	float                                         CallFunc_Subtract_FloatFloat_ReturnValue;          // 0x0040(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	float                                         CallFunc_SelectFloat_ReturnValue_1;                // 0x0044(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          K2Node_SwitchEnum_CmpSuccess;                      // 0x0048(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
-	uint8                                         Pad_49[0x7];                                       // 0x0049(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UMaterialInstanceDynamic*               CallFunc_GetDynamicMaterial_ReturnValue;           // 0x0050(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	float                                         CallFunc_Divide_FloatFloat_ReturnValue;            // 0x0058(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	float                                         CallFunc_Divide_FloatFloat_ReturnValue_1;          // 0x005C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	float                                         CallFunc_Multiply_IntFloat_ReturnValue;            // 0x0060(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	float                                         CallFunc_Subtract_FloatFloat_ReturnValue_1;        // 0x0064(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	float                                         CallFunc_RandomFloat_ReturnValue;                  // 0x0068(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	float                                         CallFunc_Multiply_FloatFloat_ReturnValue;          // 0x006C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	float                                         CallFunc_Add_FloatFloat_ReturnValue_1;             // 0x0070(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_ActivateSlot;
-
-// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.InitChunks_Slot
-// 0x0054 (0x0054 - 0x0000)
-struct WBP_UI_Widget_SpeedLockpicking_QoL_C_InitChunks_Slot final
-{
-public:
-	int32                                         L_RandomInt;                                       // 0x0000(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	int32                                         Temp_int_Array_Index_Variable;                     // 0x0004(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	int32                                         Temp_int_Loop_Counter_Variable;                    // 0x0008(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	int32                                         CallFunc_Add_IntInt_ReturnValue;                   // 0x000C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	ESBZLockChunkType                             CallFunc_Array_Get_Item;                           // 0x0010(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_11[0x3];                                       // 0x0011(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         CallFunc_Array_Length_ReturnValue;                 // 0x0014(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          K2Node_SwitchEnum_CmpSuccess;                      // 0x0018(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
-	bool                                          CallFunc_Less_IntInt_ReturnValue;                  // 0x0019(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
-	uint8                                         Pad_1A[0x2];                                       // 0x001A(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FSBZLockChunkConfig                    CallFunc_Map_Find_Value;                           // 0x001C(0x0028)(NoDestructor)
-	bool                                          CallFunc_Map_Find_ReturnValue;                     // 0x0044(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
-	uint8                                         Pad_45[0x3];                                       // 0x0045(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         CallFunc_RandomInteger_ReturnValue;                // 0x0048(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	int32                                         CallFunc_Percent_IntInt_ReturnValue;               // 0x004C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	int32                                         CallFunc_Add_IntInt_ReturnValue_1;                 // 0x0050(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_InitChunks_Slot;
-
-// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.Tick
-// 0x003C (0x003C - 0x0000)
-struct WBP_UI_Widget_SpeedLockpicking_QoL_C_Tick final
-{
-public:
-	struct FGeometry                              MyGeometry_Tick;                                   // 0x0000(0x0038)(BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData, NoDestructor)
-	float                                         InDeltaTime_Tick;                                  // 0x0038(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_Tick;
-
-// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.PreConstruct
-// 0x0001 (0x0001 - 0x0000)
-struct WBP_UI_Widget_SpeedLockpicking_QoL_C_PreConstruct final
-{
-public:
-	bool                                          IsDesignTime_PreConstruct;                         // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
-};
-DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_PreConstruct;
-
-// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.MiniGameStateChanged
-// 0x0001 (0x0001 - 0x0000)
-struct WBP_UI_Widget_SpeedLockpicking_QoL_C_MiniGameStateChanged final
-{
-public:
-	EPD3MiniGameState                             NewState_MiniGameStateChanged;                     // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_MiniGameStateChanged;
-
-// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.OnOwningMiniGameComponent
-// 0x0008 (0x0008 - 0x0000)
-struct WBP_UI_Widget_SpeedLockpicking_QoL_C_OnOwningMiniGameComponent final
-{
-public:
-	class USBZMiniGameComponent*                  MiniGameComponet_OnOwningMiniGameComponent;        // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_OnOwningMiniGameComponent;
-
-// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.OnMiniGameDifficulty
-// 0x0002 (0x0002 - 0x0000)
-struct WBP_UI_Widget_SpeedLockpicking_QoL_C_OnMiniGameDifficulty final
-{
-public:
-	ESBZDifficulty                                HeistDifficulty_OnMiniGameDifficulty;              // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         MiniGameDifficulty_OnMiniGameDifficulty;           // 0x0001(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_OnMiniGameDifficulty;
-
-// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.TickPinPosition
-// 0x0004 (0x0004 - 0x0000)
-struct WBP_UI_Widget_SpeedLockpicking_QoL_C_TickPinPosition final
-{
-public:
-	float                                         DeltaTime;                                         // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_TickPinPosition;
-
-// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.TickChunks
-// 0x0004 (0x0004 - 0x0000)
-struct WBP_UI_Widget_SpeedLockpicking_QoL_C_TickChunks final
-{
-public:
-	float                                         DeltaTime;                                         // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_TickChunks;
-
-// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.TickProgressBar
-// 0x0004 (0x0004 - 0x0000)
-struct WBP_UI_Widget_SpeedLockpicking_QoL_C_TickProgressBar final
-{
-public:
-	float                                         DeltaTime;                                         // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_TickProgressBar;
-
-// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.TickInteractAnimation
-// 0x0004 (0x0004 - 0x0000)
-struct WBP_UI_Widget_SpeedLockpicking_QoL_C_TickInteractAnimation final
-{
-public:
-	float                                         DeltaTime;                                         // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_TickInteractAnimation;
-
-// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.TickPinFail
-// 0x0004 (0x0004 - 0x0000)
-struct WBP_UI_Widget_SpeedLockpicking_QoL_C_TickPinFail final
-{
-public:
-	float                                         DeltaTime;                                         // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_TickPinFail;
-
-// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.TickAutoProgress
-// 0x0004 (0x0004 - 0x0000)
-struct WBP_UI_Widget_SpeedLockpicking_QoL_C_TickAutoProgress final
-{
-public:
-	float                                         DeltaTime;                                         // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_TickAutoProgress;
-
 // Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.ExecuteUbergraph_WBP_UI_Widget_SpeedLockpicking_QoL
 // 0x0428 (0x0428 - 0x0000)
 struct WBP_UI_Widget_SpeedLockpicking_QoL_C_ExecuteUbergraph_WBP_UI_Widget_SpeedLockpicking_QoL final
@@ -467,12 +217,262 @@ public:
 };
 DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_ExecuteUbergraph_WBP_UI_Widget_SpeedLockpicking_QoL;
 
+// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.TickAutoProgress
+// 0x0004 (0x0004 - 0x0000)
+struct WBP_UI_Widget_SpeedLockpicking_QoL_C_TickAutoProgress final
+{
+public:
+	float                                         DeltaTime;                                         // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_TickAutoProgress;
+
+// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.TickPinFail
+// 0x0004 (0x0004 - 0x0000)
+struct WBP_UI_Widget_SpeedLockpicking_QoL_C_TickPinFail final
+{
+public:
+	float                                         DeltaTime;                                         // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_TickPinFail;
+
+// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.TickInteractAnimation
+// 0x0004 (0x0004 - 0x0000)
+struct WBP_UI_Widget_SpeedLockpicking_QoL_C_TickInteractAnimation final
+{
+public:
+	float                                         DeltaTime;                                         // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_TickInteractAnimation;
+
+// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.TickProgressBar
+// 0x0004 (0x0004 - 0x0000)
+struct WBP_UI_Widget_SpeedLockpicking_QoL_C_TickProgressBar final
+{
+public:
+	float                                         DeltaTime;                                         // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_TickProgressBar;
+
+// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.TickChunks
+// 0x0004 (0x0004 - 0x0000)
+struct WBP_UI_Widget_SpeedLockpicking_QoL_C_TickChunks final
+{
+public:
+	float                                         DeltaTime;                                         // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_TickChunks;
+
+// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.TickPinPosition
+// 0x0004 (0x0004 - 0x0000)
+struct WBP_UI_Widget_SpeedLockpicking_QoL_C_TickPinPosition final
+{
+public:
+	float                                         DeltaTime;                                         // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_TickPinPosition;
+
+// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.OnMiniGameDifficulty
+// 0x0002 (0x0002 - 0x0000)
+struct WBP_UI_Widget_SpeedLockpicking_QoL_C_OnMiniGameDifficulty final
+{
+public:
+	ESBZDifficulty                                HeistDifficulty;                                   // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         MiniGameDifficulty;                                // 0x0001(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_OnMiniGameDifficulty;
+
+// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.OnOwningMiniGameComponent
+// 0x0008 (0x0008 - 0x0000)
+struct WBP_UI_Widget_SpeedLockpicking_QoL_C_OnOwningMiniGameComponent final
+{
+public:
+	class USBZMiniGameComponent*                  MiniGameComponet;                                  // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_OnOwningMiniGameComponent;
+
+// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.MiniGameStateChanged
+// 0x0001 (0x0001 - 0x0000)
+struct WBP_UI_Widget_SpeedLockpicking_QoL_C_MiniGameStateChanged final
+{
+public:
+	EPD3MiniGameState                             NewState;                                          // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_MiniGameStateChanged;
+
+// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.PreConstruct
+// 0x0001 (0x0001 - 0x0000)
+struct WBP_UI_Widget_SpeedLockpicking_QoL_C_PreConstruct final
+{
+public:
+	bool                                          IsDesignTime;                                      // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
+};
+DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_PreConstruct;
+
+// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.Tick
+// 0x003C (0x003C - 0x0000)
+struct WBP_UI_Widget_SpeedLockpicking_QoL_C_Tick final
+{
+public:
+	struct FGeometry                              MyGeometry;                                        // 0x0000(0x0038)(BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData, NoDestructor)
+	float                                         InDeltaTime;                                       // 0x0038(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_Tick;
+
+// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.InitChunks_Slot
+// 0x0054 (0x0054 - 0x0000)
+struct WBP_UI_Widget_SpeedLockpicking_QoL_C_InitChunks_Slot final
+{
+public:
+	int32                                         L_RandomInt;                                       // 0x0000(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	int32                                         Temp_int_Array_Index_Variable;                     // 0x0004(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	int32                                         Temp_int_Loop_Counter_Variable;                    // 0x0008(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	int32                                         CallFunc_Add_IntInt_ReturnValue;                   // 0x000C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	ESBZLockChunkType                             CallFunc_Array_Get_Item;                           // 0x0010(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_11[0x3];                                       // 0x0011(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         CallFunc_Array_Length_ReturnValue;                 // 0x0014(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          K2Node_SwitchEnum_CmpSuccess;                      // 0x0018(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
+	bool                                          CallFunc_Less_IntInt_ReturnValue;                  // 0x0019(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
+	uint8                                         Pad_1A[0x2];                                       // 0x001A(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FSBZLockChunkConfig                    CallFunc_Map_Find_Value;                           // 0x001C(0x0028)(NoDestructor)
+	bool                                          CallFunc_Map_Find_ReturnValue;                     // 0x0044(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
+	uint8                                         Pad_45[0x3];                                       // 0x0045(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         CallFunc_RandomInteger_ReturnValue;                // 0x0048(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	int32                                         CallFunc_Percent_IntInt_ReturnValue;               // 0x004C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	int32                                         CallFunc_Add_IntInt_ReturnValue_1;                 // 0x0050(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_InitChunks_Slot;
+
+// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.ActivateSlot
+// 0x0078 (0x0078 - 0x0000)
+struct WBP_UI_Widget_SpeedLockpicking_QoL_C_ActivateSlot final
+{
+public:
+	int32                                         Index_0;                                           // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	ESBZLockChunkState                            State;                                             // 0x0004(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_5[0x3];                                        // 0x0005(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FSBZLockChunkConfig                    ChunkConfig;                                       // 0x0008(0x0028)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor)
+	float                                         L_StartPoint;                                      // 0x0030(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_Less_FloatFloat_ReturnValue;              // 0x0034(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
+	uint8                                         Pad_35[0x3];                                       // 0x0035(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         CallFunc_Add_FloatFloat_ReturnValue;               // 0x0038(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	float                                         CallFunc_SelectFloat_ReturnValue;                  // 0x003C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	float                                         CallFunc_Subtract_FloatFloat_ReturnValue;          // 0x0040(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	float                                         CallFunc_SelectFloat_ReturnValue_1;                // 0x0044(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          K2Node_SwitchEnum_CmpSuccess;                      // 0x0048(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
+	uint8                                         Pad_49[0x7];                                       // 0x0049(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UMaterialInstanceDynamic*               CallFunc_GetDynamicMaterial_ReturnValue;           // 0x0050(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	float                                         CallFunc_Divide_FloatFloat_ReturnValue;            // 0x0058(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	float                                         CallFunc_Divide_FloatFloat_ReturnValue_1;          // 0x005C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	float                                         CallFunc_Multiply_IntFloat_ReturnValue;            // 0x0060(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	float                                         CallFunc_Subtract_FloatFloat_ReturnValue_1;        // 0x0064(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	float                                         CallFunc_RandomFloat_ReturnValue;                  // 0x0068(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	float                                         CallFunc_Multiply_FloatFloat_ReturnValue;          // 0x006C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	float                                         CallFunc_Add_FloatFloat_ReturnValue_1;             // 0x0070(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_ActivateSlot;
+
+// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.FadeSlot
+// 0x0008 (0x0008 - 0x0000)
+struct WBP_UI_Widget_SpeedLockpicking_QoL_C_FadeSlot final
+{
+public:
+	int32                                         Index_0;                                           // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         CallFunc_MakeLiteralByte_ReturnValue;              // 0x0004(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_FadeSlot;
+
+// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.RemoveSlot
+// 0x0008 (0x0008 - 0x0000)
+struct WBP_UI_Widget_SpeedLockpicking_QoL_C_RemoveSlot final
+{
+public:
+	int32                                         Index_0;                                           // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         CallFunc_MakeLiteralByte_ReturnValue;              // 0x0004(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          K2Node_SwitchEnum_CmpSuccess;                      // 0x0005(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
+};
+DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_RemoveSlot;
+
+// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.TryInteraction
+// 0x001C (0x001C - 0x0000)
+struct WBP_UI_Widget_SpeedLockpicking_QoL_C_TryInteraction final
+{
+public:
+	bool                                          bChunkHit;                                         // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor)
+	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         Array_Index;                                       // 0x0004(0x0004)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	int32                                         Temp_int_Array_Index_Variable;                     // 0x0008(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	int32                                         Temp_int_Loop_Counter_Variable;                    // 0x000C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	int32                                         CallFunc_Add_IntInt_ReturnValue;                   // 0x0010(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	int32                                         CallFunc_Array_Length_ReturnValue;                 // 0x0014(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_Less_IntInt_ReturnValue;                  // 0x0018(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
+	bool                                          K2Node_SwitchEnum_CmpSuccess;                      // 0x0019(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
+	bool                                          CallFunc_IsChunkInRange_ReturnValue;               // 0x001A(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
+};
+DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_TryInteraction;
+
+// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.GetFreeSlot
+// 0x0090 (0x0090 - 0x0000)
+struct WBP_UI_Widget_SpeedLockpicking_QoL_C_GetFreeSlot final
+{
+public:
+	int32                                         CurrentIndex;                                      // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	int32                                         ReturnValue;                                       // 0x0004(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	TArray<int32>                                 NewLocalVar_0;                                     // 0x0008(0x0010)(Edit, BlueprintVisible)
+	int32                                         Temp_int_Array_Index_Variable;                     // 0x0018(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	int32                                         CallFunc_Add_IntInt_ReturnValue;                   // 0x001C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	int32                                         CallFunc_Percent_IntInt_ReturnValue;               // 0x0020(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_NotEqual_IntInt_ReturnValue;              // 0x0024(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
+	uint8                                         Pad_25[0x3];                                       // 0x0025(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         Temp_int_Loop_Counter_Variable;                    // 0x0028(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_BooleanAND_ReturnValue;                   // 0x002C(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
+	uint8                                         Pad_2D[0x3];                                       // 0x002D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         CallFunc_Add_IntInt_ReturnValue_1;                 // 0x0030(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_34[0x4];                                       // 0x0034(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FSBZRuntimeLockChunk                   CallFunc_Array_Get_Item;                           // 0x0038(0x0040)(NoDestructor, ContainsInstancedReference)
+	int32                                         CallFunc_Array_Random_OutItem;                     // 0x0078(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	int32                                         CallFunc_Array_Random_OutIndex;                    // 0x007C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          K2Node_SwitchEnum_CmpSuccess;                      // 0x0080(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
+	uint8                                         Pad_81[0x3];                                       // 0x0081(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         CallFunc_Array_Length_ReturnValue;                 // 0x0084(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_Less_IntInt_ReturnValue;                  // 0x0088(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
+	uint8                                         Pad_89[0x3];                                       // 0x0089(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         CallFunc_Array_Add_ReturnValue;                    // 0x008C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_GetFreeSlot;
+
+// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.GainProgress
+// 0x0028 (0x0028 - 0x0000)
+struct WBP_UI_Widget_SpeedLockpicking_QoL_C_GainProgress final
+{
+public:
+	float                                         ProgressIncrease;                                  // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	float                                         CallFunc_Divide_FloatFloat_ReturnValue;            // 0x0004(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	class UMaterialInstanceDynamic*               CallFunc_GetDynamicMaterial_ReturnValue;           // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	class UMaterialInstanceDynamic*               CallFunc_GetDynamicMaterial_ReturnValue_1;         // 0x0010(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_Greater_FloatFloat_ReturnValue;           // 0x0018(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
+	uint8                                         Pad_19[0x3];                                       // 0x0019(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         CallFunc_Add_FloatFloat_ReturnValue;               // 0x001C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	float                                         CallFunc_FMax_ReturnValue;                         // 0x0020(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_GainProgress;
+
+// Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.SettingAutofillTimer
+// 0x0020 (0x0020 - 0x0000)
+struct WBP_UI_Widget_SpeedLockpicking_QoL_C_SettingAutofillTimer final
+{
+public:
+	TDelegate<void()>                             K2Node_CreateDelegate_OutputDelegate;              // 0x0000(0x0014)(ZeroConstructor, NoDestructor)
+	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FTimerHandle                           CallFunc_K2_SetTimerDelegate_ReturnValue;          // 0x0018(0x0008)(NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_WBP_UI_Widget_SpeedLockpicking_QoL_C_SettingAutofillTimer;
+
 // Function WBP_UI_Widget_SpeedLockpicking_QoL.WBP_UI_Widget_SpeedLockpicking_QoL_C.IsChunkInRange
 // 0x0058 (0x0058 - 0x0000)
 struct WBP_UI_Widget_SpeedLockpicking_QoL_C_IsChunkInRange final
 {
 public:
-	float                                         PinPosition;                                       // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	float                                         PinPosition_0;                                     // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FSBZRuntimeLockChunk                   Chunk;                                             // 0x0008(0x0040)(ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm, NoDestructor, ContainsInstancedReference)
 	bool                                          ReturnValue;                                       // 0x0048(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor)

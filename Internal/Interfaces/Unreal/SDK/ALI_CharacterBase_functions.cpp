@@ -20,9 +20,9 @@ SDK_NAMESPACE_START
 // (HasOutParams, BlueprintCallable, BlueprintEvent)
 // Parameters:
 // const struct FPoseLink&                 InPose                                                 (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor)
-// struct FPoseLink*                       FullBodyAction                                         (Parm, OutParm, NoDestructor)
+// struct FPoseLink*                       FullBodyAction_0                                       (Parm, OutParm, NoDestructor)
 
-void IALI_CharacterBase_C::FullBodyAction(const struct FPoseLink& InPose, struct FPoseLink* FullBodyAction)
+void IALI_CharacterBase_C::FullBodyAction(const struct FPoseLink& InPose, struct FPoseLink* FullBodyAction_0)
 {
 	static class UFunction* Func = nullptr;
 
@@ -35,8 +35,8 @@ void IALI_CharacterBase_C::FullBodyAction(const struct FPoseLink& InPose, struct
 
 	AsUObject()->ProcessEvent(Func, &Parms);
 
-	if (FullBodyAction != nullptr)
-		*FullBodyAction = std::move(Parms.FullBodyAction);
+	if (FullBodyAction_0 != nullptr)
+		*FullBodyAction_0 = std::move(Parms.FullBodyAction_0);
 }
 
 

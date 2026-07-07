@@ -22,7 +22,7 @@ struct ALI_CharacterBase_C_FullBodyAction final
 {
 public:
 	struct FPoseLink                              InPose;                                            // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor)
-	struct FPoseLink                              FullBodyAction;                                    // 0x0010(0x0010)(Parm, OutParm, NoDestructor)
+	struct FPoseLink                              FullBodyAction_0;                                  // 0x0010(0x0010)(Parm, OutParm, NoDestructor)
 };
 DUMPER7_ASSERTS_ALI_CharacterBase_C_FullBodyAction;
 

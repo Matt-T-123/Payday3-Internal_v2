@@ -16,23 +16,85 @@
 
 SDK_NAMESPACE_START
 
-// Function BP_CosmeticHardcase.BP_CosmeticHardcase_C.PlayAnimation
-// (Public, BlueprintCallable, BlueprintEvent)
+// Function BP_CosmeticHardcase.BP_CosmeticHardcase_C.ExecuteUbergraph_BP_CosmeticHardcase
+// (Final, UbergraphFunction)
 // Parameters:
-// class UAnimSequence*                    Animation                                              (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void ABP_CosmeticHardcase_C::PlayAnimation(class UAnimSequence* Animation)
+void ABP_CosmeticHardcase_C::ExecuteUbergraph_BP_CosmeticHardcase(int32 EntryPoint)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("BP_CosmeticHardcase_C", "PlayAnimation");
+		Func = Class->GetFunction("BP_CosmeticHardcase_C", "ExecuteUbergraph_BP_CosmeticHardcase");
 
-	Params::BP_CosmeticHardcase_C_PlayAnimation Parms{};
+	Params::BP_CosmeticHardcase_C_ExecuteUbergraph_BP_CosmeticHardcase Parms{};
 
-	Parms.Animation = Animation;
+	Parms.EntryPoint = EntryPoint;
 
 	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function BP_CosmeticHardcase.BP_CosmeticHardcase_C.OnPooled
+// (Event, Public, BlueprintEvent)
+
+void ABP_CosmeticHardcase_C::OnPooled()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_CosmeticHardcase_C", "OnPooled");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function BP_CosmeticHardcase.BP_CosmeticHardcase_C.OnUnpooled
+// (Event, Public, BlueprintEvent)
+
+void ABP_CosmeticHardcase_C::OnUnpooled()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_CosmeticHardcase_C", "OnUnpooled");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function BP_CosmeticHardcase.BP_CosmeticHardcase_C.ReceiveTick
+// (Event, Public, BlueprintEvent)
+// Parameters:
+// float                                   DeltaSeconds                                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void ABP_CosmeticHardcase_C::ReceiveTick(float DeltaSeconds)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_CosmeticHardcase_C", "ReceiveTick");
+
+	Params::BP_CosmeticHardcase_C_ReceiveTick Parms{};
+
+	Parms.DeltaSeconds = DeltaSeconds;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function BP_CosmeticHardcase.BP_CosmeticHardcase_C.ReceiveBeginPlay
+// (Event, Protected, BlueprintEvent)
+
+void ABP_CosmeticHardcase_C::ReceiveBeginPlay()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_CosmeticHardcase_C", "ReceiveBeginPlay");
+
+	UObject::ProcessEvent(Func, nullptr);
 }
 
 
@@ -60,83 +122,21 @@ void ABP_CosmeticHardcase_C::GetAnimation(float Duration, class UAnimSequence** 
 }
 
 
-// Function BP_CosmeticHardcase.BP_CosmeticHardcase_C.ReceiveBeginPlay
-// (Event, Protected, BlueprintEvent)
-
-void ABP_CosmeticHardcase_C::ReceiveBeginPlay()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("BP_CosmeticHardcase_C", "ReceiveBeginPlay");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function BP_CosmeticHardcase.BP_CosmeticHardcase_C.ReceiveTick
-// (Event, Public, BlueprintEvent)
+// Function BP_CosmeticHardcase.BP_CosmeticHardcase_C.PlayAnimation
+// (Public, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// float                                   DeltaSeconds_ReceiveTick                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// class UAnimSequence*                    Animation                                              (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void ABP_CosmeticHardcase_C::ReceiveTick(float DeltaSeconds_ReceiveTick)
+void ABP_CosmeticHardcase_C::PlayAnimation(class UAnimSequence* Animation)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("BP_CosmeticHardcase_C", "ReceiveTick");
+		Func = Class->GetFunction("BP_CosmeticHardcase_C", "PlayAnimation");
 
-	Params::BP_CosmeticHardcase_C_ReceiveTick Parms{};
+	Params::BP_CosmeticHardcase_C_PlayAnimation Parms{};
 
-	Parms.DeltaSeconds_ReceiveTick = DeltaSeconds_ReceiveTick;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function BP_CosmeticHardcase.BP_CosmeticHardcase_C.OnUnpooled
-// (Event, Public, BlueprintEvent)
-
-void ABP_CosmeticHardcase_C::OnUnpooled()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("BP_CosmeticHardcase_C", "OnUnpooled");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function BP_CosmeticHardcase.BP_CosmeticHardcase_C.OnPooled
-// (Event, Public, BlueprintEvent)
-
-void ABP_CosmeticHardcase_C::OnPooled()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("BP_CosmeticHardcase_C", "OnPooled");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function BP_CosmeticHardcase.BP_CosmeticHardcase_C.ExecuteUbergraph_BP_CosmeticHardcase
-// (Final, UbergraphFunction)
-// Parameters:
-// int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void ABP_CosmeticHardcase_C::ExecuteUbergraph_BP_CosmeticHardcase(int32 EntryPoint)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("BP_CosmeticHardcase_C", "ExecuteUbergraph_BP_CosmeticHardcase");
-
-	Params::BP_CosmeticHardcase_C_ExecuteUbergraph_BP_CosmeticHardcase Parms{};
-
-	Parms.EntryPoint = EntryPoint;
+	Parms.Animation = Animation;
 
 	UObject::ProcessEvent(Func, &Parms);
 }

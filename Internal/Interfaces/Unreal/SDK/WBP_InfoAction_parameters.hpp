@@ -16,15 +16,6 @@
 SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
 
-// Function WBP_InfoAction.WBP_InfoAction_C.PreConstruct
-// 0x0001 (0x0001 - 0x0000)
-struct WBP_InfoAction_C_PreConstruct final
-{
-public:
-	bool                                          IsDesignTime_PreConstruct;                         // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
-};
-DUMPER7_ASSERTS_WBP_InfoAction_C_PreConstruct;
-
 // Function WBP_InfoAction.WBP_InfoAction_C.ExecuteUbergraph_WBP_InfoAction
 // 0x0088 (0x0088 - 0x0000)
 struct WBP_InfoAction_C_ExecuteUbergraph_WBP_InfoAction final
@@ -40,6 +31,15 @@ public:
 	struct FSlateColor                            K2Node_Select_Default;                             // 0x0060(0x0028)()
 };
 DUMPER7_ASSERTS_WBP_InfoAction_C_ExecuteUbergraph_WBP_InfoAction;
+
+// Function WBP_InfoAction.WBP_InfoAction_C.PreConstruct
+// 0x0001 (0x0001 - 0x0000)
+struct WBP_InfoAction_C_PreConstruct final
+{
+public:
+	bool                                          IsDesignTime;                                      // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
+};
+DUMPER7_ASSERTS_WBP_InfoAction_C_PreConstruct;
 
 SDK_PARAM_NAMESPACE_END
 SDK_NAMESPACE_END

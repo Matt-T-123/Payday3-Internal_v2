@@ -14,15 +14,6 @@
 SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
 
-// Function GA_Interact.GA_Interact_C.K2_OnEndAbility
-// 0x0001 (0x0001 - 0x0000)
-struct GA_Interact_C_K2_OnEndAbility final
-{
-public:
-	bool                                          bWasCancelled_K2_OnEndAbility;                     // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
-};
-DUMPER7_ASSERTS_GA_Interact_C_K2_OnEndAbility;
-
 // Function GA_Interact.GA_Interact_C.ExecuteUbergraph_GA_Interact
 // 0x0008 (0x0008 - 0x0000)
 struct GA_Interact_C_ExecuteUbergraph_GA_Interact final
@@ -32,6 +23,15 @@ public:
 	bool                                          K2Node_Event_bWasCancelled;                        // 0x0004(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
 };
 DUMPER7_ASSERTS_GA_Interact_C_ExecuteUbergraph_GA_Interact;
+
+// Function GA_Interact.GA_Interact_C.K2_OnEndAbility
+// 0x0001 (0x0001 - 0x0000)
+struct GA_Interact_C_K2_OnEndAbility final
+{
+public:
+	bool                                          bWasCancelled;                                     // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
+};
+DUMPER7_ASSERTS_GA_Interact_C_K2_OnEndAbility;
 
 SDK_PARAM_NAMESPACE_END
 SDK_NAMESPACE_END

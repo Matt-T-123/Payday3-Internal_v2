@@ -20,7 +20,7 @@ SDK_NAMESPACE_START
 class IALI_CharacterBase_C final
 {
 public:
-	void FullBodyAction(const struct FPoseLink& InPose, struct FPoseLink* FullBodyAction);
+	void FullBodyAction(const struct FPoseLink& InPose, struct FPoseLink* FullBodyAction_0);
 
 public:
 	static class UClass* StaticClass()

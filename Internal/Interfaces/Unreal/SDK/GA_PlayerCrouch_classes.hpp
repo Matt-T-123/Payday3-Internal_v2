@@ -24,9 +24,9 @@ public:
 	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x0500(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
 
 public:
-	void K2_ActivateAbility();
-	void K2_OnEndAbility(bool bWasCancelled_K2_OnEndAbility);
 	void ExecuteUbergraph_GA_PlayerCrouch(int32 EntryPoint);
+	void K2_OnEndAbility(bool bWasCancelled);
+	void K2_ActivateAbility();
 
 public:
 	static class UClass* StaticClass()

@@ -133,7 +133,7 @@ public:
 DUMPER7_ASSERTS_WBP_HUDOverlay_QuestWidget_C_OnChallengesUpdated;
 
 // Function WBP_HUDOverlay_QuestWidget.WBP_HUDOverlay_QuestWidget_C.UpdateQuest
-// 0x0248 (0x0248 - 0x0000)
+// 0x0240 (0x0240 - 0x0000)
 struct WBP_HUDOverlay_QuestWidget_C_UpdateQuest final
 {
 public:
@@ -160,9 +160,6 @@ public:
 	class FText                                   CallFunc_GetChallengeDescriptionTextFromQuestChallengeNotificationData_OutText; // 0x0200(0x0018)()
 	TArray<struct FFormatArgumentData>            K2Node_MakeArray_Array_1;                          // 0x0218(0x0010)(ReferenceParm)
 	class FText                                   CallFunc_Format_ReturnValue_1;                     // 0x0228(0x0018)()
-	bool                                          CallFunc_IsValid_ReturnValue;                      // 0x0240(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
-	bool                                          CallFunc_IsValid_ReturnValue_1;                    // 0x0241(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
-	bool                                          CallFunc_IsValid_ReturnValue_2;                    // 0x0242(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor)
 };
 DUMPER7_ASSERTS_WBP_HUDOverlay_QuestWidget_C_UpdateQuest;
 
