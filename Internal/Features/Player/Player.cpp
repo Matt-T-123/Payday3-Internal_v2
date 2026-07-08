@@ -220,16 +220,19 @@ void Player::Run()
 		PlayerAttributeSet->Stamina.CurrentValue = 100.0f;
 	}
 
+	//Instant Melee
 	if (m_pInstaMelee->GetValue())
 	{
 		InstantMelee(m_pInstaMelee->GetValue());
 	}
 
+	//Instant Reload
 	if (m_pInstaReload->GetValue())
 	{
 		InstantReload(m_pInstaReload->GetValue());
 	}
 
+	//No Screen Shake
 	if (m_pNoScreenshake->GetValue())
 	{
 		auto* camManager = Unreal::GetPlayerCameraManager();
@@ -237,5 +240,35 @@ void Player::Run()
 			return;
 
 		camManager->StopAllCameraShakes(m_pNoScreenshake->GetValue());
+	}
+
+	//No Fall Damage
+	if (m_pNoFallDamage->GetValue())
+	{
+		auto* localChar = Unreal::GetLocalCharacter();
+		if (!localChar)
+			return;
+
+		localChar->FallingStartHeight = localChar->K2_GetActorLocation().Z;
+	}
+
+	//No Detection
+	if (m_pNoDetection->GetValue())
+	{
+		auto* localChar = Unreal::GetLocalCharacter();
+		if (!localChar)
+			return;
+
+		for (UC::int32 i=0; i<localChar->VisualDetectors.Num(); ++i) {
+        	auto* det = localChar->VisualDetectors[i];
+			if (!det) continue;
+
+			for (UC::int32 e=0; e<det->EnemyDetectionValue.Num(); ++e) {
+				auto& d = det->EnemyDetectionValue[e];
+				d.Target = nullptr;
+        	}
+			det->bMarkAsCriminalOnSearch = false;
+			det->bShouldDisplayDetectionBuildup = false;
+    	}
 	}
 }
