@@ -10,6 +10,18 @@ option("avx2")
     set_description("Enable AVX2 optimizations")
 option_end()
 
+option("avx512")
+    set_default(false)
+    set_showmenu(true)
+    set_description("Enable AVX512 optimizations");
+option_end()
+
+option("avec")
+    set_default(false)
+    set_showmenu(true)
+    set_description("Enable all vector extensions")
+option_end()
+
 -- =========================================================
 -- Global configuration
 -- =========================================================
@@ -58,6 +70,14 @@ target("Internal")
     -- AVX2 support
     if has_config("avx2") then
         add_vectorexts("avx2")
+    end
+
+    if has_config("avx512") then
+        add_vectorexts("avx512")
+    end
+
+    if has_config("avec") then 
+        add_vectorexts("sse", "sse2", "sse4.2", "avx", "avx2", "avx512")
     end
 
     -- Precompiled header
