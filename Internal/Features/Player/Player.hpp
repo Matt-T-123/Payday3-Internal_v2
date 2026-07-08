@@ -65,6 +65,10 @@ private:
 	std::unique_ptr<Combo> m_pPreset = std::make_unique<Combo>("PLAYER_PRESET", "PLAYER_PRESET"Hashed, ElementBase::Style_t{ .iFlags = ImGuiComboFlags_WidthFitPreview });
 	std::unique_ptr<Button> m_pAction = std::make_unique<Button>(std::string("PLAYER_ACTION"), "PLAYER_ACTION"Hashed);
 
+	void blockDamage(bool bEnabled);
+	bool m_bBlockDamageApplied = false;
+	bool m_bOriginalCanBeDamaged = true;
+
 	bool m_bInstantMeleeApplied = false;
     float m_flOriginalMeleeRate = 1.0f;
 	SDK::UAnimMontage* m_pLastMeleeMontage = nullptr;

@@ -103,6 +103,33 @@ void Player::HandleMenu()
 	});
 }
 
+void Player::blockDamage(bool bEnabled)
+{
+	auto* localChar = Unreal::GetLocalCharacter();
+	if (!localChar)
+	{
+		m_bBlockDamageApplied = false;
+		return;
+	}
+
+	if (bEnabled) //I'm not kidding I had to design the method this way because bCanBeDamaged wasn't disabling for some reason. Digusting but it works.
+	{
+		if (!m_bBlockDamageApplied)
+		{
+			m_bOriginalCanBeDamaged = localChar->bCanBeDamaged;
+			m_bBlockDamageApplied = false;
+		}
+
+		localChar->bCanBeDamaged = false;
+		m_bBlockDamageApplied = true;
+	}
+	else if (m_bBlockDamageApplied)
+	{
+		localChar->bCanBeDamaged = m_bOriginalCanBeDamaged;
+		m_bBlockDamageApplied = false;
+	}
+}
+
 void Player::InstantMelee(bool bEnabled)
 {
     auto* localChar = Unreal::GetLocalCharacter();
@@ -201,14 +228,18 @@ void Player::Run()
 
 		if (m_pGodModeType->GetSelectedIndex() == 0){
 			auto* PlayerAttributeSet = localChar->PlayerAttributeSet;
-			//PlayerAttributeSet->Health.CurrentValue = PlayerAttributeSet->HealthMax.CurrentValue;
+			// Need to change back on disable, too lazy to do rn
 			PlayerAttributeSet->Health.CurrentValue = 200.0f;
 		}
-		else{
-			//Figure out how to block damage. Too lazy to do this rn
-			Utils::LogDebug("Block");
+		else
+		{
+			blockDamage(true);
 		}
-	};
+	}
+	else
+	{
+		blockDamage(false);
+	}
 
 	//Infinite Stamina
 	if (m_pInfStamina->GetValue())
