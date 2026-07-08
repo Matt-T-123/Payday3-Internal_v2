@@ -4,18 +4,18 @@
 bool Visuals::SetupMenu()
 {
 	Localization::AddToLocale("ENG", std::initializer_list<std::pair<size_t, std::string>>{
-		{ "VISUALS_BUTTON##VISUALS_FEATURE"Hashed, "Visuals" },
+		{ "VISUALS_BUTTON"Hashed, "Visuals" },
 		{ "VISUALS_MAIN"Hashed, "Main" },
 		{ "VISUALS_ADVANCED"Hashed, "Advanced" },
-		{ "VISUALS_MAIN_LEFT##VISUALS_FEATURE"Hashed, "Overlay" },
-		{ "VISUALS_MAIN_RIGHT##VISUALS_FEATURE"Hashed, "Colors" },
-		{ "VISUALS_ADVANCED_LEFT##VISUALS_FEATURE"Hashed, "Layout" },
-		{ "VISUALS_ADVANCED_RIGHT##VISUALS_FEATURE"Hashed, "Effects" },
-		{ "VISUALS_ENABLED##VISUALS_FEATURE"Hashed, "Enabled" },
-		{ "VISUALS_MODE##VISUALS_FEATURE"Hashed, "Mode" },
-		{ "VISUALS_ACCENT##VISUALS_FEATURE"Hashed, "Accent" },
-		{ "VISUALS_OPACITY##VISUALS_FEATURE"Hashed, "Opacity" },
-		{ "VISUALS_ACTION##VISUALS_FEATURE"Hashed, "Apply" }
+		{ "VISUALS_MAIN_LEFT"Hashed, "Overlay" },
+		{ "VISUALS_MAIN_RIGHT"Hashed, "Colors" },
+		{ "VISUALS_ADVANCED_LEFT"Hashed, "Layout" },
+		{ "VISUALS_ADVANCED_RIGHT"Hashed, "Effects" },
+		{ "VISUALS_ENABLED"Hashed, "Enabled" },
+		{ "VISUALS_MODE"Hashed, "Mode" },
+		{ "VISUALS_ACCENT"Hashed, "Accent" },
+		{ "VISUALS_OPACITY"Hashed, "Opacity" },
+		{ "VISUALS_ACTION"Hashed, "Apply" }
 	});
 
 	return true;
@@ -30,24 +30,19 @@ void Visuals::HandleMenu()
 			pHeaderGroup->AddHeaders(Visuals::s_iVisualsPageId, { "VISUALS_MAIN"Hashed, "VISUALS_ADVANCED"Hashed });
 
 		m_pMainLeft->SetCallback([]() {
-			return ImVec2(ImGui::GetWindowWidth() * 0.48f, 128.f);
+			return ImVec2((ImGui::GetWindowWidth() - 10.0f - 10.0f * 2) / 2, (ImGui::GetWindowHeight() - 20.0f));
 		});
 		m_pMainRight->SetCallback([]() {
-			return ImVec2(ImGui::GetWindowWidth() * 0.48f, 128.f);
+			return ImVec2((ImGui::GetWindowWidth() - 10.0f - 10.0f * 2) / 2, (ImGui::GetWindowHeight() - 10.0f - 10.0f * 2) / 2);
 		});
 		m_pAdvancedLeft->SetCallback([]() {
-			return ImVec2(ImGui::GetWindowWidth() * 0.48f, 96.f);
+			return ImVec2((ImGui::GetWindowWidth() - 10.0f - 10.0f * 2) / 2, (ImGui::GetWindowHeight() - 20.0f));
 		});
 		m_pAdvancedRight->SetCallback([]() {
-			return ImVec2(ImGui::GetWindowWidth() * 0.48f, 96.f);
+			return ImVec2((ImGui::GetWindowWidth() - 10.0f - 10.0f * 2) / 2, (ImGui::GetWindowHeight() - 10.0f - 10.0f * 2) / 2);
 		});
 
-		m_pMode->AddOption("Compact");
-		m_pMode->AddOption("Balanced");
-		m_pMode->AddOption("Detailed");
-
 		m_pMainLeft->AddElement(m_pEnabled.get());
-		m_pMainLeft->AddElement(m_pMode.get());
 		m_pMainRight->AddElement(m_pAccent.get());
 		m_pMainGroup->AddElement(m_pMainLeft.get());
 		m_pMainGroup->AddElement(m_pMainRight.get());

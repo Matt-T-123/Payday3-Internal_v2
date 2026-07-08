@@ -47,7 +47,7 @@ void Player::HandleMenu()
 			return ImVec2((ImGui::GetWindowWidth() - 10.0f - 10.0f * 2) / 2, (ImGui::GetWindowHeight() - 10.0f - 10.0f * 2) / 2);
 		});
 		m_pAdvancedLeft->SetCallback([]() {
-			return ImVec2((ImGui::GetWindowWidth() - 10.0f - 10.0f * 2) / 2, (ImGui::GetWindowHeight() - 10.0f - 10.0f * 2) / 2);
+			return ImVec2((ImGui::GetWindowWidth() - 10.0f - 10.0f * 2) / 2, (ImGui::GetWindowHeight() - 20.0f));
 		});
 		m_pAdvancedRight->SetCallback([]() {
 			return ImVec2((ImGui::GetWindowWidth() - 10.0f - 10.0f * 2) / 2, (ImGui::GetWindowHeight() - 10.0f - 10.0f * 2) / 2);
@@ -86,7 +86,6 @@ void Player::HandleMenu()
 		m_pGodModeType->AddOption("Block");
 		m_pMainRight->AddElement(m_pGodModeType.get());
 
-		m_pMainRight->AddElement(m_pScale.get());
 		m_pMainGroup->AddElement(m_pMainLeft.get());
 		m_pMainGroup->AddElement(m_pMainRight.get());
 

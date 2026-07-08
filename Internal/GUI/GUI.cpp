@@ -50,7 +50,7 @@ void GUI::Render()
 			if (pVisuals)
 				GuiSidebar->InsertElementAfter(pVisuals->GetMenuButton(), "PLAYER_BUTTON");
 			if (pAimbot)
-				GuiSidebar->InsertElementAfter(pAimbot->GetMenuButton(), "VISUALS_BUTTON##VISUALS_FEATURE");
+				GuiSidebar->InsertElementAfter(pAimbot->GetMenuButton(), "VISUALS_BUTTON");
 
 			// Set the default page (optional - defaults to 0 if not set)
 			ElementBase::SetDefaultPage(GuiConfig->GetPageId());

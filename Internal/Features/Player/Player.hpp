@@ -61,7 +61,6 @@ private:
 	std::unique_ptr<Checkbox> m_pNoFallDamage = std::make_unique<Checkbox>("PLAYER_NO_FALLDAMAGE", "PLAYER_NO_FALLDAMAGE"Hashed);
 	std::unique_ptr<Checkbox> m_pNoDetection = std::make_unique<Checkbox>("PLAYER_NO_DETECTION", "PLAYER_NO_DETECTION"Hashed);
 
-	std::unique_ptr<SliderFloat> m_pScale = std::make_unique<SliderFloat>("PLAYER_SCALE", "PLAYER_SCALE"Hashed, ElementBase::Style_t{}, 0.5f, 0.0f, 1.0f);
 	std::unique_ptr<Combo> m_pPreset = std::make_unique<Combo>("PLAYER_PRESET", "PLAYER_PRESET"Hashed, ElementBase::Style_t{ .iFlags = ImGuiComboFlags_WidthFitPreview });
 	std::unique_ptr<Button> m_pAction = std::make_unique<Button>(std::string("PLAYER_ACTION"), "PLAYER_ACTION"Hashed);
 
