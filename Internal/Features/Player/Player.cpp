@@ -6,7 +6,8 @@ bool Player::SetupMenu()
 	Localization::AddToLocale("ENG", std::initializer_list<std::pair<size_t, std::string>>{
 		{ "PLAYER_BUTTON"Hashed, "Player" },
 		{ "PLAYER_TAB1"Hashed, "Player" },
-		{ "PLAYER_TAB2"Hashed, "Advanced" },
+		{ "PLAYER_TAB2"Hashed, "Players" },
+		{ "PLAYER_TAB3"Hashed, "Weapon Mods" },
 
 		{ "PLAYER_TAB1_LEFT"Hashed, "General" },
 		{ "PLAYER_TAB1_RIGHT"Hashed, "Options" },
@@ -38,7 +39,7 @@ void Player::HandleMenu()
 	std::call_once(onceflag, [this]() {
 		auto pHeaderGroup = static_cast<HeaderGroup*>(Framework::menu->GetChild("HEADER_GROUP"));
 		if (pHeaderGroup)
-			pHeaderGroup->AddHeaders(Player::s_iPlayerPageId, { "PLAYER_TAB1"Hashed, "PLAYER_TAB2"Hashed });
+			pHeaderGroup->AddHeaders(Player::s_iPlayerPageId, { "PLAYER_TAB1"Hashed, "PLAYER_TAB2"Hashed, "PLAYER_TAB3"Hashed });
 
 		m_pMainLeft->SetCallback([]() {
 			return ImVec2((ImGui::GetWindowWidth() - 10.0f - 10.0f * 2) / 2, (ImGui::GetWindowHeight() - 20.0f));

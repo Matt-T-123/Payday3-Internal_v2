@@ -72,23 +72,27 @@ namespace CRC64
         0xa6df411fbfb21ca3, 0xdc0731d78f8795da, 0x536fa08fdfd90e51, 0x29b7d047efec8728,
     };
 
-    constexpr size_t hash(const char* sz, const size_t size)
+    constexpr size_t hash(const char* sz, size_t size)
     {
-        size_t crc = 0xffffffffffffffff;
-        for (size_t i = 0; i < size; i++)
-            crc = (crc >> 8) ^ table[(crc & sz[i]) & 0xff];
+        size_t crc = 0xFFFFFFFFFFFFFFFFull;
 
-        return crc ^ 0xffffffffffffffff;
-    };
+        for (size_t i = 0; i < size; ++i)
+            crc = (crc >> 8) ^
+                table[(crc ^ static_cast<unsigned char>(sz[i])) & 0xFF];
+
+        return crc ^ 0xFFFFFFFFFFFFFFFFull;
+    }
 
     constexpr size_t hash(const std::string& s)
     {
-        size_t crc = 0xffffffffffffffff;
-        for (char c : s)
-            crc = (crc >> 8) ^ table[(crc & c) & 0xff];
+        size_t crc = 0xFFFFFFFFFFFFFFFFull;
 
-        return crc ^ 0xffffffffffffffff;
-    };
+        for (unsigned char c : s)
+            crc = (crc >> 8) ^
+                table[(crc ^ c) & 0xFF];
+
+        return crc ^ 0xFFFFFFFFFFFFFFFFull;
+    }
 };
 
 constexpr size_t operator "" Hashed(const char* sz, size_t size)

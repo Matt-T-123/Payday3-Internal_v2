@@ -247,11 +247,14 @@ bool ImAdd::RadioButton(const char* label, uint8_t* v, uint8_t current_id, const
 
     ImGuiContext& g = *GImGui;
     const ImGuiStyle& style = g.Style;
-    const ImGuiID id = window->GetID(label);
+    ImGuiID id = window->GetID(label);
     const ImVec2 label_size = CalcTextSize(label, NULL, true);
-
     ImVec2 pos = window->DC.CursorPos;
-    ImVec2 size = CalcItemSize(size_arg, label_size.x + style.FramePadding.x * 2.0f, label_size.y + style.FramePadding.y * 2.0f);
+    ImVec2 size = CalcItemSize(
+        size_arg,
+        label_size.x + style.FramePadding.x * 2.0f,
+        label_size.y + style.FramePadding.y * 2.0f
+    );
 
     const ImRect bb(pos, pos + size);
     ItemSize(size, style.FramePadding.y);
@@ -260,41 +263,87 @@ bool ImAdd::RadioButton(const char* label, uint8_t* v, uint8_t current_id, const
 
     bool hovered, held;
     bool pressed = ButtonBehavior(bb, id, &hovered, &held);
-    bool active = *v == current_id;
-
+    bool active = (*v == current_id);
+    
     float border_size = style.FrameBorderSize;
 
-    // Animate Colors
     static std::map<ImGuiID, DefaultStyles_State> anim;
     auto it_anim = anim.find(id);
 
     if (it_anim == anim.end())
     {
-        anim.insert({ id, DefaultStyles_State() });
+        anim.emplace(id, DefaultStyles_State());
         it_anim = anim.find(id);
     }
 
     ImVec4 frameColDefault = GetStyleColorVec4(ImGuiCol_FrameBg);
-    ImVec4 frameColNull = frameColDefault; frameColNull.w = 0;
-    it_anim->second.FrameBg = ImLerp(it_anim->second.FrameBg, active ? frameColDefault : frameColNull, 1.0f / fAnimationSpeed * ImGui::GetIO().DeltaTime);
+    ImVec4 frameColNull = frameColDefault;
+    frameColNull.w = 0;
+
+    it_anim->second.FrameBg =
+        ImLerp(
+            it_anim->second.FrameBg,
+            active ? frameColDefault : frameColNull,
+            1.0f / fAnimationSpeed * ImGui::GetIO().DeltaTime
+        );
+
     ImU32 frameCol = GetColorU32(it_anim->second.FrameBg);
 
     ImVec4 borderColDefault = GetStyleColorVec4(ImGuiCol_Border);
-    ImVec4 borderColNull = borderColDefault; borderColNull.w = 0;
-    it_anim->second.Border = ImLerp(it_anim->second.Border, active ? borderColDefault : borderColNull, 1.0f / fAnimationSpeed * ImGui::GetIO().DeltaTime);
+    ImVec4 borderColNull = borderColDefault;
+    borderColNull.w = 0;
+
+    it_anim->second.Border =
+        ImLerp(
+            it_anim->second.Border,
+            active ? borderColDefault : borderColNull,
+            1.0f / fAnimationSpeed * ImGui::GetIO().DeltaTime
+        );
+
     ImU32 borderCol = GetColorU32(it_anim->second.Border);
 
-    it_anim->second.Text = ImLerp(it_anim->second.Text, GetStyleColorVec4((active || held || hovered) ? ImGuiCol_Text : ImGuiCol_TextDisabled), 1.0f / fAnimationSpeed * ImGui::GetIO().DeltaTime);
+    it_anim->second.Text =
+        ImLerp(
+            it_anim->second.Text,
+            GetStyleColorVec4(
+                (active || held || hovered)
+                ? ImGuiCol_Text
+                : ImGuiCol_TextDisabled
+            ),
+            1.0f / fAnimationSpeed * ImGui::GetIO().DeltaTime
+        );
+
     ImU32 textCol = GetColorU32(it_anim->second.Text);
 
-    // Render
     RenderNavHighlight(bb, id);
 
-    window->DrawList->AddRectFilled(pos, pos + size, frameCol, style.FrameRounding);
-    if (border_size > 0)
-        window->DrawList->AddRect(pos, pos + size, borderCol, style.FrameRounding, 0, border_size);
+    window->DrawList->AddRectFilled(
+        bb.Min,
+        bb.Max,
+        frameCol,
+        style.FrameRounding
+    );
 
-    window->DrawList->AddText(pos + ImVec2(size.x / 2 - label_size.x / 2, size.y / 2 - label_size.y / 2), textCol, label);
+    if (border_size > 0)
+    {
+        window->DrawList->AddRect(
+            bb.Min,
+            bb.Max,
+            borderCol,
+            style.FrameRounding,
+            0,
+            border_size
+        );
+    }
+
+    window->DrawList->AddText(
+        bb.Min + ImVec2(
+            size.x / 2 - label_size.x / 2,
+            size.y / 2 - label_size.y / 2
+        ),
+        textCol,
+        label
+    );
 
     if (pressed)
         *v = current_id;

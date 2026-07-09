@@ -97,27 +97,37 @@ const size_t Localization::_GetCurrentLocaleIndex() const
 
 void Localization::_AddToLocale(std::string sLocaleKey, size_t ullKeyHash, std::string sLocalizedString)
 {
-	size_t ullLocaleKeyHash = CRC64::hash(sLocaleKey);
-	for (Locale_t& stLocale : m_Locales)
-	{
-		if (stLocale.ullKeyHash != ullLocaleKeyHash)
-			continue;
+    const size_t ullLocaleKeyHash = CRC64::hash(sLocaleKey);
 
-		stLocale.umLocalizedStrings.try_emplace(ullKeyHash, sLocalizedString);
-		return;
-	}
+    for (Locale_t& stLocale : m_Locales)
+    {
+        if (stLocale.ullKeyHash != ullLocaleKeyHash)
+            continue;
 
-	// If we find that the current locale was not **yet** created, we just create a dummy locale and add this localized string
-	m_Locales.emplace_back(Locale_t({
-		.sKey = sLocaleKey,
-		.ullKeyHash = ullKeyHash,
+        auto itr = stLocale.umLocalizedStrings.find(ullKeyHash);
+        if (itr != stLocale.umLocalizedStrings.end())
+        {
+            Utils::LogError(
+                "Duplicate localization key detected!\n"
+                "Hash: " + std::to_string(ullKeyHash) +
+                "\nExisting: \"" + itr->second +
+                "\"\nNew: \"" + sLocalizedString + "\""
+            );
+        }
 
-		.hMenuFont = &TahomaFont,
+        stLocale.umLocalizedStrings[ullKeyHash] = sLocalizedString;
+        return;
+    }
 
-		.umLocalizedStrings = std::unordered_map<size_t, std::string>({
-			{ ullKeyHash, sLocalizedString },
-		}),
-		}));
+    Locale_t stNewLocale;
+    stNewLocale.sKey = sLocaleKey;
+    stNewLocale.ullKeyHash = ullLocaleKeyHash;
+    stNewLocale.hMenuFont = &TahomaFont;
+    stNewLocale.hFeatureFont = nullptr;
+
+    stNewLocale.umLocalizedStrings.emplace(ullKeyHash, sLocalizedString);
+
+    m_Locales.emplace_back(std::move(stNewLocale));
 }
 
 void Localization::_AddToLocale(std::string sLocaleKey, std::initializer_list<std::pair<size_t, std::string>> ilLocalizedStrings)

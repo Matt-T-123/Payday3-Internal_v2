@@ -25,8 +25,15 @@ private:
 		s_iPlayerPageId,
 		1);
 
+	std::unique_ptr<Page> m_pWeaponModsPage = std::make_unique<Page>(
+		"PLAYER_TAB3_PAGE",
+		ElementBase::Style_t(),
+		s_iPlayerPageId,
+		2);
+
 	std::unique_ptr<Group> m_pMainGroup = std::make_unique<Group>("PLAYER_TAB1_GROUP", ElementBase::Style_t{});
 	std::unique_ptr<Group> m_pAdvancedGroup = std::make_unique<Group>("PLAYER_TAB2_GROUP", ElementBase::Style_t{});
+	std::unique_ptr<Group> m_pWeaponModsGroup = std::make_unique<Group>("PLAYER_TAB3_GROUP", ElementBase::Style_t{});
 
 	std::unique_ptr<GroupChild> m_pMainLeft = std::make_unique<GroupChild>(
 		"PLAYER_TAB1_LEFT",
