@@ -13,40 +13,40 @@ private:
 		ICON_FA_EYE,
 		s_iVisualsPageId);
 
-	std::unique_ptr<Page> m_pMainPage = std::make_unique<Page>(
+	std::unique_ptr<Page> m_pTab1Page = std::make_unique<Page>(
 		"VISUALS_MAIN_PAGE",
 		ElementBase::Style_t(),
 		s_iVisualsPageId,
 		0);
 
-	std::unique_ptr<Page> m_pAdvancedPage = std::make_unique<Page>(
+	std::unique_ptr<Page> m_pTab2Page = std::make_unique<Page>(
 		"VISUALS_ADVANCED_PAGE",
 		ElementBase::Style_t(),
 		s_iVisualsPageId,
 		1);
 
-	std::unique_ptr<Group> m_pMainGroup = std::make_unique<Group>("VISUALS_MAIN_GROUP", ElementBase::Style_t{});
-	std::unique_ptr<Group> m_pAdvancedGroup = std::make_unique<Group>("VISUALS_ADVANCED_GROUP", ElementBase::Style_t{});
+	std::unique_ptr<Group> m_pTab1Group = std::make_unique<Group>("VISUALS_MAIN_GROUP", ElementBase::Style_t{});
+	std::unique_ptr<Group> m_pTab2Group = std::make_unique<Group>("VISUALS_ADVANCED_GROUP", ElementBase::Style_t{});
 
-	std::unique_ptr<GroupChild> m_pMainLeft = std::make_unique<GroupChild>(
+	std::unique_ptr<GroupChild> m_pTab1Left = std::make_unique<GroupChild>(
 		"VISUALS_MAIN_LEFT",
 		"VISUALS_MAIN_LEFT"Hashed,
 		ElementBase::Style_t(),
 		ImGuiChildFlags_Border);
 
-	std::unique_ptr<GroupChild> m_pMainRight = std::make_unique<GroupChild>(
+	std::unique_ptr<GroupChild> m_pTab1Right = std::make_unique<GroupChild>(
 		"VISUALS_MAIN_RIGHT",
 		"VISUALS_MAIN_RIGHT"Hashed,
 		ElementBase::Style_t{ .eSameLine = ElementBase::ESameLine::Same },
 		ImGuiChildFlags_Border);
 
-	std::unique_ptr<GroupChild> m_pAdvancedLeft = std::make_unique<GroupChild>(
+	std::unique_ptr<GroupChild> m_pTab2Left = std::make_unique<GroupChild>(
 		"VISUALS_ADVANCED_LEFT",
 		"VISUALS_ADVANCED_LEFT"Hashed,
 		ElementBase::Style_t(),
 		ImGuiChildFlags_Border);
 
-	std::unique_ptr<GroupChild> m_pAdvancedRight = std::make_unique<GroupChild>(
+	std::unique_ptr<GroupChild> m_pTab2Right = std::make_unique<GroupChild>(
 		"VISUALS_ADVANCED_RIGHT",
 		"VISUALS_ADVANCED_RIGHT"Hashed,
 		ElementBase::Style_t{ .eSameLine = ElementBase::ESameLine::Same },

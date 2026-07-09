@@ -13,40 +13,40 @@ private:
 		ICON_FA_CROSSHAIRS,
 		s_iAimbotPageId);
 
-	std::unique_ptr<Page> m_pMainPage = std::make_unique<Page>(
+	std::unique_ptr<Page> m_pTab1Page = std::make_unique<Page>(
 		"AIMBOT_MAIN_PAGE##AIMBOT_FEATURE",
 		ElementBase::Style_t(),
 		s_iAimbotPageId,
 		0);
 
-	std::unique_ptr<Page> m_pAdvancedPage = std::make_unique<Page>(
+	std::unique_ptr<Page> m_pTab2Page = std::make_unique<Page>(
 		"AIMBOT_ADVANCED_PAGE##AIMBOT_FEATURE",
 		ElementBase::Style_t(),
 		s_iAimbotPageId,
 		1);
 
-	std::unique_ptr<Group> m_pMainGroup = std::make_unique<Group>("AIMBOT_MAIN_GROUP##AIMBOT_FEATURE", ElementBase::Style_t{});
-	std::unique_ptr<Group> m_pAdvancedGroup = std::make_unique<Group>("AIMBOT_ADVANCED_GROUP##AIMBOT_FEATURE", ElementBase::Style_t{});
+	std::unique_ptr<Group> m_pTab1Group = std::make_unique<Group>("AIMBOT_MAIN_GROUP##AIMBOT_FEATURE", ElementBase::Style_t{});
+	std::unique_ptr<Group> m_pTab2Group = std::make_unique<Group>("AIMBOT_ADVANCED_GROUP##AIMBOT_FEATURE", ElementBase::Style_t{});
 
-	std::unique_ptr<GroupChild> m_pMainLeft = std::make_unique<GroupChild>(
+	std::unique_ptr<GroupChild> m_pTab1Left = std::make_unique<GroupChild>(
 		"AIMBOT_MAIN_LEFT",
 		"AIMBOT_MAIN_LEFT"Hashed,
 		ElementBase::Style_t(),
 		ImGuiChildFlags_Border);
 
-	std::unique_ptr<GroupChild> m_pMainRight = std::make_unique<GroupChild>(
+	std::unique_ptr<GroupChild> m_pTab1Right = std::make_unique<GroupChild>(
 		"AIMBOT_MAIN_RIGHT",
 		"AIMBOT_MAIN_RIGHT"Hashed,
 		ElementBase::Style_t{ .eSameLine = ElementBase::ESameLine::Same },
 		ImGuiChildFlags_Border);
 
-	std::unique_ptr<GroupChild> m_pAdvancedLeft = std::make_unique<GroupChild>(
+	std::unique_ptr<GroupChild> m_pTab2Left = std::make_unique<GroupChild>(
 		"AIMBOT_ADVANCED_LEFT",
 		"AIMBOT_ADVANCED_LEFT"Hashed,
 		ElementBase::Style_t(),
 		ImGuiChildFlags_Border);
 
-	std::unique_ptr<GroupChild> m_pAdvancedRight = std::make_unique<GroupChild>(
+	std::unique_ptr<GroupChild> m_pTab2Right = std::make_unique<GroupChild>(
 		"AIMBOT_ADVANCED_RIGHT",
 		"AIMBOT_ADVANCED_RIGHT"Hashed,
 		ElementBase::Style_t{ .eSameLine = ElementBase::ESameLine::Same },

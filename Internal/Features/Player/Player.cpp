@@ -5,7 +5,7 @@ bool Player::SetupMenu()
 {
 	Localization::AddToLocale("ENG", std::initializer_list<std::pair<size_t, std::string>>{
 		{ "PLAYER_BUTTON"Hashed, "Player" },
-		{ "PLAYER_TAB1"Hashed, "Player" },
+		{ "PLAYER_TAB1"Hashed, "Local Player" },
 		{ "PLAYER_TAB2"Hashed, "Players" },
 		{ "PLAYER_TAB3"Hashed, "Weapon Mods" },
 
@@ -15,6 +15,7 @@ bool Player::SetupMenu()
 		{ "PLAYER_TAB2_LEFT"Hashed, "Details" },
 		{ "PLAYER_TAB2_RIGHT"Hashed, "Actions" },
 
+		//Tab 1
 		{ "PLAYER_GODMODE_TYPE"Hashed, "Godmode Type" },
 		{ "PLAYER_GODMODE"Hashed, "Godmode" },
 		{ "PLAYER_INF_STAMINA"Hashed, "Infinite Stamina" },
@@ -24,9 +25,10 @@ bool Player::SetupMenu()
 		{ "PLAYER_NO_FALLDAMAGE"Hashed, "No Fall Damage" },
 		{ "PLAYER_NO_DETECTION"Hashed, "No Detection" },
 
-		{ "PLAYER_SCALE"Hashed, "Scale" },
-		{ "PLAYER_PRESET"Hashed, "Preset" },
-		{ "PLAYER_ACTION"Hashed, "Apply" }
+		//Tab2
+		{ "PLAYER_TABLE"Hashed, "Players" },
+		{ "PLAYER_TABLE_ROW1"Hashed, "Name" }
+
 	});
 
 	return true;
@@ -41,65 +43,64 @@ void Player::HandleMenu()
 		if (pHeaderGroup)
 			pHeaderGroup->AddHeaders(Player::s_iPlayerPageId, { "PLAYER_TAB1"Hashed, "PLAYER_TAB2"Hashed, "PLAYER_TAB3"Hashed });
 
-		m_pMainLeft->SetCallback([]() {
+		m_pTab1Left->SetCallback([]() {
 			return ImVec2((ImGui::GetWindowWidth() - 10.0f - 10.0f * 2) / 2, (ImGui::GetWindowHeight() - 20.0f));
 		});
-		m_pMainRight->SetCallback([]() {
+		m_pTab1Right->SetCallback([]() {
 			return ImVec2((ImGui::GetWindowWidth() - 10.0f - 10.0f * 2) / 2, (ImGui::GetWindowHeight() - 10.0f - 10.0f * 2) / 2);
 		});
-		m_pAdvancedLeft->SetCallback([]() {
-			return ImVec2((ImGui::GetWindowWidth() - 10.0f - 10.0f * 2) / 2, (ImGui::GetWindowHeight() - 20.0f));
+		m_pTab2Left->SetCallback([]() {
+			return ImVec2((ImGui::GetWindowWidth() - 20.0f), (ImGui::GetWindowHeight() - 20.0f));
 		});
-		m_pAdvancedRight->SetCallback([]() {
-			return ImVec2((ImGui::GetWindowWidth() - 10.0f - 10.0f * 2) / 2, (ImGui::GetWindowHeight() - 10.0f - 10.0f * 2) / 2);
-		});
-
-		m_pPreset->AddOption("Default");
-		m_pPreset->AddOption("Compact");
-		m_pPreset->AddOption("Expanded");
 
 		// Godmode Toggle
-		m_pMainLeft->AddElement(m_pGodMode.get());
+		m_pTab1Left->AddElement(m_pGodMode.get());
 
 		// Infinite Stamina Toggle
-		m_pMainLeft->AddElement(m_pInfStamina.get());
+		m_pTab1Left->AddElement(m_pInfStamina.get());
 
 		// Instant Melee Toggle
-		m_pMainLeft->AddElement(m_pInstaMelee.get());
+		m_pTab1Left->AddElement(m_pInstaMelee.get());
 		m_pInstaMelee->SetOnValueChangedCallback([this](const bool, const bool bNewValue) {
 			InstantMelee(bNewValue);
 		});
 
 		// Instant Reload Toggle
-		m_pMainLeft->AddElement(m_pInstaReload.get());
+		m_pTab1Left->AddElement(m_pInstaReload.get());
 
 		// No Screenshake Toggle
-		m_pMainLeft->AddElement(m_pNoScreenshake.get());
+		m_pTab1Left->AddElement(m_pNoScreenshake.get());
 
 		// No Fall Damage Toggle
-		m_pMainLeft->AddElement(m_pNoFallDamage.get());
+		m_pTab1Left->AddElement(m_pNoFallDamage.get());
 
 		// No Detection Toggle
-		m_pMainLeft->AddElement(m_pNoDetection.get());
+		m_pTab1Left->AddElement(m_pNoDetection.get());
 
 		// Godmode Type
 		m_pGodModeType->AddOption("Set");
 		m_pGodModeType->AddOption("Block");
-		m_pMainRight->AddElement(m_pGodModeType.get());
+		m_pTab1Right->AddElement(m_pGodModeType.get());
 
-		m_pMainGroup->AddElement(m_pMainLeft.get());
-		m_pMainGroup->AddElement(m_pMainRight.get());
+		m_pTab1Group->AddElement(m_pTab1Left.get());
+		m_pTab1Group->AddElement(m_pTab1Right.get());
 
-		m_pAdvancedLeft->AddElement(m_pPreset.get());
-		m_pAdvancedRight->AddElement(m_pAction.get());
-		m_pAdvancedGroup->AddElement(m_pAdvancedLeft.get());
-		m_pAdvancedGroup->AddElement(m_pAdvancedRight.get());
+		//Add a 4x4 table then populate it with player(s) info
+		//Need to figure out then best way to interact with the players in the table, maybe a left click player color highlight and then select an action from below the table ?
+		
+		m_pPlayerRow1->AddElement(m_pPlayerName.get());
+		m_pPlayerRow1->AddElement(m_pPlayerHealth.get());
+		m_pPlayerTable->AddElement(m_pPlayerRow1.get());
+		m_pTab2Left->AddElement(m_pPlayerTable.get());
+		m_pTab2Group->AddElement(m_pTab2Left.get());
 
-		m_pMainPage->AddElement(m_pMainGroup.get());
-		m_pAdvancedPage->AddElement(m_pAdvancedGroup.get());
+		m_pTab1Page->AddElement(m_pTab1Group.get());
+		m_pTab2Page->AddElement(m_pTab2Group.get());
+		m_pTab3Page->AddElement(m_pTab3Group.get());
 
-		Framework::menu->GetChild("HEADER_GROUP")->GetChild("BODY")->AddElement(m_pMainPage.get());
-		Framework::menu->GetChild("HEADER_GROUP")->GetChild("BODY")->AddElement(m_pAdvancedPage.get());
+		Framework::menu->GetChild("HEADER_GROUP")->GetChild("BODY")->AddElement(m_pTab1Page.get());
+		Framework::menu->GetChild("HEADER_GROUP")->GetChild("BODY")->AddElement(m_pTab2Page.get());
+		Framework::menu->GetChild("HEADER_GROUP")->GetChild("BODY")->AddElement(m_pTab3Page.get());
 	});
 }
 

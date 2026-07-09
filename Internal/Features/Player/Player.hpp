@@ -13,52 +13,47 @@ private:
 		ICON_FA_USER,
 		s_iPlayerPageId);
 
-	std::unique_ptr<Page> m_pMainPage = std::make_unique<Page>(
+	std::unique_ptr<Page> m_pTab1Page = std::make_unique<Page>(
 		"PLAYER_TAB1_PAGE",
 		ElementBase::Style_t(),
 		s_iPlayerPageId,
 		0);
 
-	std::unique_ptr<Page> m_pAdvancedPage = std::make_unique<Page>(
+	std::unique_ptr<Page> m_pTab2Page = std::make_unique<Page>(
 		"PLAYER_TAB2_PAGE",
 		ElementBase::Style_t(),
 		s_iPlayerPageId,
 		1);
 
-	std::unique_ptr<Page> m_pWeaponModsPage = std::make_unique<Page>(
+	std::unique_ptr<Page> m_pTab3Page = std::make_unique<Page>(
 		"PLAYER_TAB3_PAGE",
 		ElementBase::Style_t(),
 		s_iPlayerPageId,
 		2);
 
-	std::unique_ptr<Group> m_pMainGroup = std::make_unique<Group>("PLAYER_TAB1_GROUP", ElementBase::Style_t{});
-	std::unique_ptr<Group> m_pAdvancedGroup = std::make_unique<Group>("PLAYER_TAB2_GROUP", ElementBase::Style_t{});
-	std::unique_ptr<Group> m_pWeaponModsGroup = std::make_unique<Group>("PLAYER_TAB3_GROUP", ElementBase::Style_t{});
+	std::unique_ptr<Group> m_pTab1Group = std::make_unique<Group>("PLAYER_TAB1_GROUP", ElementBase::Style_t{});
+	std::unique_ptr<Group> m_pTab2Group = std::make_unique<Group>("PLAYER_TAB2_GROUP", ElementBase::Style_t{});
+	std::unique_ptr<Group> m_pTab3Group = std::make_unique<Group>("PLAYER_TAB3_GROUP", ElementBase::Style_t{});
 
-	std::unique_ptr<GroupChild> m_pMainLeft = std::make_unique<GroupChild>(
+	std::unique_ptr<GroupChild> m_pTab1Left = std::make_unique<GroupChild>(
 		"PLAYER_TAB1_LEFT",
 		"PLAYER_TAB1_LEFT"Hashed,
 		ElementBase::Style_t(),
 		ImGuiChildFlags_Border);
 
-	std::unique_ptr<GroupChild> m_pMainRight = std::make_unique<GroupChild>(
+	std::unique_ptr<GroupChild> m_pTab1Right = std::make_unique<GroupChild>(
 		"PLAYER_TAB1_RIGHT",
 		"PLAYER_TAB1_RIGHT"Hashed,
 		ElementBase::Style_t{ .eSameLine = ElementBase::ESameLine::Same },
 		ImGuiChildFlags_Border);
 
-	std::unique_ptr<GroupChild> m_pAdvancedLeft = std::make_unique<GroupChild>(
+	std::unique_ptr<GroupChild> m_pTab2Left = std::make_unique<GroupChild>(
 		"PLAYER_TAB2_LEFT",
 		"PLAYER_TAB2_LEFT"Hashed,
 		ElementBase::Style_t(),
 		ImGuiChildFlags_Border);
 
-	std::unique_ptr<GroupChild> m_pAdvancedRight = std::make_unique<GroupChild>(
-		"PLAYER_TAB2_RIGHT",
-		"PLAYER_TAB2_RIGHT"Hashed,
-		ElementBase::Style_t{ .eSameLine = ElementBase::ESameLine::Same },
-		ImGuiChildFlags_Border);
-
+	//Tab 1
 	std::unique_ptr<Combo> m_pGodModeType = std::make_unique<Combo>("PLAYER_GODMODE_TYPE", "PLAYER_GODMODE_TYPE"Hashed, ElementBase::Style_t{ .iFlags = ImGuiComboFlags_WidthFitPreview });
 	std::unique_ptr<Checkbox> m_pGodMode = std::make_unique<Checkbox>("PLAYER_GODMODE", "PLAYER_GODMODE"Hashed);
 	std::unique_ptr<Checkbox> m_pInfStamina = std::make_unique<Checkbox>("PLAYER_INF_STAMINA", "PLAYER_INF_STAMINA"Hashed);
@@ -68,8 +63,11 @@ private:
 	std::unique_ptr<Checkbox> m_pNoFallDamage = std::make_unique<Checkbox>("PLAYER_NO_FALLDAMAGE", "PLAYER_NO_FALLDAMAGE"Hashed);
 	std::unique_ptr<Checkbox> m_pNoDetection = std::make_unique<Checkbox>("PLAYER_NO_DETECTION", "PLAYER_NO_DETECTION"Hashed);
 
-	std::unique_ptr<Combo> m_pPreset = std::make_unique<Combo>("PLAYER_PRESET", "PLAYER_PRESET"Hashed, ElementBase::Style_t{ .iFlags = ImGuiComboFlags_WidthFitPreview });
-	std::unique_ptr<Button> m_pAction = std::make_unique<Button>(std::string("PLAYER_ACTION"), "PLAYER_ACTION"Hashed);
+	//Tab 2
+	std::unique_ptr<Table> m_pPlayerTable = std::make_unique<Table>("PLAYER_TABLE", 3, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg, ElementBase::Style_t { .vec2Size = ImVec2( 400.0f, 100.0f) });
+	std::unique_ptr<TableRow> m_pPlayerRow1 = std::make_unique<TableRow>("PLAYER_TABLE_ROW1");
+	std::unique_ptr<_Text> m_pPlayerName = std::make_unique<_Text>("PLAYER_NAME", "Omega");
+	std::unique_ptr<_Text> m_pPlayerHealth = std::make_unique<_Text>("PLAYER_HEALTH", "smells");
 
 	void blockDamage(bool bEnabled);
 	bool m_bBlockDamageApplied = false;

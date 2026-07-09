@@ -29,34 +29,34 @@ void Visuals::HandleMenu()
 		if (pHeaderGroup)
 			pHeaderGroup->AddHeaders(Visuals::s_iVisualsPageId, { "VISUALS_MAIN"Hashed, "VISUALS_ADVANCED"Hashed });
 
-		m_pMainLeft->SetCallback([]() {
+		m_pTab1Left->SetCallback([]() {
 			return ImVec2((ImGui::GetWindowWidth() - 10.0f - 10.0f * 2) / 2, (ImGui::GetWindowHeight() - 20.0f));
 		});
-		m_pMainRight->SetCallback([]() {
+		m_pTab1Right->SetCallback([]() {
 			return ImVec2((ImGui::GetWindowWidth() - 10.0f - 10.0f * 2) / 2, (ImGui::GetWindowHeight() - 10.0f - 10.0f * 2) / 2);
 		});
-		m_pAdvancedLeft->SetCallback([]() {
+		m_pTab2Left->SetCallback([]() {
 			return ImVec2((ImGui::GetWindowWidth() - 10.0f - 10.0f * 2) / 2, (ImGui::GetWindowHeight() - 20.0f));
 		});
-		m_pAdvancedRight->SetCallback([]() {
+		m_pTab2Right->SetCallback([]() {
 			return ImVec2((ImGui::GetWindowWidth() - 10.0f - 10.0f * 2) / 2, (ImGui::GetWindowHeight() - 10.0f - 10.0f * 2) / 2);
 		});
 
-		m_pMainLeft->AddElement(m_pEnabled.get());
-		m_pMainRight->AddElement(m_pAccent.get());
-		m_pMainGroup->AddElement(m_pMainLeft.get());
-		m_pMainGroup->AddElement(m_pMainRight.get());
+		m_pTab1Left->AddElement(m_pEnabled.get());
+		m_pTab1Right->AddElement(m_pAccent.get());
+		m_pTab1Group->AddElement(m_pTab1Left.get());
+		m_pTab1Group->AddElement(m_pTab1Right.get());
 
-		m_pAdvancedLeft->AddElement(m_pOpacity.get());
-		m_pAdvancedRight->AddElement(m_pAction.get());
-		m_pAdvancedGroup->AddElement(m_pAdvancedLeft.get());
-		m_pAdvancedGroup->AddElement(m_pAdvancedRight.get());
+		m_pTab2Left->AddElement(m_pOpacity.get());
+		m_pTab2Right->AddElement(m_pAction.get());
+		m_pTab2Group->AddElement(m_pTab2Left.get());
+		m_pTab2Group->AddElement(m_pTab2Right.get());
 
-		m_pMainPage->AddElement(m_pMainGroup.get());
-		m_pAdvancedPage->AddElement(m_pAdvancedGroup.get());
+		m_pTab1Page->AddElement(m_pTab1Group.get());
+		m_pTab2Page->AddElement(m_pTab2Group.get());
 
-		Framework::menu->GetChild("HEADER_GROUP")->GetChild("BODY")->AddElement(m_pMainPage.get());
-		Framework::menu->GetChild("HEADER_GROUP")->GetChild("BODY")->AddElement(m_pAdvancedPage.get());
+		Framework::menu->GetChild("HEADER_GROUP")->GetChild("BODY")->AddElement(m_pTab1Page.get());
+		Framework::menu->GetChild("HEADER_GROUP")->GetChild("BODY")->AddElement(m_pTab2Page.get());
 	});
 }
 

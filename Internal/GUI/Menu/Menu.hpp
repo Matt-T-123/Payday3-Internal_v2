@@ -67,6 +67,8 @@ public:
 		SeperatorText,
 		Spacing,
 		Text,
+		Table,
+		TableRow,
 	};
 
 	enum class ESameLine : uint8_t
@@ -1863,4 +1865,103 @@ public:
 	{
 		m_PopVarsCallback = Callback;
 	};
+};
+
+class Table : public ElementBase
+{
+protected:
+	int m_iColumns;
+	ImGuiTableFlags m_TableFlags;
+	std::vector<std::string> m_Columns;
+
+public:
+
+	Table(
+		std::string sUnique,
+		int columns,
+		ImGuiTableFlags flags = 0,
+		Style_t stStyle = {}
+	)
+	{
+		m_sUnique = sUnique;
+		m_iColumns = columns;
+		m_TableFlags = flags;
+		m_stStyle = stStyle;
+	}
+
+	constexpr EElementType GetType() const override
+	{
+		return EElementType::Table;
+	}
+
+	void AddColumn(const std::string& sName)
+	{
+		m_Columns.push_back(sName);
+	}
+
+	void Render() override
+{
+	if (!m_stStyle.bVisible)
+		return;
+
+	ImGui::BeginChild(
+		m_sUnique.c_str(),
+		m_stStyle.vec2Size,
+		false
+	);
+
+	if (ImGui::BeginTable(
+		m_sUnique.c_str(),
+		m_iColumns,
+		m_TableFlags,
+		m_stStyle.vec2Size
+	))
+	{
+		for (const auto& column : m_Columns)
+			ImGui::TableSetupColumn(column.c_str());
+
+		if (!m_Columns.empty())
+			ImGui::TableHeadersRow();
+
+		RenderChildren();
+
+		ImGui::EndTable();
+	}
+
+	ImGui::EndChild();
+}
+};
+
+class TableRow : public ElementBase
+{
+public:
+
+	TableRow(std::string sUnique, Style_t stStyle = {})
+	{
+		m_sUnique = sUnique;
+		m_stStyle = stStyle;
+	}
+
+	constexpr EElementType GetType() const override
+	{
+		return EElementType::TableRow;
+	}
+
+	void Render() override
+	{
+		if (!m_stStyle.bVisible)
+			return;
+
+		ImGui::TableNextRow();
+
+		for (ElementBase* pElement : m_Children)
+		{
+			if (!pElement)
+				continue;
+
+			ImGui::TableNextColumn();
+
+			pElement->Render();
+		}
+	}
 };
