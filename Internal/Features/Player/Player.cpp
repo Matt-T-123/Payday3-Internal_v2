@@ -13,22 +13,30 @@ bool Player::SetupMenu()
 		{ "PLAYER_TAB1_RIGHT"Hashed, "Options" },
 
 		{ "PLAYER_TAB2_LEFT"Hashed, "Details" },
-		{ "PLAYER_TAB2_RIGHT"Hashed, "Actions" },
+
+		{ "PLAYER_TAB3_LEFT"Hashed, "Mods" },
+		{ "PLAYER_TAB3_RIGHT"Hashed, "Options" },
 
 		//Tab 1
 		{ "PLAYER_GODMODE_TYPE"Hashed, "Godmode Type" },
 		{ "PLAYER_GODMODE"Hashed, "Godmode" },
 		{ "PLAYER_INF_STAMINA"Hashed, "Infinite Stamina" },
 		{ "PLAYER_INSTA_MELEE"Hashed, "Instant Melee" },
-		{ "PLAYER_INSTA_RELOAD"Hashed, "Instant Reload" },
 		{ "PLAYER_NO_SCREENSHAKE"Hashed, "No Screenshake" },
 		{ "PLAYER_NO_FALLDAMAGE"Hashed, "No Fall Damage" },
 		{ "PLAYER_NO_DETECTION"Hashed, "No Detection" },
 
 		//Tab2
 		{ "PLAYER_TABLE"Hashed, "Players" },
-		{ "PLAYER_TABLE_ROW1"Hashed, "Name" }
+		{ "PLAYER_TABLE_ROW1"Hashed, "Row 1" },
 
+		//Tab3
+		{ "PLAYER_INSTA_RELOAD"Hashed, "Instant Reload" },
+		{ "PLAYER_INF_AMMO"Hashed, "Infinite Ammo" },
+		{ "PLAYER_NO_RECOIL"Hashed, "No Recoil" },
+		{ "PLAYER_NO_SPREAD"Hashed, "No Spread" },
+		{ "PLAYER_FIRE_RATE_SLIDER"Hashed, "Fire Rate" },
+		{ "PLAYER_FIRE_RATE"Hashed, "Fire Rate" }
 	});
 
 	return true;
@@ -52,6 +60,14 @@ void Player::HandleMenu()
 		m_pTab2Left->SetCallback([]() {
 			return ImVec2((ImGui::GetWindowWidth() - 20.0f), (ImGui::GetWindowHeight() - 20.0f));
 		});
+		m_pTab3Left->SetCallback([]() {
+			return ImVec2((ImGui::GetWindowWidth() - 10.0f - 10.0f * 2) / 2, (ImGui::GetWindowHeight() - 20.0f));
+		});
+		m_pTab3Right->SetCallback([]() {
+			return ImVec2((ImGui::GetWindowWidth() - 10.0f - 10.0f * 2) / 2, (ImGui::GetWindowHeight() - 10.0f - 10.0f * 2) / 2);
+		});
+
+		/////////////////Tab 1////////////////////
 
 		// Godmode Toggle
 		m_pTab1Left->AddElement(m_pGodMode.get());
@@ -64,9 +80,6 @@ void Player::HandleMenu()
 		m_pInstaMelee->SetOnValueChangedCallback([this](const bool, const bool bNewValue) {
 			InstantMelee(bNewValue);
 		});
-
-		// Instant Reload Toggle
-		m_pTab1Left->AddElement(m_pInstaReload.get());
 
 		// No Screenshake Toggle
 		m_pTab1Left->AddElement(m_pNoScreenshake.get());
@@ -85,14 +98,30 @@ void Player::HandleMenu()
 		m_pTab1Group->AddElement(m_pTab1Left.get());
 		m_pTab1Group->AddElement(m_pTab1Right.get());
 
-		//Add a 4x4 table then populate it with player(s) info
+		////////////////Tab 2///////////////////
+
+		//Add a ?x? table then populate it with player(s) info
 		//Need to figure out then best way to interact with the players in the table, maybe a left click player color highlight and then select an action from below the table ?
-		
+		//Edit: Implemented tables, just need to do the populate it with player info and then work on interacting with table rows and selecting actions for the selected player(s).
 		m_pPlayerRow1->AddElement(m_pPlayerName.get());
 		m_pPlayerRow1->AddElement(m_pPlayerHealth.get());
 		m_pPlayerTable->AddElement(m_pPlayerRow1.get());
+		
 		m_pTab2Left->AddElement(m_pPlayerTable.get());
+
 		m_pTab2Group->AddElement(m_pTab2Left.get());
+
+		////////////////Tab 3///////////////////
+
+		m_pTab3Left->AddElement(m_pInstaReload.get());
+		m_pTab3Left->AddElement(m_pInfAmmo.get());
+		m_pTab3Left->AddElement(m_pNoRecoil.get());
+		m_pTab3Left->AddElement(m_pNoSpread.get());
+		m_pTab3Left->AddElement(m_pFireRate.get());
+		m_pTab3Right->AddElement(m_pFireRateSlider.get());
+
+		m_pTab3Group->AddElement(m_pTab3Left.get());
+		m_pTab3Group->AddElement(m_pTab3Right.get());
 
 		m_pTab1Page->AddElement(m_pTab1Group.get());
 		m_pTab2Page->AddElement(m_pTab2Group.get());
@@ -221,6 +250,8 @@ void Player::InstantReload(bool bEnabled)
 
 void Player::Run()
 {
+	/////////////////Tab 1///////////////////
+
 	//Godmode
 	if(m_pGodMode->GetValue())
 	{
@@ -256,12 +287,6 @@ void Player::Run()
 	if (m_pInstaMelee->GetValue())
 	{
 		InstantMelee(m_pInstaMelee->GetValue());
-	}
-
-	//Instant Reload
-	if (m_pInstaReload->GetValue())
-	{
-		InstantReload(m_pInstaReload->GetValue());
 	}
 
 	//No Screen Shake
@@ -302,5 +327,17 @@ void Player::Run()
 			det->bMarkAsCriminalOnSearch = false;
 			det->bShouldDisplayDetectionBuildup = false;
     	}
+	}
+
+	/////////////////Tab 2///////////////////
+
+	//Populate the player table with player(s) info here
+
+	/////////////////Tab 3///////////////////
+
+	//Instant Reload
+	if (m_pInstaReload->GetValue())
+	{
+		InstantReload(m_pInstaReload->GetValue());
 	}
 }

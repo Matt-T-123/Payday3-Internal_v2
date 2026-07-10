@@ -53,21 +53,45 @@ private:
 		ElementBase::Style_t(),
 		ImGuiChildFlags_Border);
 
+	std::unique_ptr<GroupChild> m_pTab3Left = std::make_unique<GroupChild>(
+		"PLAYER_TAB3_LEFT",
+		"PLAYER_TAB3_LEFT"Hashed,
+		ElementBase::Style_t(),
+		ImGuiChildFlags_Border);
+
+	std::unique_ptr<GroupChild> m_pTab3Right = std::make_unique<GroupChild>(
+		"PLAYER_TAB3_RIGHT",
+		"PLAYER_TAB3_RIGHT"Hashed,
+		ElementBase::Style_t{ .eSameLine = ElementBase::ESameLine::Same },
+		ImGuiChildFlags_Border);
+
+	std::unique_ptr<Table> m_pPlayerTable = std::make_unique<Table>(
+		"PLAYER_TABLE", 
+		3, 
+		ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg, 
+		ElementBase::Style_t { .vec2Size = ImVec2( 400.0f, 100.0f) });
+
 	//Tab 1
 	std::unique_ptr<Combo> m_pGodModeType = std::make_unique<Combo>("PLAYER_GODMODE_TYPE", "PLAYER_GODMODE_TYPE"Hashed, ElementBase::Style_t{ .iFlags = ImGuiComboFlags_WidthFitPreview });
 	std::unique_ptr<Checkbox> m_pGodMode = std::make_unique<Checkbox>("PLAYER_GODMODE", "PLAYER_GODMODE"Hashed);
 	std::unique_ptr<Checkbox> m_pInfStamina = std::make_unique<Checkbox>("PLAYER_INF_STAMINA", "PLAYER_INF_STAMINA"Hashed);
 	std::unique_ptr<Checkbox> m_pInstaMelee = std::make_unique<Checkbox>("PLAYER_INSTA_MELEE", "PLAYER_INSTA_MELEE"Hashed);
-	std::unique_ptr<Checkbox> m_pInstaReload = std::make_unique<Checkbox>("PLAYER_INSTA_RELOAD", "PLAYER_INSTA_RELOAD"Hashed);
 	std::unique_ptr<Checkbox> m_pNoScreenshake = std::make_unique<Checkbox>("PLAYER_NO_SCREENSHAKE", "PLAYER_NO_SCREENSHAKE"Hashed);
 	std::unique_ptr<Checkbox> m_pNoFallDamage = std::make_unique<Checkbox>("PLAYER_NO_FALLDAMAGE", "PLAYER_NO_FALLDAMAGE"Hashed);
 	std::unique_ptr<Checkbox> m_pNoDetection = std::make_unique<Checkbox>("PLAYER_NO_DETECTION", "PLAYER_NO_DETECTION"Hashed);
 
 	//Tab 2
-	std::unique_ptr<Table> m_pPlayerTable = std::make_unique<Table>("PLAYER_TABLE", 3, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg, ElementBase::Style_t { .vec2Size = ImVec2( 400.0f, 100.0f) });
 	std::unique_ptr<TableRow> m_pPlayerRow1 = std::make_unique<TableRow>("PLAYER_TABLE_ROW1");
 	std::unique_ptr<_Text> m_pPlayerName = std::make_unique<_Text>("PLAYER_NAME", "Omega");
 	std::unique_ptr<_Text> m_pPlayerHealth = std::make_unique<_Text>("PLAYER_HEALTH", "smells");
+
+	//Tab 3
+	std::unique_ptr<Checkbox> m_pInstaReload = std::make_unique<Checkbox>("PLAYER_INSTA_RELOAD", "PLAYER_INSTA_RELOAD"Hashed);
+	std::unique_ptr<Checkbox> m_pInfAmmo = std::make_unique<Checkbox>("PLAYER_INF_AMMO", "PLAYER_INF_AMMO"Hashed);
+	std::unique_ptr<Checkbox> m_pNoRecoil = std::make_unique<Checkbox>("PLAYER_NO_RECOIL", "PLAYER_NO_RECOIL"Hashed);
+	std::unique_ptr<Checkbox> m_pNoSpread = std::make_unique<Checkbox>("PLAYER_NO_SPREAD", "PLAYER_NO_SPREAD"Hashed);
+	std::unique_ptr<SliderInt> m_pFireRateSlider = std::make_unique<SliderInt>("PLAYER_FIRE_RATE_SLIDER", "PLAYER_FIRE_RATE_SLIDER"Hashed, ElementBase::Style_t{ .iFlags = ImGuiComboFlags_WidthFitPreview }, 0, 100);
+	std::unique_ptr<Checkbox> m_pFireRate = std::make_unique<Checkbox>("PLAYER_FIRE_RATE", "PLAYER_FIRE_RATE"Hashed);
 
 	void blockDamage(bool bEnabled);
 	bool m_bBlockDamageApplied = false;
