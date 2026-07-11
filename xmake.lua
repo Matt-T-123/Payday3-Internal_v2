@@ -64,7 +64,7 @@ add_requires("imgui v1.91.9-docking", {
 -- Target
 -- =========================================================
 
-target("Internal")
+target("Payday3-Internal_V2")
     set_kind("shared")
 
     -- AVX2 support
@@ -81,46 +81,46 @@ target("Internal")
     end
 
     -- Precompiled header
-    set_pcxxheader("Internal/PCH/pch.h")
+    set_pcxxheader("Payday3-Internal_V2/PCH/pch.h")
 
     -- Includes
-    add_includedirs("Internal", "Internal/PCH")
+    add_includedirs("Payday3-Internal_V2", "Payday3-Internal_V2/PCH")
 
     -- Core files
-    add_files("Internal/dllmain.cpp")
-    add_files("Internal/PCH/pch.cpp")
+    add_files("Payday3-Internal_V2/dllmain.cpp")
+    add_files("Payday3-Internal_V2/PCH/pch.cpp")
 
     -- Utils
-    add_files("Internal/Utils/Utils.cpp")
-    add_files("Internal/Utils/Console/Console.cpp")
-    add_files("Internal/Utils/Logging/Logging.cpp")
+    add_files("Payday3-Internal_V2/Utils/Utils.cpp")
+    add_files("Payday3-Internal_V2/Utils/Console/Console.cpp")
+    add_files("Payday3-Internal_V2/Utils/Logging/Logging.cpp")
 
     -- Memory
-    add_files("Internal/Memory/Memory.cpp")
-    add_files("Internal/Memory/Windows/WindowsMemory.cpp")
+    add_files("Payday3-Internal_V2/Memory/Memory.cpp")
+    add_files("Payday3-Internal_V2/Memory/Windows/WindowsMemory.cpp")
 
     -- Systems
-    add_files("Internal/Localization/Localization.cpp")
-    add_files("Internal/Config/Config.cpp")
+    add_files("Payday3-Internal_V2/Localization/Localization.cpp")
+    add_files("Payday3-Internal_V2/Config/Config.cpp")
 
     -- Hooks
-    add_files("Internal/Hooks/Renderer/D3D11Hooks.cpp")
-    add_files("Internal/Hooks/Renderer/D3D12Hooks.cpp")
-    add_files("Internal/Hooks/Renderer/RendererHooks.cpp")
-    add_files("Internal/Hooks/WndProc/WndProcHooks.cpp")
+    add_files("Payday3-Internal_V2/Hooks/Renderer/D3D11Hooks.cpp")
+    add_files("Payday3-Internal_V2/Hooks/Renderer/D3D12Hooks.cpp")
+    add_files("Payday3-Internal_V2/Hooks/Renderer/RendererHooks.cpp")
+    add_files("Payday3-Internal_V2/Hooks/WndProc/WndProcHooks.cpp")
 
     -- GUI
-    add_files("Internal/GUI/GUI.cpp")
-    add_files("Internal/GUI/Addons/imgui_addons.cpp")
+    add_files("Payday3-Internal_V2/GUI/GUI.cpp")
+    add_files("Payday3-Internal_V2/GUI/Addons/imgui_addons.cpp")
 
     -- Features
-    add_files("Internal/Features/*/*.cpp")
+    add_files("Payday3-Internal_V2/Features/*/*.cpp")
 
     -- Unreal SDK interfaces
-    add_files("Internal/Interfaces/Unreal/SDK/Basic.cpp")
-    add_files("Internal/Interfaces/Unreal/SDK/CoreUObject_functions.cpp")
-    add_files("Internal/Interfaces/Unreal/SDK/Engine_functions.cpp")
-    add_files("Internal/Interfaces/Unreal/SDK/Starbreeze_functions.cpp")
+    add_files("Payday3-Internal_V2/Interfaces/Unreal/SDK/Basic.cpp")
+    add_files("Payday3-Internal_V2/Interfaces/Unreal/SDK/CoreUObject_functions.cpp")
+    add_files("Payday3-Internal_V2/Interfaces/Unreal/SDK/Engine_functions.cpp")
+    add_files("Payday3-Internal_V2/Interfaces/Unreal/SDK/Starbreeze_functions.cpp")
 
     -- Packages
     add_packages("minhook", "imgui", "libpng", "zlib", "nlohmann_json")

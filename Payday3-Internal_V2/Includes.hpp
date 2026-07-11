@@ -33,7 +33,7 @@ namespace Framework {
 
 #if ENGINE_UNREAL
 	inline std::unique_ptr<Unreal> unreal = std::make_unique<Unreal>();
-	#include "../Internal/Interfaces/Unreal/Unreal.hpp"
+	#include "../Payday3-Internal_V2/Interfaces/Unreal/Unreal.hpp"
 #endif
 
 #if ENGINE_UNITY
