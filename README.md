@@ -29,15 +29,11 @@
 
 ## 🎯 Features
 
-- **Aimbot**: abc
-
----
-
-## Todo:
-
-- **Aimbot**
-- **ESP**
-- **Gun mods**
+- **Aimbot**: Silent & Snapping
+- **Player Modifications**: Godmode, No Detection, Instant Melee...
+- **Weapon Modifications**: Infinite Ammo, Infinite Reload, No Recoil, Instant Reload...
+- **Visuals**: Bounding Boxes, Skeletons, Items, Highlight, Health Bar... 
+- **Misc**: Menu customisation, Unloading, View Console
 
 ---
 
