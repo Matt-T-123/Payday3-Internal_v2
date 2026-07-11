@@ -38,7 +38,7 @@ void Visuals::HandleMenu()
 			return ImVec2((ImGui::GetWindowWidth() - 10.0f - 10.0f * 2) / 2, (ImGui::GetWindowHeight() - 20.0f));
 		});
 		m_pTab1Right->SetCallback([]() {
-			return ImVec2((ImGui::GetWindowWidth() - 10.0f - 10.0f * 2) / 2, (ImGui::GetWindowHeight() - 10.0f - 10.0f * 2) / 2);
+			return ImVec2((ImGui::GetWindowWidth() - 10.0f - 10.0f * 2) / 2, (ImGui::GetWindowHeight() - 20.0f));
 		});
 
 		m_pTab1Left->AddElement(m_pBoundingBox.get());

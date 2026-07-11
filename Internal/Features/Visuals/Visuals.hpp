@@ -34,15 +34,20 @@ private:
 		ImGuiChildFlags_Border);
 
 	std::unique_ptr<Checkbox> m_pBoundingBox = std::make_unique<Checkbox>("VISUALS_BOUNDING_BOX", "VISUALS_BOUNDING_BOX"Hashed);
-	std::unique_ptr<ColorPicker> m_pBoundingBoxColor = std::make_unique<ColorPicker>("VISUALS_BOUNDING_BOX_COLOR", "VISUALS_BOUNDING_BOX_COLOR"Hashed, ElementBase::Style_t{ .eSameLine = ElementBase::ESameLine::Same });
+	std::unique_ptr<ColorPicker> m_pBoundingBoxColor = std::make_unique<ColorPicker>("VISUALS_BOUNDING_BOX_COLOR", "VISUALS_BOUNDING_BOX_COLOR"Hashed, ElementBase::Style_t{ .iFlags = ImGuiComboFlags_WidthFitPreview });
+
 	std::unique_ptr<Checkbox> m_pHealthBar = std::make_unique<Checkbox>("VISUALS_HEALTH_BAR", "VISUALS_HEALTH_BAR"Hashed);
 	std::unique_ptr<ColorPicker> m_pHealthBarColor = std::make_unique<ColorPicker>("VISUALS_HEALTH_BAR_COLOR", "VISUALS_HEALTH_BAR_COLOR"Hashed);
+
 	std::unique_ptr<Checkbox> m_pArmorBar = std::make_unique<Checkbox>("VISUALS_ARMOR_BAR", "VISUALS_ARMOR_BAR"Hashed);
 	std::unique_ptr<ColorPicker> m_pArmorBarColor = std::make_unique<ColorPicker>("VISUALS_ARMOR_BAR_COLOR", "VISUALS_ARMOR_BAR_COLOR"Hashed);
+
 	std::unique_ptr<Checkbox> m_pSkeleton = std::make_unique<Checkbox>("VISUALS_SKELETON", "VISUALS_SKELETON"Hashed);
 	std::unique_ptr<ColorPicker> m_pSkeletonColor = std::make_unique<ColorPicker>("VISUALS_SKELETON_COLOR", "VISUALS_SKELETON_COLOR"Hashed);
+
 	std::unique_ptr<Checkbox> m_pHighlight = std::make_unique<Checkbox>("VISUALS_HIGHLIGHT", "VISUALS_HIGHLIGHT"Hashed);
 	std::unique_ptr<ColorPicker> m_pHighlightColor = std::make_unique<ColorPicker>("VISUALS_HIGHLIGHT_COLOR", "VISUALS_HIGHLIGHT_COLOR"Hashed);
+	
 	std::unique_ptr<Checkbox> m_pKeyItem = std::make_unique<Checkbox>("VISUALS_KEY_ITEM", "VISUALS_KEY_ITEM"Hashed);
 	std::unique_ptr<ColorPicker> m_pKeyItemColor = std::make_unique<ColorPicker>("VISUALS_KEY_ITEM_COLOR", "VISUALS_KEY_ITEM_COLOR"Hashed);
 

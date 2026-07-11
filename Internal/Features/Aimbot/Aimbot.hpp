@@ -14,49 +14,30 @@ private:
 		s_iAimbotPageId);
 
 	std::unique_ptr<Page> m_pTab1Page = std::make_unique<Page>(
-		"AIMBOT_MAIN_PAGE##AIMBOT_FEATURE",
+		"AIMBOT_TAB1_PAGE",
 		ElementBase::Style_t(),
 		s_iAimbotPageId,
 		0);
 
-	std::unique_ptr<Page> m_pTab2Page = std::make_unique<Page>(
-		"AIMBOT_ADVANCED_PAGE##AIMBOT_FEATURE",
-		ElementBase::Style_t(),
-		s_iAimbotPageId,
-		1);
-
-	std::unique_ptr<Group> m_pTab1Group = std::make_unique<Group>("AIMBOT_MAIN_GROUP##AIMBOT_FEATURE", ElementBase::Style_t{});
-	std::unique_ptr<Group> m_pTab2Group = std::make_unique<Group>("AIMBOT_ADVANCED_GROUP##AIMBOT_FEATURE", ElementBase::Style_t{});
+	std::unique_ptr<Group> m_pTab1Group = std::make_unique<Group>("AIMBOT_TAB1_GROUP", ElementBase::Style_t{});
 
 	std::unique_ptr<GroupChild> m_pTab1Left = std::make_unique<GroupChild>(
-		"AIMBOT_MAIN_LEFT",
-		"AIMBOT_MAIN_LEFT"Hashed,
+		"AIMBOT_TAB1_LEFT",
+		"AIMBOT_TAB1_LEFT"Hashed,
 		ElementBase::Style_t(),
 		ImGuiChildFlags_Border);
 
 	std::unique_ptr<GroupChild> m_pTab1Right = std::make_unique<GroupChild>(
-		"AIMBOT_MAIN_RIGHT",
-		"AIMBOT_MAIN_RIGHT"Hashed,
+		"AIMBOT_TAB1_RIGHT",
+		"AIMBOT_TAB1_RIGHT"Hashed,
 		ElementBase::Style_t{ .eSameLine = ElementBase::ESameLine::Same },
 		ImGuiChildFlags_Border);
 
-	std::unique_ptr<GroupChild> m_pTab2Left = std::make_unique<GroupChild>(
-		"AIMBOT_ADVANCED_LEFT",
-		"AIMBOT_ADVANCED_LEFT"Hashed,
-		ElementBase::Style_t(),
-		ImGuiChildFlags_Border);
-
-	std::unique_ptr<GroupChild> m_pTab2Right = std::make_unique<GroupChild>(
-		"AIMBOT_ADVANCED_RIGHT",
-		"AIMBOT_ADVANCED_RIGHT"Hashed,
-		ElementBase::Style_t{ .eSameLine = ElementBase::ESameLine::Same },
-		ImGuiChildFlags_Border);
-
-	std::unique_ptr<Checkbox> m_pEnabled = std::make_unique<Checkbox>("AIMBOT_ENABLED", "AIMBOT_ENABLED"Hashed);
-	std::unique_ptr<Toggle> m_pMode = std::make_unique<Toggle>("AIMBOT_MODE", "AIMBOT_MODE"Hashed);
-	std::unique_ptr<SliderInt> m_pStrength = std::make_unique<SliderInt>("AIMBOT_STRENGTH", "AIMBOT_STRENGTH"Hashed, ElementBase::Style_t{}, 50, 0, 100);
-	std::unique_ptr<Combo> m_pProfile = std::make_unique<Combo>("AIMBOT_PROFILE", "AIMBOT_PROFILE"Hashed, ElementBase::Style_t{ .iFlags = ImGuiComboFlags_WidthFitPreview });
-	std::unique_ptr<Button> m_pAction = std::make_unique<Button>(std::string("AIMBOT_ACTION"), "AIMBOT_ACTION"Hashed);
+	std::unique_ptr<Checkbox> m_pAimbotEnabled = std::make_unique<Checkbox>("AIMBOT_ENABLED", "AIMBOT_ENABLED"Hashed);
+	std::unique_ptr<Checkbox> m_pAimbotFOVEnabled = std::make_unique<Checkbox>("AIMBOT_FOV_ENABLED", "AIMBOT_FOV_ENABLED"Hashed);
+	std::unique_ptr<Combo> m_pAimbotType = std::make_unique<Combo>("AIMBOT_TYPE", "AIMBOT_TYPE"Hashed, ElementBase::Style_t{ .iFlags = ImGuiComboFlags_WidthFitPreview });
+	std::unique_ptr<SliderInt> m_pFOV = std::make_unique<SliderInt>("AIMBOT_FOV", "AIMBOT_FOV"Hashed, ElementBase::Style_t{ .iFlags = ImGuiComboFlags_WidthFitPreview }, 60, 0, 100);
+	std::unique_ptr<SliderInt> m_pSmoothing = std::make_unique<SliderInt>("AIMBOT_SMOOTHING", "AIMBOT_SMOOTHING"Hashed, ElementBase::Style_t{ .iFlags = ImGuiComboFlags_WidthFitPreview }, 10, 0, 100);
 
 public:
 	bool SetupMenu();

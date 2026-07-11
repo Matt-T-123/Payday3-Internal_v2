@@ -55,7 +55,7 @@ void Player::HandleMenu()
 			return ImVec2((ImGui::GetWindowWidth() - 10.0f - 10.0f * 2) / 2, (ImGui::GetWindowHeight() - 20.0f));
 		});
 		m_pTab1Right->SetCallback([]() {
-			return ImVec2((ImGui::GetWindowWidth() - 10.0f - 10.0f * 2) / 2, (ImGui::GetWindowHeight() - 10.0f - 10.0f * 2) / 2);
+			return ImVec2((ImGui::GetWindowWidth() - 10.0f - 10.0f * 2) / 2, (ImGui::GetWindowHeight() - 20.0f));
 		});
 		m_pTab2Left->SetCallback([]() {
 			return ImVec2((ImGui::GetWindowWidth() - 20.0f), (ImGui::GetWindowHeight() - 20.0f));
@@ -64,7 +64,7 @@ void Player::HandleMenu()
 			return ImVec2((ImGui::GetWindowWidth() - 10.0f - 10.0f * 2) / 2, (ImGui::GetWindowHeight() - 20.0f));
 		});
 		m_pTab3Right->SetCallback([]() {
-			return ImVec2((ImGui::GetWindowWidth() - 10.0f - 10.0f * 2) / 2, (ImGui::GetWindowHeight() - 10.0f - 10.0f * 2) / 2);
+			return ImVec2((ImGui::GetWindowWidth() - 10.0f - 10.0f * 2) / 2, (ImGui::GetWindowHeight() - 20.0f));
 		});
 
 		/////////////////Tab 1////////////////////
@@ -103,6 +103,7 @@ void Player::HandleMenu()
 		//Add a ?x? table then populate it with player(s) info
 		//Need to figure out then best way to interact with the players in the table, maybe a left click player color highlight and then select an action from below the table ?
 		//Edit: Implemented tables, just need to do the populate it with player info and then work on interacting with table rows and selecting actions for the selected player(s).
+		//Edit2: I'll have to make the tables look better first befoore populating cus they look a lil ugly rn
 		m_pPlayerRow1->AddElement(m_pPlayerName.get());
 		m_pPlayerRow1->AddElement(m_pPlayerHealth.get());
 		m_pPlayerTable->AddElement(m_pPlayerRow1.get());

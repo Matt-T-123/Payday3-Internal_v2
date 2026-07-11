@@ -90,7 +90,7 @@ private:
 	std::unique_ptr<Checkbox> m_pInfAmmo = std::make_unique<Checkbox>("PLAYER_INF_AMMO", "PLAYER_INF_AMMO"Hashed);
 	std::unique_ptr<Checkbox> m_pNoRecoil = std::make_unique<Checkbox>("PLAYER_NO_RECOIL", "PLAYER_NO_RECOIL"Hashed);
 	std::unique_ptr<Checkbox> m_pNoSpread = std::make_unique<Checkbox>("PLAYER_NO_SPREAD", "PLAYER_NO_SPREAD"Hashed);
-	std::unique_ptr<SliderInt> m_pFireRateSlider = std::make_unique<SliderInt>("PLAYER_FIRE_RATE_SLIDER", "PLAYER_FIRE_RATE_SLIDER"Hashed, ElementBase::Style_t{ .iFlags = ImGuiComboFlags_WidthFitPreview }, 0, 100);
+	std::unique_ptr<SliderInt> m_pFireRateSlider = std::make_unique<SliderInt>("PLAYER_FIRE_RATE_SLIDER", "PLAYER_FIRE_RATE_SLIDER"Hashed, ElementBase::Style_t{ .iFlags = ImGuiComboFlags_WidthFitPreview }, 100, 0, 1000);
 	std::unique_ptr<Checkbox> m_pFireRate = std::make_unique<Checkbox>("PLAYER_FIRE_RATE", "PLAYER_FIRE_RATE"Hashed);
 
 	void blockDamage(bool bEnabled);
