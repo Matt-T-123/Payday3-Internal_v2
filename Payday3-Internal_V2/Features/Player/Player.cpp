@@ -342,7 +342,8 @@ void Player::Run()
 		InstantReload(m_pInstaReload->GetValue());
 	}
 
-	if (m_pInfAmmo->GetValue())
+	//Infinite Ammo
+	if (m_pInfAmmo->GetValue()) //Needs rework to return ammo back to normal on disable
 	{
 		auto* localChar = Unreal::GetLocalCharacter();
 		if (!localChar) return;
@@ -356,9 +357,51 @@ void Player::Run()
 		Att->PrimaryThrowableAmmoInventory.CurrentValue = 999;
 		Att->SecondaryThrowableAmmoInventory.CurrentValue = 999;
 		Att->TertiaryThrowableAmmoInventory.CurrentValue = 999;
-		
+
 		Att->PrimaryToolAmmoInventory.CurrentValue = 999;
 		Att->SecondaryToolAmmoInventory.CurrentValue = 999;
 		Att->TertiaryToolAmmoInventory.CurrentValue = 999;
+	}
+	
+	//No Recoil
+	if (m_pNoRecoil->GetValue()) //Needs rework to return recoil back to normal on disable
+	{
+		auto* localChar = Unreal::GetLocalCharacter();
+		if (!localChar) return;
+
+		auto* weaponData = reinterpret_cast<SDK::USBZRangedWeaponData*>(localChar->FPCameraAttachment->EquippedWeaponData);
+		if (weaponData)
+		{
+			weaponData->RecoilData->ViewKick.SpeedDeflect = 0.f;
+			weaponData->RecoilData->GunKickBack.SpeedDeflect = 0.f;
+			weaponData->RecoilData->GunKickXY.SpeedDeflect = 0.f;
+		}
+	}
+
+	//No Spread
+	if (m_pNoSpread->GetValue()) //Needs rework to return spread back to normal on disable
+	{
+		auto* localChar = Unreal::GetLocalCharacter();
+		if (!localChar) return;
+
+		auto* SpreadData = reinterpret_cast<SDK::USBZRangedWeaponData*>(localChar->FPCameraAttachment->EquippedWeaponData)->SpreadData;
+		if (SpreadData)
+		{
+			SpreadData->InnerClusterSpreadMultiplier = SpreadData->FireSpreadStart = SpreadData->FireSpreadMinCap = SpreadData->FireSpreadCap = SpreadData->FireSpreadIncrease = 0.f;
+		}
+	}
+
+	//Fire Rate
+	if (m_pFireRate->GetValue()) //Needs rework to return fire rate back to normal on disable
+	{
+		auto* localChar = Unreal::GetLocalCharacter();
+		if (!localChar) return;
+
+		auto* FireData = reinterpret_cast<SDK::USBZRangedWeaponData*>(localChar->FPCameraAttachment->EquippedWeaponData)->FireData;
+		if (FireData)
+		{
+			FireData->ProjectilesPerFiredRound = m_pFireRateSlider->GetValue();
+			FireData->FireMode = SDK::ESBZFireMode::Auto;
+		}
 	}
 }
