@@ -341,4 +341,24 @@ void Player::Run()
 	{
 		InstantReload(m_pInstaReload->GetValue());
 	}
+
+	if (m_pInfAmmo->GetValue())
+	{
+		auto* localChar = Unreal::GetLocalCharacter();
+		if (!localChar) return;
+
+		auto* Att = localChar->PlayerAttributeSet;
+
+		Att->PrimaryEquippableAmmoInventory.CurrentValue = 999;
+		Att->SecondaryEquippableAmmoInventory.CurrentValue = 999;
+		Att->TertiaryEquippableAmmoInventory.CurrentValue = 999;
+
+		Att->PrimaryThrowableAmmoInventory.CurrentValue = 999;
+		Att->SecondaryThrowableAmmoInventory.CurrentValue = 999;
+		Att->TertiaryThrowableAmmoInventory.CurrentValue = 999;
+		
+		Att->PrimaryToolAmmoInventory.CurrentValue = 999;
+		Att->SecondaryToolAmmoInventory.CurrentValue = 999;
+		Att->TertiaryToolAmmoInventory.CurrentValue = 999;
+	}
 }
